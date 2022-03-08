@@ -64,6 +64,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <a href="{{ route('admin.users.index')}}" class="dropdown-item">Liste des users</a>
                                 </div>
                             </li>
                         @endguest
