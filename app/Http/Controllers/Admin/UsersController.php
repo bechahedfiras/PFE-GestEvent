@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-
+    
     public function __construct(){
         $this->middleware('auth');
     }
@@ -97,5 +97,11 @@ class UsersController extends Controller
         $user->roles()->detach();
         $user->delete();
         return redirect()->route('admin.users.index');
+    }
+
+    public function adminDashboard()
+    {
+       
+        return view('admin.dashboard');
     }
 }
