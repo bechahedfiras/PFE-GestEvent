@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="{{ asset('users') }}">
+                <a href="{{ asset('admin/users') }}">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -30,7 +30,7 @@
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="state">
-                                    <h6>Orders</h6>
+                                    <h6>...</h6>
                                    
                                 </div>
                                 <div class="icon">
@@ -51,7 +51,7 @@
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="state">
-                                    <h6>Products</h6>
+                                    <h6>...</h6>
                                     
                                 </div>
                                 <div class="icon">
@@ -72,7 +72,7 @@
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="state">
-                                    <h6>Categories</h6>
+                                    <h6>...</h6>
                                     
                                 </div>
                                 <div class="icon">

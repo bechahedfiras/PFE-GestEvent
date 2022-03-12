@@ -13,21 +13,21 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
 
-    <link rel="stylesheet" href="../admin/plugins/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../admin/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../admin/plugins/icon-kit/dist/css/iconkit.min.css">
-    <link rel="stylesheet" href="../admin/plugins/ionicons/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="../admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css">
-    <link rel="stylesheet" href="../admin/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../admin/plugins/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="../admin/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="../admin/plugins/weather-icons/css/weather-icons.min.css">
-    <link rel="stylesheet" href="../admin/plugins/c3/c3.min.css">
-    <link rel="stylesheet" href="../admin/plugins/owl.carousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../admin/plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../admin/dist/css/theme.min.css">
-    <link rel="stylesheet" href="../admin/dist/css/main.css">
-    <script src="../admin/src/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="/admin/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/admin/plugins/icon-kit/dist/css/iconkit.min.css">
+    <link rel="stylesheet" href="/admin/plugins/ionicons/dist/css/ionicons.min.css">
+    <link rel="stylesheet" href="/admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/admin/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/admin/plugins/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/admin/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="/admin/plugins/weather-icons/css/weather-icons.min.css">
+    <link rel="stylesheet" href="/admin/plugins/c3/c3.min.css">
+    <link rel="stylesheet" href="/admin/plugins/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/admin/plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/admin/dist/css/theme.min.css">
+    <link rel="stylesheet" href="/admin/dist/css/main.css">
+    <script src="/admin/src/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
@@ -86,9 +86,9 @@
     <script>
         window.jQuery || document.write('<script src="admin/src/js/vendor/jquery-3.3.1.min.js"><\/script>')
     </script>
-    <script src="../admin/plugins/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../admin/plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="admin/plugins/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/admin/plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="../admin/plugins/screenfull/dist/screenfull.js"></script>
     <script src="../admin/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../admin/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
