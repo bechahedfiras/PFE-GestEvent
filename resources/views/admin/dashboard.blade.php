@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="{{ asset('orders') }}">
+                <a href="">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -46,7 +46,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="{{ asset('products') }}">
+                <a href="">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -67,7 +67,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="{{ asset('categories') }}">
+                <a href="">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
