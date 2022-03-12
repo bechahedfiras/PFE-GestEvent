@@ -101,7 +101,7 @@ class UsersController extends Controller
 
     public function adminDashboard()
     {
-       
-        return view('admin.dashboard');
+        $detail['users'] = User::all()->count();
+        return view('admin.dashboard', compact('detail'));
     }
 }
