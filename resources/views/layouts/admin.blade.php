@@ -65,6 +65,10 @@
                             <div class="nav-item {{ \Request::is('users') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/users') }}"><i class="ik ik-users"></i><span>Les utilisateurs</span></a>
                             </div>
+
+                            <div class="nav-item {{ \Request::is('users') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/faculte') }}"><i class="ik ik-users"></i><span>Les facultés</span></a>
+                            </div>
                         </nav>
                     </div>
                 </div>
