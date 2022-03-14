@@ -30,7 +30,12 @@ class FaculteController extends Controller
     $fac->save();
     return redirect('admin/faculte');
     }
-   
+    
+    public function destroy (Request $request,$id) {
+        $fac = Faculte::find($id);
+        $fac->delete();
+        return redirect('admin/faculte');
+    }
 
 
    
