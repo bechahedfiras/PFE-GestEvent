@@ -6,7 +6,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Liste fac</div>
-
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="{{url('admin/faculte/create')}}">
+                             <button  type="submit" class="btn btn-success">add new fac</button></a>
+                    </div><br>
+                   
+                </div>
                 <div class="card-body">
                    
 
@@ -18,6 +25,8 @@
                             <th scope="col">action</th>
                           </tr>
                         </thead>
+                       
+                      
                         <tbody>
                             @foreach ($facs as $fac)
                            
@@ -29,7 +38,7 @@
                                     <form action="{{url('admin/faculte/'.$fac->id.'/delete')}}" method="post">
                                         <a href="{{url('admin/faculte/'.$fac->id.'/edit')}}">
                                             <button type="button" class="btn btn-primary">editer</button></a>
-                                            
+
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 

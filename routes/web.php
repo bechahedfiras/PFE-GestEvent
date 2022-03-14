@@ -20,7 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('admin/faculte/create','FaculteController@create');
+Route::get('admin/faculte/create','FaculteController@create');
+Route::post('admin/faculte/store','FaculteController@store');
 Route::get('admin/faculte','FaculteController@index');
 Route::get('admin/faculte/{id}/edit','FaculteController@edit');
 Route::put('admin/faculte/{id}','FaculteController@update');
