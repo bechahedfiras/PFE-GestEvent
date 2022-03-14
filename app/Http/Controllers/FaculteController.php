@@ -21,7 +21,14 @@ class FaculteController extends Controller
     
     public function edit ($id) {
         $fac =Faculte::find($id);
-        return view('admin.faculte.edit',['fac',$fac]);
+        return view('admin.faculte.edit',['fac' => $fac]);
+    }
+
+    public function update (Request $request,$id) {
+    $fac = Faculte::find($id);
+    $fac->label = $request->input('label');
+    $fac->save();
+    return redirect('admin/faculte');
     }
    
 
