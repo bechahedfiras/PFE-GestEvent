@@ -25,14 +25,14 @@
                                 <th scope="row"> {{$fac->id}}</th>
                                 <td>{{$fac->label}}</td>
                                 <td>
-                                    
-                                    <form action="{{url('admin/faculte/'.$fac->id)}}" method="post">
+                                    <a href="{{url('admin/faculte/'.$fac->id.'/edit')}}">
+                                        <button class="btn btn-primary">editer</button></a>
+                                    <form action="{{url('admin/faculte/'.$fac->id.'/delete')}}" method="post">
 
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
-                                    <a href="{{url('admin/faculte/'.$fac->id.'/edit')}}">
-                                    <button class="btn btn-primary">editer</button></a>
+                                    
                                    <button type="submit" class="btn btn-danger">delete</button></a>
                                 </td>
                                 

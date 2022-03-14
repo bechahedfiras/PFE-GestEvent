@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/faculte','FaculteController@index');
 Route::get('admin/faculte/{id}/edit','FaculteController@edit');
 Route::put('admin/faculte/{id}','FaculteController@update');
-Route::delete('admin/faculte/{id}','FaculteController@destroy');
+Route::delete('admin/faculte/{id}/delete','FaculteController@destroy');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('users','UsersController');
