@@ -30,8 +30,8 @@
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="state">
-                                    <h6>...</h6>
-                                   
+                                    <h6>les facs</h6>
+                                   <h2>{{$detail['facultes']}}</h2>
                                 </div>
                                 <div class="icon">
                                     <i class="ik ik-shopping-cart"></i>

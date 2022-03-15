@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
+use App\Faculte;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -102,6 +103,7 @@ class UsersController extends Controller
     public function adminDashboard()
     {
         $detail['users'] = User::all()->count();
+        $detail['facultes'] = Faculte::all()->count();
         return view('admin.dashboard', compact('detail'));
     }
 }
