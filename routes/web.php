@@ -38,9 +38,9 @@ Route::get('/new', function () {
 
 
 ///fac routing mazal middlewere
-Route::get('admin/faculte/create','FaculteController@create');
-Route::post('admin/faculte/store','FaculteController@store');
-Route::get('admin/faculte','FaculteController@index');
-Route::get('admin/faculte/{id}/edit','FaculteController@edit');
-Route::put('admin/faculte/{id}','FaculteController@update');
-Route::delete('admin/faculte/{id}/delete','FaculteController@destroy');
+Route::get('admin/faculte/create','FaculteController@create')->middleware('admin','auth');;
+Route::post('admin/faculte/store','FaculteController@store')->middleware('admin','auth');;
+Route::get('admin/faculte','FaculteController@index')->middleware('admin','auth');
+Route::get('admin/faculte/{id}/edit','FaculteController@edit')->middleware('admin','auth');;
+Route::put('admin/faculte/{id}','FaculteController@update')->middleware('admin','auth');;
+Route::delete('admin/faculte/{id}/delete','FaculteController@destroy')->middleware('admin','auth');;

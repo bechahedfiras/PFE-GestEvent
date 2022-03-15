@@ -8,6 +8,7 @@ use App\Faculte;
 class FaculteController extends Controller
 {
     //
+  
 
     public function index()
     {   $facs = Faculte::all();
