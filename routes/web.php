@@ -20,12 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('admin/faculte/create','FaculteController@create');
-Route::post('admin/faculte/store','FaculteController@store');
-Route::get('admin/faculte','FaculteController@index');
-Route::get('admin/faculte/{id}/edit','FaculteController@edit');
-Route::put('admin/faculte/{id}','FaculteController@update');
-Route::delete('admin/faculte/{id}/delete','FaculteController@destroy');
+
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('users','UsersController');
@@ -39,3 +34,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::get('/new', function () {
     
 })->middleware('auth');
+
+
+
+///fac routing mazal middlewere
+Route::get('admin/faculte/create','FaculteController@create');
+Route::post('admin/faculte/store','FaculteController@store');
+Route::get('admin/faculte','FaculteController@index');
+Route::get('admin/faculte/{id}/edit','FaculteController@edit');
+Route::put('admin/faculte/{id}','FaculteController@update');
+Route::delete('admin/faculte/{id}/delete','FaculteController@destroy');
