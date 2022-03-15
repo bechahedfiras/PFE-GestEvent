@@ -12,22 +12,22 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
-    <link rel="stylesheet" href="../admin/plugins/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../admin/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../admin/plugins/icon-kit/dist/css/iconkit.min.css">
-    <link rel="stylesheet" href="../admin/plugins/ionicons/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="../admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css">
-    <link rel="stylesheet" href="../admin/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../admin/plugins/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="../admin/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="../admin/plugins/weather-icons/css/weather-icons.min.css">
-    <link rel="stylesheet" href="../admin/plugins/c3/c3.min.css">
-    <link rel="stylesheet" href="../admin/plugins/owl.carousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../admin/plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../admin/dist/css/theme.min.css">
-    <link rel="stylesheet" href="../admin/dist/css/main.css">
-    <script src="../admin/src/js/vendor/modernizr-2.8.3.min.js"></script>
+   
+    <link rel="stylesheet" href={{asset('../admin/plugins/bootstrap/dist/css/bootstrap.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/fontawesome-free/css/all.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/icon-kit/dist/css/iconkit.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/ionicons/dist/css/ionicons.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/jvectormap/jquery-jvectormap.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/weather-icons/css/weather-icons.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/c3/c3.min.css')}}>
+    <link rel="stylesheet" href={{asset('./admin/plugins/owl.carousel/dist/assets/owl.carousel.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/plugins/owl.carousel/dist/assets/owl.theme.default.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/dist/css/theme.min.css')}}>
+    <link rel="stylesheet" href={{asset('../admin/dist/css/main.css')}}>
+    <script src={{asset('../admin/src/js/vendor/modernizr-2.8.3.min.js')}}></script>
 </head>
 
 <body>
@@ -64,6 +64,10 @@
                            
                             <div class="nav-item {{ \Request::is('users') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/users') }}"><i class="ik ik-users"></i><span>Les utilisateurs</span></a>
+                            </div>
+
+                            <div class="nav-item {{ \Request::is('users') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/faculte') }}"><i class="ik     ik-edit"></i><span>Les facultés</span></a>
                             </div>
                         </nav>
                     </div>
