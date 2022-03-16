@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Faculte;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function hasAnyRole(array $roles){
         return $this->roles()->where('name', $roles)->first();
     }
+
+    public function faculte(){
+        return $this->belongsTo('App\Faculte');
+    }
+
 }
