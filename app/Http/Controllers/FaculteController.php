@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Faculte;
-
+use Auth;
 class FaculteController extends Controller
 {
     //
@@ -22,6 +22,7 @@ class FaculteController extends Controller
     public function store (Request $request) {
         $fac = new Faculte();
         $fac->label = $request->input('label');
+        $fac->user_id = Auth::user()->id;
         $fac->save();
         return redirect('admin/faculte');
     }
