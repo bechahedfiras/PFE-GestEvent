@@ -18,9 +18,9 @@ class CreateFacultesTable extends Migration
             $table->string('label');
             $table->timestamps();
 
-//relation between user and faculte
-            $table->bigInteger('user_id')->unsigned();
-            $table->Foreign('user_id')->references('id')->on('users');
+// //relation between user and faculte
+//             $table->bigInteger('user_id')->unsigned();
+//             $table->Foreign('user_id')->references('id')->on('users');
         });
     }
 

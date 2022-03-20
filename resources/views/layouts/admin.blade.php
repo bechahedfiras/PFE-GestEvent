@@ -60,14 +60,12 @@
                 <div class="sidebar-content">
                     <div class="nav-container">
                         <nav id="main-menu-navigation" class="navigation-main">
-                            
-                           
-                            <div class="nav-item {{ \Request::is('users') ? 'active' : '' }}">
+                            <div class="nav-item {{ \Request::is('*users*') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/users') }}"><i class="ik ik-users"></i><span>Les utilisateurs</span></a>
                             </div>
 
-                            <div class="nav-item {{ \Request::is('users') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/faculte') }}"><i class="ik     ik-edit"></i><span>Les facultés</span></a>
+                            <div class="nav-item {{ \Request::is('*faculte*') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/faculte') }}"><i class="ik ik-edit"></i><span>Les facultés</span></a>
                             </div>
                         </nav>
                     </div>

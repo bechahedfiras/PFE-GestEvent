@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -42,9 +41,13 @@
                             <label for="faculté" class="col-md-4 col-form-label text-md-right">{{ __('Faculté') }}</label>
 
                             <div class="col-md-6">
-                                <input id="faculté" type="texte" class="form-control @error('faculté') is-invalid @enderror" name="Faculté" value="{{ old('faculté') }}" required >
-
-                                @error('email')
+                                <select class="form-control" name="faculte" class="form-control @error('faculte') is-invalid @enderror" required>
+                                    <option value="">Choisir faculte</option>
+                                    @foreach($facs  as $f)
+                                        <option value="{{$f->id}}">{{$f->label}}</option>
+                                    @endforeach
+                                </select>
+                                @error('faculte')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
