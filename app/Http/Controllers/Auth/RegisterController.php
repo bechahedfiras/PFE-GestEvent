@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Role;
 use App\User;
+use App\Faculte;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -52,6 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'faculte' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -67,6 +69,7 @@ class RegisterController extends Controller
     {
         $user = User::create([
             'name' => $data['name'],
+            'faculte_id' => $data['faculte'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -75,5 +78,16 @@ class RegisterController extends Controller
         $user->roles()->attach($role);
 
         return $user;
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $facs = Faculte::all();
+        return view('auth.register', compact('facs'));
     }
 }

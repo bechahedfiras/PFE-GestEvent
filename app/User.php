@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Faculte;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','faculte_id',
     ];
 
     /**
@@ -45,4 +45,10 @@ class User extends Authenticatable
     public function hasAnyRole(array $roles){
         return $this->roles()->where('name', $roles)->first();
     }
+
+    public function getFaculte(){
+        return $this->belongsTo('App\Faculte','faculte_id');
+        //Select from facultes where facultes.id = user.faculte_id limit 1
+    }
+
 }
