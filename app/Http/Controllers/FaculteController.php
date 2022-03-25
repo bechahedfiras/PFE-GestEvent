@@ -23,7 +23,7 @@ class FaculteController extends Controller
     {
         $fac = new Faculte();
         $fac->label = $request->input('label');
-        $fac->user_id = Auth::user()->id;
+       
         $fac->save();
         return redirect('admin/faculte');
     }
