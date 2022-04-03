@@ -54,3 +54,19 @@ Route::delete('admin/faculte/{id}/delete','FaculteController@destroy')->middlewa
 // Route::get('faculte/{id}','FaculteController@edit')->middleware('admin','auth');
 // Route::put('faculte/{id}','FaculteController@update')->middleware('admin','auth');
 // Route::delete('faculte/{id}','FaculteController@delete')->middleware('admin','auth');
+
+Route::group(['middleware' => ['auth', 'verifyemail']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/documents', 'HomeController@documents')->name('documents');
+    Route::get('/reclamation', 'HomeController@reclamation')->name('reclamation');
+    Route::get('/about', 'HomeController@about')->name('about');
+});
+
+
+/**
+ * Email verification
+ */
+Route::get('/verifyEmail', 'Admin\UsersController@showVerifyEmail');
+Route::get('/newCode', 'Admin\UsersController@sendNewCode');
+Route::post('/verifyEmail', 'Admin\UsersController@validEmailCode');
+
