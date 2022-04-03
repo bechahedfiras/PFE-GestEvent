@@ -8,6 +8,17 @@
                 <div class="card-header">
                     <h3 class="text-muted">Liste users</h3>
                 </div>
+                @if (session('alert_scc'))
+                <br>
+                <div class="alert alert-success m-auto w-25 text-center">
+                    {{ session('alert_scc') }}
+                </div>
+                @endif @if (session('alert_err'))
+                <br>
+                    <div class="alert alert-danger m-auto w-25 text-center">
+                        {{ session('alert_err') }}
+                    </div>
+                @endif
                 <div class="card-body">
                     <table class="table">
                         <thead>

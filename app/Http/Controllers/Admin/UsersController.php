@@ -9,6 +9,7 @@ use App\Role;
 use App\Faculte;
 use Carbon\Carbon;
 use App\Mail\MailBox;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -16,8 +17,9 @@ use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->middleware('auth');
     }
     /**
@@ -26,8 +28,9 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $users = User::all();
-        return view('admin.users.index')->with('users',$users);
+    {
+        $users = User::all();
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**
@@ -59,7 +62,6 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        
     }
 
     /**
@@ -69,10 +71,13 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
-    {   $roles = role::all();
-        return view('admin.users.edit',[
+    {
+        $roles = role::all();
+        $facs = Faculte::all();
+        return view('admin.users.edit', [
             'users' => $user,
-            'roles' => $roles
+            'roles' => $roles,
+            'facs' => $facs,
         ]);
     }
 
@@ -85,12 +90,16 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->roles()->sync($request->roles);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->save();
-        return redirect()->route('admin.users.index');
-        
+        try {
+            $user->roles()->sync($request->roles);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->faculte_id = $request->faculte_id;
+            $user->save();
+            return redirect()->route('admin.users.index')->with('alert_scc', 'updated successfully');
+        } catch (Exception $e) {
+            return redirect()->route('admin.users.index')->with('alert_err', 'Something went wrong, try again');
+        }
     }
 
     /**
@@ -100,10 +109,10 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
-    {   
+    {
         $user->roles()->detach();
         $user->delete();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('alert_scc', 'deleted successfully');;
     }
 
     public function adminDashboard()
@@ -113,7 +122,7 @@ class UsersController extends Controller
         return view('admin.dashboard', compact('detail'));
     }
 
-   /**
+    /**
      * Show email verification page
      */
     public function showVerifyEmail()
@@ -131,10 +140,11 @@ class UsersController extends Controller
             Mail::to(auth::user()->email)->send(new MailBox($email));
         }
 
+
         return view('auth.verifyEmail');
     }
 
-    
+
     /**
      * Confirm verify
      */
@@ -167,8 +177,13 @@ class UsersController extends Controller
         auth::user()->emailConfirmed = $code;
         auth::user()->save();
 
-        return redirect('auth.verifyEmail');
+        /**Send email to author*/
+        $email = [];
+        $email['from'] = "qsedfqsd@gmail.com";
+        $email['subject'] = "Confirmation code";
+        $email['message'] = "Hello dear " . auth::user()->name . ",<br> Your confirmation code is <b>" . $code . "</b>.";
+        Mail::to(auth::user()->email)->send(new MailBox($email));
+
+        return redirect('verifyEmail');
     }
 }
-    
-    
