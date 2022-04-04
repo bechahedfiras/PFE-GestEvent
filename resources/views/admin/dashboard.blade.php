@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{{ asset('admin/faculte') }}">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -46,16 +46,16 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{{ asset('admin/events') }}">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="state">
-                                    <h6>...</h6>
-                                    
+                                    <h6>Events</h6>
+                                    <h2>{{$detail['events']}}</h2>
                                 </div>
                                 <div class="icon">
-                                    <i class="ik ik-box"></i>
+                                    <i class="ik ik-bar-chart"></i>
                                 </div>
                             </div>
                         </div>

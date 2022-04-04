@@ -64,9 +64,17 @@ Route::group(['middleware' => ['auth', 'verifyemail']], function () {
 
 
 /**
- * Email verification
+ * Email verification routing
  */
 Route::get('/verifyEmail', 'Admin\UsersController@showVerifyEmail');
 Route::get('/newCode', 'Admin\UsersController@sendNewCode');
 Route::post('/verifyEmail', 'Admin\UsersController@validEmailCode');
+
+/**
+ * Events routing
+ */
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
+    Route::resource('events','EventController');
+    Route::get('dashboard', 'UsersController@adminDashboard');
+});
 

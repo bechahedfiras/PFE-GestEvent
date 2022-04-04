@@ -16,6 +16,8 @@ class EventController extends Controller
     public function index()
     {
         //
+        $events = Event::all();
+        return view('admin.events.index')->with('events', $events);
     }
 
     /**
@@ -25,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.events.create');
     }
 
     /**
@@ -36,7 +38,11 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = new Event();
+        $event->label = $request->input('label');
+        $event->price = $request->input('price');
+        $event->save();
+        return redirect('admin/events');
     }
 
     /**
@@ -56,9 +62,14 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        try {
+            $event = Event::findOrFail($id);
+            return view('admin.events.edit', ['event' => $event]);
+        } catch (\Throwable $th) {
+            return redirect('admin/events')->with('alert_err', 'Ops id not found');
+        }
     }
 
     /**
@@ -68,9 +79,17 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $event = Event::findOrFail($id);
+            $event->label = $request->input('label');
+            $event->price = $request->input('price');
+            $event->save();
+            return redirect('admin/events')->with('alert_scc', 'updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('admin/events')->with('alert_err', 'Ops something went wrong, try again.');
+        }
     }
 
     /**
@@ -79,8 +98,14 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy( $id)
     {
-        //
+        try {
+            $event = Event::find($id);
+            $event->delete();
+            return redirect('admin/events')->with('alert_scc', 'Delete successfully');
+        } catch (\Throwable $th) {
+            return redirect('admin/events')->with('alert_err', 'Ops something went wrong, try again.');
+        }
     }
 }
