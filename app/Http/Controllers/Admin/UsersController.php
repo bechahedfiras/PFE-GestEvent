@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use App\User;
 use App\Role;
+use App\Event;
 use App\Faculte;
 use Carbon\Carbon;
 use App\Mail\MailBox;
@@ -119,6 +120,7 @@ class UsersController extends Controller
     {
         $detail['users'] = User::all()->count();
         $detail['facultes'] = Faculte::all()->count();
+        $detail['events'] = Event::all()->count();
         return view('admin.dashboard', compact('detail'));
     }
 
