@@ -27,6 +27,24 @@
                 </div>
                     
                 <div class="card-body">
+                    {{-- <div class="row">
+                        @foreach ($events as $event)
+                                <div class="col">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="{{asset('storage'.$event->photo)}}" style="height:100%; width:100%;" class="card-img-top" >
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{$event->label}}</h5>
+                                        <p class="card-text">{{$event->price}} DT</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                        @endforeach
+                    </div> --}}
+                    
+
+
+
                     <table class="table">
                         <thead>
                           <tr>

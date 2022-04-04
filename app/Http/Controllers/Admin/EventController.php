@@ -97,6 +97,10 @@ class EventController extends Controller
             $event = Event::findOrFail($id);
             $event->label = $request->input('label');
             $event->price = $request->input('price');
+            if($request->hasFile('photo')) {
+            
+                $event->photo = $request->photo->store('image');
+             }
             $event->save();
             return redirect('admin/events')->with('alert_scc', 'updated successfully');
         } catch (\Throwable $th) {
