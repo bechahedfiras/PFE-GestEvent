@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('label');
             $table->string('price');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

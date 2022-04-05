@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Event;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class EventController extends Controller
 {
@@ -41,7 +43,17 @@ class EventController extends Controller
         $event = new Event();
         $event->label = $request->input('label');
         $event->price = $request->input('price');
+        
+        //request image  mil front  baed tsobha f doussi image
+        //  baed taffictiha ll objet event image
+        if($request->hasFile('photo')) {
+            
+            $event->photo = $request->photo->store('image');
+         }
+       
+        
         $event->save();
+        session()->flash('alert_scc', 'creation done  successfully');
         return redirect('admin/events');
     }
 
@@ -85,6 +97,10 @@ class EventController extends Controller
             $event = Event::findOrFail($id);
             $event->label = $request->input('label');
             $event->price = $request->input('price');
+            if($request->hasFile('photo')) {
+            
+                $event->photo = $request->photo->store('image');
+             }
             $event->save();
             return redirect('admin/events')->with('alert_scc', 'updated successfully');
         } catch (\Throwable $th) {

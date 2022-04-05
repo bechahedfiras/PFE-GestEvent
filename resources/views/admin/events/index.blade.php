@@ -27,12 +27,44 @@
                 </div>
                     
                 <div class="card-body">
+                    {{-- <div class="row">
+                        @foreach ($events as $event)
+                                <div class="col">
+                                    <div class="card" style="width:18rem;">
+                                        <img src="{{asset('../storage/'.$event->photo)}}" style="height:100%; width:100%;" class="card-img-top" >
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{$event->price}} DT</h5>
+                                        <p class="card-text">{{$event->label}}</p>
+                                        
+                                        <form action="{{url('admin/events/'.$event->id)}}" method="post">
+                                            <a href="{{url('admin/events/'.$event->id.'/edit')}}">
+                                                <button type="button" class="btn btn-primary">editer <span><i class="ik ik-edit-1"></i></span></button></a>
+    
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+    
+                                        <button type="submit" class="btn btn-danger">delete <span><i class="ik ik-x-circle"></i></span></button></a>
+                                    </td>
+                                    
+                                        </form>
+                                        
+                                       
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                        @endforeach
+                    </div> --}}
+                    
+
+
+
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">id</th>
-                            <th scope="col">label</th>
-                            <th scope="col">price</th>
+                            <th scope="col">details</th>
+                            
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>
                             <th scope="col">action</th>
@@ -46,21 +78,28 @@
                                
                                 <tr>
                                     <th scope="row"> {{$event->id}}</th>
-                                    <td>{{$event->label}}</td>
-                                    <td>{{$event->price}}</td>
+                                    <td> <div class="d-inline-block align-middle">
+                                        <img src="{{asset('../storage/'.$event->photo)}}" alt="" class="  img-40 align-top mr-15">
+                                        <div class="d-inline-block">
+                                            <h6>{{$event->price}} dt</h6>
+                                            <p class="text-muted mb-0">{{$event->label}}</p>
+                                        </div>
+                                    </div>
+                                    </td>
+                                    
                                     <td>{{$event->created_at}}</td>
                                     <td>{{$event->updated_at}}</td>
                                     <td>
                                        
                                         <form action="{{url('admin/events/'.$event->id)}}" method="post">
                                             <a href="{{url('admin/events/'.$event->id.'/edit')}}">
-                                                <button type="button" class="btn btn-primary">editer</button></a>
+                                                <button type="button" class="btn btn-success">editer <span><i class="ik ik-edit-1"></i></span></button></a>
     
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
     
                                         
-                                       <button type="submit" class="btn btn-danger">delete</button></a>
+                                       <button type="submit" class="btn btn-danger">delete <span><i class="ik ik-x-circle"></i></span></button></a>
                                     </td>
                                     
                                         </form>
