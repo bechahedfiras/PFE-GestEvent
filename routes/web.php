@@ -78,3 +78,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
     Route::get('dashboard', 'UsersController@adminDashboard');
 });
 
+/**
+ * Events routing
+ */
+Route::resource('contact','ContactController');
