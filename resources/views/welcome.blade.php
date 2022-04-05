@@ -391,11 +391,13 @@
                                 </div> <!-- single info -->
                             </li>
                         </ul>
+                        
                     </div> <!-- contact info -->
                 </div>
                 <div class="col-lg-8">
                     <div class="contact-form pt-20">
-                        <form id="contact-form" action="assets/contact.php" method="post">
+                        <form id="contact-form" action="{{url('contact')}}" method="post">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="single-form">
@@ -427,12 +429,26 @@
                                         <i class="lni-comment-alt"></i>
                                     </div> <!-- single form -->
                                 </div>
+                                   {{-- flash message --}}
+                                @if (session('alert_scc'))
+                                <br>
+                                <div class="alert alert-success m-auto w-100 text-center">
+                                    {{ session('alert_scc') }}
+                                </div>
+                                @endif @if (session('alert_err'))
+                                <br>
+                                    <div class="alert alert-danger m-auto w-100 text-center">
+                                        {{ session('alert_err') }}
+                                    </div>
+                                @endif
                                 <p class="form-message"></p>
+                              
                                 <div class="col-md-12">
                                     <div class="single-form">
                                         <button type="submit" class="main-btn main-btn-2">Send Message</button>
                                     </div> <!-- single form -->
                                 </div>
+                              
                             </div> <!-- row -->
                         </form>
                     </div> <!-- contact form -->
