@@ -86,3 +86,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 Route::post('contact','ContactController@store');
 Route::get('contact','ContactController@index')->middleware('admin','auth');
 Route::delete('contact/{id}','ContactController@destroy')->middleware('admin','auth');
+
+/**
+ * Events routing
+ */
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
+    Route::resource('sponsorsimg','SponsorimgController');
+   
+});
