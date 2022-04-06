@@ -67,16 +67,16 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{{ asset('contact') }}">
                     <div class="widget">
                         <div class="widget-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="state">
-                                    <h6>...</h6>
-                                    
+                                    <h6>reclamation</h6>
+                                    <h2>{{$detail['contacts']}}</h2>
                                 </div>
                                 <div class="icon">
-                                    <i class="ik ik-menu"></i>
+                                    <i class="ik ik-eye"></i>
                                 </div>
                             </div>
                         </div>

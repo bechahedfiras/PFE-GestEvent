@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return view('admin.contacts.index')->with('contacts', $contacts);
     }
 
     /**
@@ -94,8 +95,14 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        try {
+            $contact = Contact::find($id);
+            $contact->delete();
+            return redirect('contact')->with('alert_scc', 'Delete successfully');
+        } catch (\Throwable $th) {
+            return redirect('contact')->with('alert_err', 'Ops something went wrong, try again.');
+        }
     }
 }

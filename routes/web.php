@@ -79,6 +79,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 });
 
 /**
- * Events routing
+ * contact routing
  */
-Route::resource('contact','ContactController');
+// Route::resource('contact','ContactController')->middleware('admin','auth');
+//solution for now
+Route::post('contact','ContactController@store');
+Route::get('contact','ContactController@index')->middleware('admin','auth');
+Route::delete('contact/{id}','ContactController@destroy')->middleware('admin','auth');
