@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Gallery;
 use Illuminate\Http\Request;
-
+use App\Sponsorimg;
 class HomeController extends Controller
 {
     /**
@@ -27,8 +27,11 @@ class HomeController extends Controller
     }
     public function welcome()
     {
+
+        $sponsorimgs = Sponsorimg::all();
         $galleries = Gallery::all();
-        return view('welcome')->with('galleries', $galleries);
+        return view('welcome')->with('galleries','sponsorimgs',$sponsorimgs,$galleries);
+
     }
 
    
