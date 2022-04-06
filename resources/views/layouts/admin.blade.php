@@ -71,6 +71,10 @@
                             <div class="nav-item {{ \Request::is('*events*') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Evénemment</span></a>
                             </div>
+
+                            <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
+                                <a href="{{ asset('contact') }}"><i class="ik ik-eye"></i><span>support message</span></a>
+                            </div>
                         </nav>
                     </div>
                 </div>
