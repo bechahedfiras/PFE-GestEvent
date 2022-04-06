@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         $sponsorimgs = Sponsorimg::all();
         $galleries = Gallery::all();
-        return view('welcome')->with('galleries','sponsorimgs',$sponsorimgs,$galleries);
+        return view('welcome')->with('galleries',$galleries);
 
     }
 

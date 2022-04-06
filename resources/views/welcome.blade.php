@@ -318,9 +318,9 @@
                 </div>
     </div> <!-- row -->
 
-         @foreach ($sponsorimgs as $sponsorimg)
+         {{-- @foreach ($sponsorimgs as $sponsorimg) --}}
                 
-            <div class="row client-active">
+            {{-- <div class="row client-active">
                 <div class="col-lg-3">
                     <div class="single-client">
                         <img src={{asset('../storage/'.$sponsorimg->photo1)}} alt="Client">
@@ -345,9 +345,9 @@
                     <div class="single-client">
                         <img src={{asset('../storage/'.$sponsorimg->photo5)}} alt="Client">
                     </div> <!-- single client -->
-                </div>
+                </div> --}}
             </div> <!-- row -->
-            @endforeach
+            {{-- @endforeach --}}
         </div> <!-- container -->
       
     </div>
