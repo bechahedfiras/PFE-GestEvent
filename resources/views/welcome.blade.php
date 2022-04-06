@@ -152,56 +152,44 @@
         @foreach ($galleries as $gallery)
         <div class="row no-gutters">
             <div class="col-lg-6">
-                <div class="single-gallery">
+                <div>
                     <div class="gallery-image">
                         <img src="{{asset('../storage/'.$gallery->photo1)}}" alt="Gallery">
                     </div>
-                    <div class="gallery-content">
-                        <a class="image-popup" href="assets/images/gallery-1.jpg"><i class="lni-plus"></i></a>
-                    </div>
+                    
                 </div> <!-- single gallery -->
             </div>
             
             <div class="col-lg-6">
                 <div class="row no-gutters">
                     <div class="col-sm-6">
-                        <div class="single-gallery">
+                        <div class="">
                             <div class="gallery-image">
                                 <img src="{{asset('../storage/'.$gallery->photo2)}}" alt="Gallery">
                             </div>
-                            <div class="gallery-content">
-                                <a class="image-popup" href="assets/images/gallery-2.jpg"><i class="lni-plus"></i></a>
-                            </div>
                         </div> <!-- single gallery -->
                     </div>
                     <div class="col-sm-6">
-                        <div class="single-gallery">
+                        <div>
                             <div class="gallery-image">
                                 <img src="{{asset('../storage/'.$gallery->photo3)}}" alt="Gallery">
                             </div>
-                            <div class="gallery-content">
-                                <a class="image-popup" href={{asset('/template/images/gallery-3.jpg')}}><i class="lni-plus"></i></a>
-                            </div>
+                            
                         </div> <!-- single gallery -->
                     </div>
                     <div class="col-sm-6">
-                        <div class="single-gallery">
+                        <div>
                             <div class="gallery-image">
                                 <img src="{{asset('../storage/'.$gallery->photo4)}}" alt="Gallery">
                             </div>
-                            <div class="gallery-content">
-                                <a class="image-popup" href={{asset('/template/images/gallery-4.jpg')}}><i class="lni-plus"></i></a>
-                            </div>
                         </div> <!-- single gallery -->
                     </div>
                     <div class="col-sm-6">
-                        <div class="single-gallery">
+                        <div>
                             <div class="gallery-image">
                                 <img src="{{asset('../storage/'.$gallery->photo5)}}" alt="Gallery">
                             </div>
-                            <div class="gallery-content">
-                                <a class="image-popup" href={{asset('/template/images/gallery-5.jpg')}}><i class="lni-plus"></i></a>
-                            </div>
+                            
                         </div> <!-- single gallery -->
                     </div>
                 </div> <!-- row -->
