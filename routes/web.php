@@ -93,7 +93,7 @@ Route::delete('contact/{id}','ContactController@destroy')->middleware('admin','a
  */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('sponsorsimg','SponsorimgController');
-   
+});
 /**
  * Gallery images routing
  */
@@ -101,3 +101,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
    Route::resource('gallery','GalleryController');
    Route::get('dashboard', 'UsersController@adminDashboard');
 });
+
