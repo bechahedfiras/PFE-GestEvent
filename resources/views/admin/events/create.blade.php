@@ -14,12 +14,12 @@
               </div>
            
               <div class="form-group">
-                <label for="">event price <span><i class="ik ik-dollar-sign"></i></span> </label>
+                <label for="">event price <span>DT</span> </label>
                   <input type="number" class="form-control form-control-primary"  name="price"  placeholder="price here" min="0" max="100">
               </div>
 
               <div class="form-group">
-                <label>File upload</label>
+                <label>Image de l'evenement</label>
                  <input type="file" name="photo" class="form-control form-control-primary" >
               </div>
              <input type="submit" class="form-control form-control-primary" value="enregistrer" >

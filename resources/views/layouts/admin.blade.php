@@ -75,6 +75,9 @@
                             <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
                                 <a href="{{ asset('contact') }}"><i class="ik ik-eye"></i><span>support message</span></a>
                             </div>
+                            <div class="nav-item {{ \Request::is('*gallery*') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/gallery') }}"><i class="ik ik-eye"></i><span>Gallery images</span></a>
+                            </div>
                         </nav>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Gallery;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,12 +22,13 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+    {   
         return view('home');
     }
     public function welcome()
     {
-        return view('welcome');
+        $galleries = Gallery::all();
+        return view('welcome')->with('galleries', $galleries);
     }
 
    
