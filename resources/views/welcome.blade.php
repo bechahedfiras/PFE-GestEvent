@@ -313,36 +313,42 @@
                         <p class="text">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem reiciendis odit sed, vero amet blanditiis cule dicta iriure at phaedrum.</p>
                     </div> <!-- section title -->
                 </div>
-            </div> <!-- row -->
+    </div> <!-- row -->
+
+         @foreach ($sponsorimgs as $sponsorimg)
+                
             <div class="row client-active">
                 <div class="col-lg-3">
                     <div class="single-client">
-                        <img src={{asset('/template/images/client-1.png')}} alt="Client">
+                        <img src={{asset('../storage/'.$sponsorimg->photo1)}} alt="Client">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client">
-                        <img src={{asset('/template/images/client-2.png')}} alt="Client">
+                        <img src={{asset('../storage/'.$sponsorimg->photo2)}} alt="Client">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client">
-                        <img src={{asset('/template/images/client-3.png')}} alt="Client">
+                        <img src={{asset('../storage/'.$sponsorimg->photo3)}} alt="Client">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client">
-                        <img src={{asset('/template/images/client-4.png')}} alt="Client">
+                        <img src={{asset('../storage/'.$sponsorimg->photo4)}} alt="Client">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client">
-                        <img src={{asset('/template/images/client-5.png')}} alt="Client">
+                        <img src={{asset('../storage/'.$sponsorimg->photo5)}} alt="Client">
                     </div> <!-- single client -->
                 </div>
             </div> <!-- row -->
+            @endforeach
         </div> <!-- container -->
+      
     </div>
+    
 
     <!--====== CLIENT PART ENDS ======-->
 
