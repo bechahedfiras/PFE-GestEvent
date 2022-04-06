@@ -88,9 +88,16 @@ Route::get('contact','ContactController@index')->middleware('admin','auth');
 Route::delete('contact/{id}','ContactController@destroy')->middleware('admin','auth');
 
 /**
+
  * Events routing
  */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('sponsorsimg','SponsorimgController');
    
+/**
+ * Gallery images routing
+ */
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
+   Route::resource('gallery','GalleryController');
+   Route::get('dashboard', 'UsersController@adminDashboard');
 });

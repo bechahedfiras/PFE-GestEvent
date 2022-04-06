@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Gallery;
 use Illuminate\Http\Request;
 use App\Sponsorimg;
 class HomeController extends Controller
@@ -22,14 +22,16 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+    {   
         return view('home');
     }
     public function welcome()
     {
+
         $sponsorimgs = Sponsorimg::all();
-        
-        return view('welcome')->with('sponsorimgs', $sponsorimgs);
+        $galleries = Gallery::all();
+        return view('welcome')->with('galleries','sponsorimgs',$sponsorimgs,$galleries);
+
     }
 
    
