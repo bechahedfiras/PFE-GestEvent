@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('/template/js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -158,7 +158,39 @@
 
 
 
+ <!--====== jquery js ======-->
+ <script src={{asset('/template/js/vendor/modernizr-3.6.0.min.js')}}></script>
+ <script src={{asset('/template/js/vendor/jquery-1.12.4.min.js')}}></script>
 
-    
+ <!--====== Bootstrap js ======-->
+ <script src={{asset('/template/js/bootstrap.min.js')}}></script>
+ <script src={{asset('/template/js/popper.min.js')}}></script>
+
+ <!--====== Counter Up js ======-->
+ <script src={{asset('/template/js/waypoints.min.js')}}></script>
+ <script src={{asset('/template/js/jquery.counterup.min.js')}}></script>
+
+ <!--====== Slick js ======-->
+ <script src={{asset('/template/js/slick.min.js')}}></script>
+
+ <!--====== Magnific Popup js ======-->
+ <script src={{asset('/template/js/jquery.magnific-popup.min.js')}}></script>
+
+ <!--====== Scrolling Nav js ======-->
+ <script src={{asset('/template/js/jquery.easing.min.js')}}></script>
+ <script src={{asset('/template/js/scrolling-nav.js')}}></script>
+
+ <!--====== Countdown js ======-->
+ <script src={{asset('/template/js/jquery.countdown.min.js')}}></script>
+
+ <!--====== wow js ======-->
+ <script src={{asset('/template/js/wow.min.js')}}></script>
+
+ <!--====== Ajax Contact js ======-->
+ <script src={{asset('/template/js/ajax-contact.js')}}></script>
+
+ <!--====== Main js ======-->
+ <script src={{asset('/template/js/main.js')}}></script>
+
 </body>
 </html>

@@ -68,7 +68,7 @@
     <!--====== HEADER PART START ======-->
 
     <header class="header-area">
-        <div class="navbar-area navbar-two" style="background: linear-gradient(to right, #102baf 0%, #1664ff 100%);">
+        <div class="navbar-area navbar-two">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

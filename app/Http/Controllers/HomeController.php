@@ -23,7 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        return view('home');
+        $sponsorimgs = Sponsorimg::all();
+        $galleries = Gallery::all();
+        return view('home')->with('galleries',$galleries)->with('sponsorimgs',$sponsorimgs);
+
     }
     public function welcome()
     {
