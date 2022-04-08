@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="header">
-   
-</header>
-
-
 <div class="container">
     <div class="row py-5 mt-4 align-items-center">
         <!-- For Demo Purpose -->
