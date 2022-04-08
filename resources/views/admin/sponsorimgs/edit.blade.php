@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row justify-content-center">
   <div class="card">
-      <div class="card-header"><h3>put your new event here</h3></div>
+      <div class="card-header"><h3>Modifier les images des sponsors de la page d'acceuil</h3></div>
       <div class="card-body">
           <form action=" {{url('admin/sponsorsimg/'.$sponsorimgs->id)}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -29,7 +29,7 @@
                 <label>Image 5</label>
                  <input type="file" name="photo5" class="form-control form-control-primary" >
               </div>
-             <input type="submit" class="form-control form-control-primary" value="enregistrer" >
+             <input type="submit" class="form-control form-control-primary" value="Modifier" >
           <form>
    </div>
   </div>

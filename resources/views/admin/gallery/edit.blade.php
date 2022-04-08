@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row justify-content-center">
   <div class="card">
-      <div class="card-header"><h3>put your new event here</h3></div>
+      <div class="card-header"><h3>Modifier les images gallerie</h3></div>
       <div class="card-body">
           <form action=" {{url('admin/gallery/'.$gallery->id)}}" method="post" enctype="multipart/form-data">
             @csrf

@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-muted">Liste fac</h3>
+                    <h3 class="text-muted">Les messages support</h3>
                 </div>
                 @if (session('alert_scc'))
                 <br>
@@ -27,10 +27,10 @@
                         <thead>
                           <tr>
                             <th scope="col">id</th>
-                            <th scope="col">name</th>
+                            <th scope="col">nom</th>
                             <th scope="col">email</th>
-                            <th scope="col">subject</th>
-                            <th scope="col">number</th>
+                            <th scope="col">sujet</th>
+                            <th scope="col">nombre</th>
                             <th scope="col">message</th>
                             <th scope="col">actions</th>
                           </tr>
@@ -56,7 +56,7 @@
                                     {{ method_field('DELETE') }}
 
                                     
-                                   <button type="submit" class="btn btn-danger ">delete <span></span></button></a>
+                                   <button type="submit" class="btn btn-danger ">Supprimer <span></span></button></a>
                                 </td>
                                 
                                     </form>

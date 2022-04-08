@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-muted">Liste of Events</h3>
+                    <h3 class="text-muted">Listes des évènements</h3>
                 </div>
                 @if (session('alert_scc'))
                 <br>
@@ -22,7 +22,7 @@
                 
                 <div class="text-right">
                         <a href="{{url('admin/events/create ')}}">
-                         <button  type="submit" class="btn btn-success m-3">add new event</button>
+                         <button  type="submit" class="btn btn-success m-3">Ajouter</button>
                     </a>
                 </div>
                     
@@ -64,7 +64,6 @@
                           <tr>
                             <th scope="col">id</th>
                             <th scope="col">details</th>
-                            
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>
                             <th scope="col">action</th>
@@ -93,13 +92,13 @@
                                        
                                         <form action="{{url('admin/events/'.$event->id)}}" method="post">
                                             <a href="{{url('admin/events/'.$event->id.'/edit')}}">
-                                                <button type="button" class="btn btn-success">editer <span><i class="ik ik-edit-1"></i></span></button></a>
+                                                <button type="button" class="btn btn-primary">Modifier <span><i class="ik ik-edit-1"></i></span></button></a>
     
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
     
                                         
-                                       <button type="submit" class="btn btn-danger">delete <span><i class="ik ik-x-circle"></i></span></button></a>
+                                       <button type="submit" class="btn btn-danger">Supprimer <span><i class="ik ik-x-circle"></i></span></button></a>
                                     </td>
                                     
                                         </form>

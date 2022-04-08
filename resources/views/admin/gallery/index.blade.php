@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-muted">Listes des images Gallery</h3>
+                    <h3 class="text-muted">Listes des images gallerie de la page d'acceuil</h3>
                 </div>
                 @if (session('alert_scc'))
                 <br>
@@ -21,7 +21,7 @@
                 @endif
                 <div class="text-right">
                     <a href="{{url('admin/gallery/create ')}}">
-                     <button  type="submit" class="btn btn-success m-3">Add Gallery</button>
+                     <button  type="submit" class="btn btn-success m-3">Ajouter</button>
                 </a>
             </div>
                
@@ -68,11 +68,11 @@
                                        
                                 <form action="{{url('admin/gallery/'.$gallery->id)}}" method="post">
                                     <a href="{{url('admin/gallery/'.$gallery->id.'/edit')}}">
-                                        <button type="button" class="btn btn-success">editer <span><i class="ik ik-edit-1"></i></span></button></a>
+                                        <button type="button" class="btn btn-primary">Modifier <span><i class="ik ik-edit-1"></i></span></button></a>
 
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                               <button type="submit" class="btn btn-danger">delete <span><i class="ik ik-x-circle"></i></span></button></a>
+                               <button type="submit" class="btn btn-danger">Supprimer <span><i class="ik ik-x-circle"></i></span></button></a>
                             </td>
 
                             @endforeach

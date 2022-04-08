@@ -61,28 +61,27 @@
                     <div class="nav-container">
                         <nav id="main-menu-navigation" class="navigation-main">
                             <div class="nav-item {{ \Request::is('*users*') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/users') }}"><i class="ik ik-users"></i><span>Les utilisateurs</span></a>
+                                <a href="{{ asset('admin/users') }}"><i class="ik ik-user-plus"></i><span>Les utilisateurs</span></a>
                             </div>
 
                             <div class="nav-item {{ \Request::is('*faculte*') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/faculte') }}"><i class="ik ik-edit"></i><span>Les facultés</span></a>
+                                <a href="{{ asset('admin/faculte') }}"><i class="ik ik-edit"></i><span>Ajouter une faculté</span></a>
                             </div>
 
                             <div class="nav-item {{ \Request::is('*events*') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Evénemment</span></a>
+                                <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
                             </div>
 
                             <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
-                                <a href="{{ asset('contact') }}"><i class="ik ik-eye"></i><span>support message</span></a>
+                                <a href="{{ asset('contact') }}"><i class="ik ik-message-circle"></i><span>Les messages support</span></a>
                             </div>
 
 
                             <div class="nav-item {{ \Request::is('*sponsorsimg*') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/sponsorsimg  ') }}"><i class="ik ik-eye"></i><span>Sponsor img</span></a>
+                                <a href="{{ asset('admin/sponsorsimg  ') }}"><i class="ik ik-dollar-sign"></i><span>Section Sponsor img</span></a>
 
                             <div class="nav-item {{ \Request::is('*gallery*') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/gallery') }}"><i class="ik ik-eye"></i><span>Gallery images</span></a>
-
+                                <a href="{{ asset('admin/gallery') }}"><i class="ik ik-image"></i><span>Gallery images</span></a>
                             </div>
                         </nav>
                     </div>

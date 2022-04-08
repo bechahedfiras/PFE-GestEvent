@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-muted">Listes des images Gallery Sponsor</h3>
+                    <h3 class="text-muted"> Les 5 sponsors de la page d'acceuil</h3>
                 </div>
                 @if (session('alert_scc'))
                 <br>
@@ -21,7 +21,7 @@
                 @endif
                 <div class="text-right">
                     <a href="{{url('admin/sponsorsimg/create')}}">
-                     <button  type="submit" class="btn btn-success m-3">Add Gallery Sponsor</button>
+                     <button  type="submit" class="btn btn-success m-3">Ajouter</button>
                 </a>
             </div>
 
@@ -71,12 +71,12 @@
                                     <form action="{{url('admin/sponsorsimg/'.$sponsorimg->id)}}" method="post" enctype="multipart/form-data">
 
                                         <a href="{{url('admin/sponsorsimg/'.$sponsorimg->id.'/edit')}}">
-                                            <button type="button" class="btn btn-success">editer <span><i class="ik ik-edit-1"></i></span></button></a>
+                                            <button type="button" class="btn btn-primary">Modifier <span><i class="ik ik-edit-1"></i></span></button></a>
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
                                     
-                                   <button type="submit" class="btn btn-danger">delete <span><i class="ik ik-x-circle"></i></span></button></a>
+                                   <button type="submit" class="btn btn-danger">Supprimer <span><i class="ik ik-x-circle"></i></span></button></a>
                                 </td>
                                 
                                     </form>

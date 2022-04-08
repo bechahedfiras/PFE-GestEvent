@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-muted">Liste users</h3>
+                    <h3 class="text-muted">Listes des utilisateurs</h3>
                 </div>
                 @if (session('alert_scc'))
                 <br>
@@ -47,11 +47,11 @@
                                 </td>
                                 <td>{{ implode( ', ', $user->roles()->get()->pluck('name')->toArray() ) }}</td>
                                 <td>
-                                    <a href="{{ route('admin.users.edit', $user->id)}}"><button class="btn btn-primary">editer</button></a>
+                                    <a href="{{ route('admin.users.edit', $user->id)}}"><button class="btn btn-primary">Modifier</button></a>
                                     <form action="{{ route('admin.users.destroy', $user->id)}}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-warning">Supprimer</button>
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
                                     </form>
                                 </td>
                               </tr>
