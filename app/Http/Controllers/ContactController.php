@@ -12,6 +12,10 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index2(){
+        return view('contact');
+    }
+
     public function index()
     {
         $contacts = Contact::all();
@@ -100,9 +104,9 @@ class ContactController extends Controller
         try {
             $contact = Contact::find($id);
             $contact->delete();
-            return redirect('contact')->with('alert_scc', 'Delete successfully');
+            return redirect('contactus')->with('alert_scc', 'Delete successfully');
         } catch (\Throwable $th) {
-            return redirect('contact')->with('alert_err', 'Ops something went wrong, try again.');
+            return redirect('contactus')->with('alert_err', 'Ops something went wrong, try again.');
         }
     }
 }

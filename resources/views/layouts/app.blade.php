@@ -75,7 +75,7 @@
                                         <a class="page-scroll" href="#pricing">Pricing</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#contact">Contact</a>
+                                        <a class="page-scroll" href="{{ url('/contact') }}">Contact</a>
                                     </li>
                                 </ul>
                                 @if (!Auth::user())

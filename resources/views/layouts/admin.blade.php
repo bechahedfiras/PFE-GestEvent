@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
-                                <a href="{{ asset('contact') }}"><i class="ik ik-message-circle"></i><span>Les messages support</span></a>
+                                <a href="{{ asset('contactus') }}"><i class="ik ik-message-circle"></i><span>Les messages support</span></a>
                             </div>
 
 

@@ -49,7 +49,7 @@
                                 <td>{{$contact->message}}</td>
                                 <td>
                                    
-                                    <form action="{{url('contact/'.$contact->id.'')}}" method="post">
+                                    <form action="{{url('contactus/'.$contact->id.'')}}" method="post">
                                         
 
                                     {{ csrf_field() }}

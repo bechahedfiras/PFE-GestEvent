@@ -84,8 +84,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 // Route::resource('contact','ContactController')->middleware('admin','auth');
 //solution for now
 Route::post('contact','ContactController@store');
-Route::get('contact','ContactController@index')->middleware('admin','auth');
-Route::delete('contact/{id}','ContactController@destroy')->middleware('admin','auth');
+Route::get('contactus','ContactController@index')->middleware('admin','auth');
+Route::delete('contactus/{id}','ContactController@destroy')->middleware('admin','auth');
+route::get('/contact','ContactController@index2');
 
 /**
 
