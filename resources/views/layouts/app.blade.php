@@ -90,8 +90,7 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         @can('manage-users')
-                                            <a href="{{ route('admin.users.index') }}" class="dropdown-item">Liste des
-                                                users</a>
+                                            <a href="{{ route('admin.users.index') }}" class="dropdown-item">Dashboard</a>
                                         @endcan
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
