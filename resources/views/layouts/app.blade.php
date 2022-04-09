@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg ">
-                            <a class="navbar-brand" href="{{ url('/home') }}">
+                            <a class="navbar-brand" href="{{ url('/') }}">
                                 <img src={{ asset('/template/images/logo.png') }} alt="Logo">
                             </a>
 
@@ -114,14 +114,12 @@
             </div> <!-- container -->
         </div>
 
-        <main class="py-4 top-spacer">
+        <main class="py-4">
             @yield('content')
         </main>
         <!--====== FOOTER PART START ======-->
 
         <section id="footer" class="footer-area bg_cover " style="background-image: url(assets/images/footer.jpg)">
-
-
             <div class="footer-widget">
                 <div class="container">
                     <div class="widget  pt-80 pb-130">

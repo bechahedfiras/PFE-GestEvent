@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="header">
+<header class="header top-spacer">
    
 </header>
 

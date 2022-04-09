@@ -1,5 +1,8 @@
 @extends('layouts.app') 
 @section('content')
+<header class="header top-spacer">
+   
+</header>
 <div class="fadeIn login-bg" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
         <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
