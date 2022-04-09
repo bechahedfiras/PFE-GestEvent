@@ -103,3 +103,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
    Route::get('dashboard', 'UsersController@adminDashboard');
 });
 
+
+/**
+ * My profile roots
+ * Route::namespace('user')->prefix('users')->name('user.')->middleware('user','auth')->group(function(){
+ * });
+ */
+
+    route::get('users/profile','User\UsersController@edit')->name('users.edit-profile')->middleware('auth');
+    route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
