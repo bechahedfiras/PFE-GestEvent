@@ -64,6 +64,8 @@
                           <tr>
                             <th scope="col">id</th>
                             <th scope="col">details</th>
+                            <th scope="col">description</th>
+                            <th scope="col">lieux</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>
                             <th scope="col">action</th>
@@ -84,6 +86,9 @@
                                             <p class="text-muted mb-0">{{$event->label}}</p>
                                         </div>
                                     </div>
+                                    <td>{{$event->description}}</td>
+                                    <td>{{$event->lieux}}</td>
+
                                     </td>
                                     
                                     <td>{{$event->created_at}}</td>

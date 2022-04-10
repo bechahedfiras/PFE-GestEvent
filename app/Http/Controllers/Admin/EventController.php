@@ -43,7 +43,8 @@ class EventController extends Controller
         $event = new Event();
         $event->label = $request->input('label');
         $event->price = $request->input('price');
-        
+        $event->description = $request->input('description');
+        $event->lieux = $request->input('lieux');
         //request image  mil front  baed tsobha f doussi image
         //  baed taffictiha ll objet event image
         if($request->hasFile('photo')) {
@@ -97,6 +98,8 @@ class EventController extends Controller
             $event = Event::findOrFail($id);
             $event->label = $request->input('label');
             $event->price = $request->input('price');
+            $event->description = $request->input('description');
+            $event->lieux = $request->input('lieux');
             if($request->hasFile('photo')) {
             
                 $event->photo = $request->photo->store('image');
