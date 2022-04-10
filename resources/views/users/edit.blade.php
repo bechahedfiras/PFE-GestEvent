@@ -21,17 +21,16 @@
                     <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" value="{{ Auth::user()->name }}" name="name"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="" value=""></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="" value=""></div>
-                    <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value="{{ Auth::user()->email }}" name="email"></div>
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="number" class="form-control" value="{{ Auth::user()->phone_number }}" name="phone_number"></div>
+                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control"  value="{{ Auth::user()->address }}" name="address"></div>
+                    <div class="col-md-12"><label class="labels">Postcode</label><input type="number" class="form-control" value="{{ Auth::user()->postcode }}" name="postcode"></div>
+                    <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control"  value="{{ Auth::user()->state }}" name="state"></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ Auth::user()->email }}" name="email"></div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </form>
             </div>
         </div>
-        
     </div>
 </div>
 </div>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Users;
+use App\Profile;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Users  $users
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show(Profile $profile)
     {
         //
     }
@@ -53,44 +53,33 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Users  $users
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
+    public function edit(Profile $profile)
     {
-        return view('users.edit')->with('user', auth()->user());
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Users  $users
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, Profile $profile)
     {
-        $user = auth()->user();
-        $user->update([
-            'name' => $request->name,
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-            'postcode' => $request->postcode,
-            'state' => $request->state,
-            'email' => $request->email,
-
-        ]);
-        session()->flash('success','Updated');
-        return redirect()->back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Users  $users
+     * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy(Profile $profile)
     {
         //
     }
