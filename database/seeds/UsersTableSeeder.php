@@ -18,6 +18,10 @@ class UsersTableSeeder extends Seeder
         DB::table('role_user')->truncate();
         $admin = User::create([
             'name' => 'admin',
+            'phone_number' => '216',
+            'address' => 'Tunis',
+            'postcode' => '7000',
+            'state' => 'Tunis',
             'email' => 'admin@admin.com',
             'password' => Hash::make('12345678')
         ]);
