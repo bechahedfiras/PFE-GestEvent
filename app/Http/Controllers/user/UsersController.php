@@ -71,6 +71,10 @@ class UsersController extends Controller
     public function update(Request $request, Users $users)
     {
         $user = auth()->user();
+        if($request->hasFile('profile_pic')) {
+            
+            $user->profile_pic = $request->profile_pic->store('image');
+         }
         $user->update([
             'name' => $request->name,
             'phone_number' => $request->phone_number,
@@ -80,10 +84,7 @@ class UsersController extends Controller
             'email' => $request->email
         ]);
 
-        if($request->hasFile('profile_pic')) {
-            
-            $user->profile_pic = $request->profile_pic->store('image');
-         }
+      
         session()->flash('success','Updated');
         return redirect()->back();
     }
