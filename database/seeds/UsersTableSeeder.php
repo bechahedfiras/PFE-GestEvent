@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
             'address' => 'Tunis',
             'postcode' => '7000',
             'state' => 'Tunis',
+            'profile_pic' => '../template/images/userprofilepicture.png',
             'email' => 'admin@admin.com',
             'password' => Hash::make('12345678')
         ]);

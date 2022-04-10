@@ -77,7 +77,9 @@ class UsersController extends Controller
             'address' => $request->address,
             'postcode' => $request->postcode,
             'state' => $request->state,
-            'email' => $request->email,
+            'profile_pic' => $request->profile_pic->store('image'),
+            'email' => $request->email
+            
 
         ]);
         session()->flash('success','Updated');
