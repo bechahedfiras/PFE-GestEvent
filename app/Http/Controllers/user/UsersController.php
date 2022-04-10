@@ -77,11 +77,13 @@ class UsersController extends Controller
             'address' => $request->address,
             'postcode' => $request->postcode,
             'state' => $request->state,
-            'profile_pic' => $request->profile_pic->store('image'),
             'email' => $request->email
-            
-
         ]);
+
+        if($request->hasFile('profile_pic')) {
+            
+            $user->profile_pic = $request->profile_pic->store('image');
+         }
         session()->flash('success','Updated');
         return redirect()->back();
     }
