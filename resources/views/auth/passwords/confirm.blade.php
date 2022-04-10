@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<header class="header top-spacer">
+   
+</header>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -45,5 +48,8 @@
             </div>
         </div>
     </div>
+</div>
+<div class="top-spacer">
+   
 </div>
 @endsection
