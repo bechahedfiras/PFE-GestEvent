@@ -25,7 +25,7 @@
 
               <div class="form-group">
                 <label for="">Le lieux  </label>
-                  <input type="number" class="form-control form-control-primary"  name="price"  placeholder="Prix" min="0" max="100">
+                  <input type="texte" class="form-control form-control-primary"  name="lieux"  placeholder="lieux" >
               </div>
               <div class="form-group">
                 <label>Image de l'evenement</label>
