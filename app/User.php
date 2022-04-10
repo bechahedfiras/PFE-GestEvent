@@ -51,9 +51,6 @@ class User extends Authenticatable
         return $this->belongsTo('App\Faculte','faculte_id');
         //Select from facultes where facultes.id = user.faculte_id limit 1
     }
-    public function getProfile()
-    {
-        return $this->hasOne('App\Profile', 'profile_id');
-    }
+    
 
 }
