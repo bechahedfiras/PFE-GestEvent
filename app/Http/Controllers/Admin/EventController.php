@@ -21,6 +21,16 @@ class EventController extends Controller
         $events = Event::all();
         return view('admin.events.index')->with('events', $events);
     }
+  /**
+     * eventsindex
+     */
+    public function geteventind()
+    {
+        //
+        $events = Event::all();
+     
+        return view('users.events')->with('events', $events);
+    }
 
     /**
      * Show the form for creating a new resource.

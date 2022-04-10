@@ -69,7 +69,7 @@
                                 <ul class="navbar-nav m-auto">
 
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#gallery">Gallery</a>
+                                        <a class="page-scroll" href="{{ url('/events')}}">Events</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#pricing">Pricing</a>

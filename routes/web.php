@@ -95,6 +95,7 @@ route::get('/contact','ContactController@index2');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('sponsorsimg','SponsorimgController');
 });
+Route::get('/events','Admin\EventController@geteventind');
 /**
  * Gallery images routing
  */
