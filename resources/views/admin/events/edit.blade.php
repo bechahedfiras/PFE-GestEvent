@@ -34,13 +34,10 @@
                 <img  src="{{asset('../storage/'.$event->photo)}}"   class=" rounded img-40 align-top mr-15">
                 <br> <br>
               
-                <div class="input-group mb-3">
-                 
-                  <div class="custom-file">
-                    <input type="file" name="photo" class="custom-file-input " >
-                    <label class="custom-file-label"  >Choose file</label>
-                  </div>
-                </div>
+                  <div class="form-group">
+                <label>Image de l'evenement</label>
+                 <input type="file" name="photo" class="form-control form-control-primary" >
+              </div>
                 
                  
               </div>
