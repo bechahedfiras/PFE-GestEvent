@@ -19,6 +19,15 @@
               </div>
 
               <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control form-control-primary" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="">Le lieux  </label>
+                  <input type="number" class="form-control form-control-primary"  name="price"  placeholder="Prix" min="0" max="100">
+              </div>
+              <div class="form-group">
                 <label>Image de l'evenement</label>
                  <input type="file" name="photo" class="form-control form-control-primary" >
               </div>
