@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Faculte;
-
+use App\Event;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {   $this->call([RolesTableSeeder::class,
         UsersTableSeeder::class,
         FaculteSeeder::class,
+        EventSeeder::class,
     ]);
        
     }
