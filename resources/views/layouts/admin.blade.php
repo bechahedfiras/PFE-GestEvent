@@ -89,6 +89,10 @@
                                 <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
                             </div>
 
+                            <div class="nav-item {{ \Request::is('*subevents*') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/subevents') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
+                            </div>
+
                             <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
                                 <a href="{{ asset('contactus') }}"><i class="ik ik-message-circle"></i><span>Les messages support</span></a>
                             </div>
