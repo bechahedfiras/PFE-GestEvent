@@ -11,7 +11,7 @@ class FaculteSeeder extends Seeder
      */
     public function run()
     {
-        // factory(App\Faculte::class)->count(10)->create();
-        Faculte::factory()->count(10)->create();
+         factory(App\Faculte::class,10)->create();
+        // Faculte::factory()->count(10)->create();
     }
 }
