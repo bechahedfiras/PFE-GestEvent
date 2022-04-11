@@ -71,10 +71,11 @@ Route::get('/newCode', 'Admin\UsersController@sendNewCode');
 Route::post('/verifyEmail', 'Admin\UsersController@validEmailCode');
 
 /**
- * Events routing
+ * Events & Subevents  routing
  */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('events','EventController');
+    Route::resource('subevents','SubeventController');
     Route::get('dashboard', 'UsersController@adminDashboard');
 });
 
@@ -90,7 +91,7 @@ route::get('/contact','ContactController@index2');
 
 /**
 
- * Events routing
+ * sponsorimg  routing
  */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('sponsorsimg','SponsorimgController');
