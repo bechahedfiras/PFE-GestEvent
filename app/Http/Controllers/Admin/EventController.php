@@ -36,11 +36,13 @@ class EventController extends Controller
      * getsubevent
      */
     public function getsubevent($id)
-    {    $events = Event::all();
+
+    {   $event = Event::findOrFail($id);
+           
         $subevents = DB::table('subevents')->where('event_id','=',$id )->get();
         
      
-        return view('users.subevents')->with('subevents', $subevents);
+        return view('users.subevents')->with('subevents', $subevents)->with('event', $event);
     }
     /**
      * Show the form for creating a new resource.
