@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Event;
-
+use App\Subevent;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -31,7 +32,18 @@ class EventController extends Controller
      
         return view('users.events')->with('events', $events);
     }
+  /**
+     * getsubevent
+     */
+    public function getsubevent($id)
 
+    {   $event = Event::findOrFail($id);
+           
+        $subevents = DB::table('subevents')->where('event_id','=',$id )->get();
+        
+     
+        return view('users.subevents')->with('subevents', $subevents)->with('event', $event);
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
         UsersTableSeeder::class,
         FaculteSeeder::class,
         EventSeeder::class,
+        SubeventSeeder::class,
+       
+        
     ]);
        
     }

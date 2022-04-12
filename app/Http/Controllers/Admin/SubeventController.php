@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Subevent;
+use App\Event;
 use Illuminate\Http\Request;
 
 class SubeventController extends Controller
@@ -14,9 +15,19 @@ class SubeventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $events = Event::all();
         $subevents = Subevent::all();
         return view('admin.subevents.index')->with('subevents', $subevents);
+    }
+    /**
+     * eventsindex
+     */
+    public function getsubeventind()
+    {
+        //
+        $subevents = Subevent::all();
+     
+        return view('users.subevents')->with('subevents', $subevents);
     }
 
     /**
@@ -26,7 +37,8 @@ class SubeventController extends Controller
      */
     public function create()
     {
-        return view('admin.subevents.create');
+        $events = Event::all();
+        return view('admin.subevents.create')->with('events', $events);
     }
 
     /**
@@ -41,7 +53,8 @@ class SubeventController extends Controller
         $subevent->label = $request->input('label');
         $subevent->price = $request->input('price');
         $subevent->description = $request->input('description');
-        $subevent->lieux = $request->input('lieux');
+        $subevent->event_id = $request->input('event');
+       
      
         if($request->hasFile('photo')) {
             
@@ -95,7 +108,7 @@ class SubeventController extends Controller
             $subevent->label = $request->input('label');
             $subevent->price = $request->input('price');
             $subevent->description = $request->input('description');
-            $subevent->lieux = $request->input('lieux');
+            // $subevent->lieux = $request->input('lieux');
             if($request->hasFile('photo')) {
             
                 $subevent->photo = $request->photo->store('image');

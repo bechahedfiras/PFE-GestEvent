@@ -78,7 +78,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
     Route::resource('subevents','SubeventController');
     Route::get('dashboard', 'UsersController@adminDashboard');
 });
-
+Route::get('/events','Admin\EventController@geteventind');
+Route::get('/subevents','Admin\SubeventController@getsubeventind');
+Route::get('getsubevents/{id}','Admin\EventController@getsubevent');
 /**
  * contact routing
  */
@@ -96,7 +98,7 @@ route::get('/contact','ContactController@index2');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('sponsorsimg','SponsorimgController');
 });
-Route::get('/events','Admin\EventController@geteventind');
+
 /**
  * Gallery images routing
  */

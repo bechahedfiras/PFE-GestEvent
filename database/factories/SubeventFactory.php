@@ -1,20 +1,16 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\Subevent;
 use App\Event;
+use App\Subevent;
 use Faker\Generator as Faker;
 
-$factory->define(Event::class, function (Faker $faker) {
+$factory->define(Subevent::class, function (Faker $faker) {
     return [
-        
-        'label' => $faker->catchPhrase,
+        'label' => $faker->sentence(),
         'price' => $faker->biasedNumberBetween($min = 10, $max = 20, $function = 'sqrt'),
-        'lieux' => $faker->state,
         'description' =>$faker->sentence(),
         'photo' => $faker->imageUrl($width = 640, $height = 480) ,
-    
-        
-      
+        'event_id' => Event::get('id')->random(),
     ];
 });
