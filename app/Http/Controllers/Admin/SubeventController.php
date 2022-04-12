@@ -41,7 +41,7 @@ class SubeventController extends Controller
         $subevent->label = $request->input('label');
         $subevent->price = $request->input('price');
         $subevent->description = $request->input('description');
-        $subevent->lieux = $request->input('lieux');
+        // $subevent->lieux = $request->input('lieux');
      
         if($request->hasFile('photo')) {
             
@@ -95,7 +95,7 @@ class SubeventController extends Controller
             $subevent->label = $request->input('label');
             $subevent->price = $request->input('price');
             $subevent->description = $request->input('description');
-            $subevent->lieux = $request->input('lieux');
+            // $subevent->lieux = $request->input('lieux');
             if($request->hasFile('photo')) {
             
                 $subevent->photo = $request->photo->store('image');

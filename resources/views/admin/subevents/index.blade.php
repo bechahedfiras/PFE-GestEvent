@@ -65,7 +65,7 @@
                             <th scope="col">id</th>
                             <th scope="col">details</th>
                             <th scope="col">description</th>
-                            <th scope="col">lieux</th>
+                   
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>
                             <th scope="col">action</th>
@@ -87,8 +87,7 @@
                                         </div>
                                     </div>
                                     <td>{{$subevent->description}}</td>
-                                    <td>{{$subevent->lieux}}</td>
-
+                    
                                     </td>
                                     
                                     <td>{{$subevent->created_at}}</td>

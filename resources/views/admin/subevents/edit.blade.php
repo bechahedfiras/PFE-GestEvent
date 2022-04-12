@@ -24,10 +24,7 @@
                 <textarea class="form-control form-control-primary"  rows="3" name="description">{{$subevent->description}}</textarea>
               </div>
 
-              <div class="form-group">
-                <label for="">Le lieux  </label>
-                  <input type="texte" class="form-control form-control-primary" value="{{$subevent->lieux}}" name="lieux"  placeholder="lieux" >
-              </div>
+              
               
               <div class="form-group">
                 <label>Affiche de l'événement</label><br>

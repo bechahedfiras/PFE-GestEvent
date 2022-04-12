@@ -21,6 +21,9 @@ class CreateEventsTable extends Migration
             $table->string('description');
             $table->string('photo')->nullable();
             $table->timestamps();
+//relation subevent  and event
+            $table->bigInteger('subevent_id')->unsigned();
+            $table->Foreign('subevent_id')->references('id')->on('subevents');
         });
     }
 

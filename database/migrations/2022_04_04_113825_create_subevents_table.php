@@ -17,7 +17,7 @@ class CreateSubeventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('label');
             $table->string('price');
-            $table->string('lieux');
+            // $table->string('lieux');
             $table->string('description');
             $table->string('photo')->nullable();
             $table->timestamps();
