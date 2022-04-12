@@ -13,7 +13,7 @@ $factory->define(Event::class, function (Faker $faker) {
         'lieux' => $faker->state,
         'description' =>$faker->sentence(),
         'photo' => $faker->imageUrl($width = 640, $height = 480) ,
-        'subevent_id' => Subevent::get('id')->random(),
+    
         
       
     ];

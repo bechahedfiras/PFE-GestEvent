@@ -15,7 +15,15 @@
                                         <p class="card-text">{{$event->label}}</p>
                                         <p class="card-text">{{$event->description}}</p>
 
-                                        <button type="submit" class="btn btn-danger">Show more <span><i class="ik ik-x-circle"></i></span></button></a>
+                                        <form action="{{url('getsubevents/'.$event->id)}}" >
+                                       
+    
+                                        
+                                       <button type="submit" class="btn btn-danger">Show more <span><i class="ik ik-x-circle"></i></span></button></a>
+                                   
+                                    
+                                        </form>
+                                       
 
                                     </div>
                                 </div>
