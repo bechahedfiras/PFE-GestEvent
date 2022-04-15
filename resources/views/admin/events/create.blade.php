@@ -22,6 +22,25 @@
                 <label for="exampleFormControlTextarea1">Description</label>
                 <textarea class="form-control form-control-primary" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
               </div>
+              
+                <select class="select" multiple>
+                  <option value="1" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-1.webp"
+                    >One</option
+                  >
+                  <option value="2" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp"
+                    >Two</option
+                  >
+                  <option value="3" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp"
+                    >Three</option
+                  >
+                  <option value="4" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-4.webp"
+                    >Four</option
+                  >
+                  <option value="5" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
+                    >Five</option
+                  >
+                </select>
+
 
               <div class="form-group">
                 <label for="">Le lieux  </label>
