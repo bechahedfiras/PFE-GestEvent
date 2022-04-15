@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Faculte;
+use App\Orgnisationevent;
 
 class User extends Authenticatable
 {
@@ -52,5 +53,9 @@ class User extends Authenticatable
         //Select from facultes where facultes.id = user.faculte_id limit 1
     }
     
+    public function organisationevents()
+    {
+        return $this->hasMany(Orgnisationevent::class);
+    }
 
 }
