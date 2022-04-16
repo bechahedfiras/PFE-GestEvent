@@ -12,7 +12,24 @@
                 <label for="">Nom de l'événement </label>
                   <input type="text" class="form-control form-control-primary"  name="label"  placeholder="Nom" required>
               </div>
+
+             
+
+              <div>
+                <label for="">Organisateur</label>
+                  <select class="form-control form-control-primary" name="event" class="form-control @error('event') is-invalid @enderror" required>
+                    @foreach($eventOgrs as $eventOgr)
+                    <option value="{{ $eventOgr->id }} ">    {{ $eventOgr->name }} </option>
+                         
+                 
+                  @endforeach
+                      </select>
+             </div>
+<br>
+
+
            
+
               <div class="form-group">
                 <label for="">Le prix <span>DT</span> </label>
                   <input type="number" class="form-control form-control-primary"  name="price"  placeholder="Prix" min="0" max="100">
@@ -22,25 +39,6 @@
                 <label for="exampleFormControlTextarea1">Description</label>
                 <textarea class="form-control form-control-primary" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
               </div>
-              
-                <select class="select" multiple>
-                  <option value="1" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-1.webp"
-                    >One</option
-                  >
-                  <option value="2" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp"
-                    >Two</option
-                  >
-                  <option value="3" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp"
-                    >Three</option
-                  >
-                  <option value="4" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-4.webp"
-                    >Four</option
-                  >
-                  <option value="5" data-mdb-icon="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
-                    >Five</option
-                  >
-                </select>
-
 
               <div class="form-group">
                 <label for="">Le lieux  </label>

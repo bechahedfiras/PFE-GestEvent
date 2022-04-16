@@ -1,6 +1,6 @@
 <?php
 use App\Subevent;
-use App\Orgnisationevent;
+use App\Organisateurevent;
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -12,8 +12,8 @@ class Event extends Model
         return $this->hasMany(Subevent::class);
     }
 
-    public function organisationevents()
+    public function organisateurevents()
     {
-        return $this->hasMany(Orgnisationevent::class);
+        return $this->hasMany(Organisateurevent::class);
     }
 }

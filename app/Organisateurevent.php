@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Orgnisationevent extends Model
+class Organisateurevent extends Model
 {
+    public $table = "eventorgs";
     public function event()
     {
         return $this->belongsTo(Event::class,'event_id');

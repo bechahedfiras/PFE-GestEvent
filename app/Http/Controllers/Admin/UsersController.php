@@ -30,7 +30,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {  
+        // $organizaters = User::role('organisateur')->get();
         $users = User::all();
         return view('admin.users.index')->with('users', $users);
     }
@@ -42,7 +43,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
