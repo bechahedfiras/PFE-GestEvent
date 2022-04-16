@@ -12,7 +12,24 @@
                 <label for="">Nom de l'événement </label>
                   <input type="text" class="form-control form-control-primary"  name="label"  placeholder="Nom" required>
               </div>
+
+             
+
+              <div>
+                <label for="">Organisateur</label>
+                  <select class="form-control form-control-primary" name="event" class="form-control @error('event') is-invalid @enderror" required>
+                    @foreach($eventOgrs as $eventOgr)
+                    <option value="{{ $eventOgr->id }} ">    {{ $eventOgr->name }} </option>
+                         
+                 
+                  @endforeach
+                      </select>
+             </div>
+<br>
+
+
            
+
               <div class="form-group">
                 <label for="">Le prix <span>DT</span> </label>
                   <input type="number" class="form-control form-control-primary"  name="price"  placeholder="Prix" min="0" max="100">

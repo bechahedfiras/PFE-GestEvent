@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Event;
 use App\Subevent;
+use App\User;
+use App\HasRoles;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,6 +21,7 @@ class EventController extends Controller
     public function index()
     {
         //
+   
         $events = Event::all();
         return view('admin.events.index')->with('events', $events);
     }
@@ -50,8 +53,18 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.events.create');
+    {  
+        // $users = User::with('roles')->where('id', '3')->get();
+        // $users = User::with('roles')->where('id', '3')->get();
+        // $users = DB::table('role_user')->where('role_id','=',3 )->get();
+        // $organizaters = User::role('organisateur')->get();
+        $eventOgrs = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'organisateur');
+            }
+        )->get();
+        // dd($users);
+        return view('admin.events.create',compact('eventOgrs'));
     }
 
     /**
@@ -100,6 +113,7 @@ class EventController extends Controller
     public function edit($id)
     {
         try {
+            
             $event = Event::findOrFail($id);
             return view('admin.events.edit', ['event' => $event]);
         } catch (\Throwable $th) {

@@ -93,6 +93,9 @@
                                 <a href="{{ asset('admin/subevents') }}"><i class="ik ik-more-horizontal"></i><span>Ajouter un Sous  Evénemment</span></a>
                             </div>
 
+                            <div class="nav-item {{ \Request::is('*eventorgs') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/eventorgs ') }}"><i class="ik ik-more-horizontal"></i><span> Ajouter un Organisateur  Evénemment</span></a>
+                            </div>
                             <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
                                 <a href="{{ asset('contactus') }}"><i class="ik ik-message-circle"></i><span>Les messages support</span></a>
                             </div>
