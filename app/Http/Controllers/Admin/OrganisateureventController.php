@@ -18,8 +18,10 @@ class OrganisateureventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $eventorgs = Organisateurevent::all();
+     {           
+        //   $eventorgs = DB::table('eventorgs')->distinct()->get();
+        
+        $eventorgs = Organisateurevent::distinct('event_id')->orderBy('event_id')->get();;
         return view('admin.eventorgs.index')->with('eventorgs', $eventorgs);
     }
 
