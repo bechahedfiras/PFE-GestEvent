@@ -23,7 +23,7 @@ class CreateSubeventsTable extends Migration
             $table->timestamps();
             //relation subevent  and event
             $table->bigInteger('event_id')->unsigned();
-            $table->Foreign('event_id')->references('id')->on('events');
+            $table->Foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

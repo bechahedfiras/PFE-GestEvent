@@ -115,9 +115,9 @@ class OrganisateureventController extends Controller
         try {
             $eventorg = Organisateurevent::findOrFail($id);
             $eventorg->delete();
-            return redirect('admin/eventorgs')->with('alert_scc', 'Delete successfully');
+            return back()->with('alert_scc', 'Delete successfully');
         } catch (\Throwable $th) {
-            return redirect('admin/eventorgs')->with('alert_err', 'Ops something went wrong, try again.');
+            return back()->with('alert_err', 'Ops something went wrong, try again.');
         }
     }
 }

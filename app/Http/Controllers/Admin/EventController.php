@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Event;
 use App\Subevent;
 use App\User;
+use App\Organisateurevent;
 use App\HasRoles;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -20,32 +21,44 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
-   
+        //kizedna l modal
+        $eventOgrs = User::whereHas('roles', function ($q) {
+            $q->where('name', 'organisateur');
+        })->get();
+
         $events = Event::all();
-        return view('admin.events.index')->with('events', $events);
+        return view('admin.events.index')
+            ->with('events', $events)
+            ->with('eventOgrs', $eventOgrs);
     }
-  /**
+    /**
      * eventsindex
      */
     public function geteventind()
     {
         //
         $events = Event::all();
-     
+
         return view('users.events')->with('events', $events);
     }
-  /**
+    /**
      * getsubevent
      */
     public function getsubevent($id)
-
-    {   $event = Event::findOrFail($id);
-           
-        $subevents = DB::table('subevents')->where('event_id','=',$id )->get();
-        
-     
-        return view('users.subevents')->with('subevents', $subevents)->with('event', $event);
+    {
+        try {
+            $event = Event::findOrFail($id);
+    
+            $subevents = DB::table('subevents')
+                ->where('event_id', '=', $id)
+                ->get();
+    
+            return view('users.subevents')
+                ->with('subevents', $subevents)
+                ->with('event', $event);
+        } catch (\Throwable $th) {
+            return back()->with('error','something went wrong!');
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -53,18 +66,16 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {  
+    {
         // $users = User::with('roles')->where('id', '3')->get();
         // $users = User::with('roles')->where('id', '3')->get();
         // $users = DB::table('role_user')->where('role_id','=',3 )->get();
         // $organizaters = User::role('organisateur')->get();
-        $eventOgrs = User::whereHas(
-            'roles', function($q){
-                $q->where('name', 'organisateur');
-            }
-        )->get();
+        $eventOgrs = User::whereHas('roles', function ($q) {
+            $q->where('name', 'organisateur');
+        })->get();
         // dd($users);
-        return view('admin.events.create',compact('eventOgrs'));
+        return view('admin.events.create', compact('eventOgrs'));
     }
 
     /**
@@ -82,12 +93,10 @@ class EventController extends Controller
         $event->lieux = $request->input('lieux');
         //request image  mil front  baed tsobha f doussi image
         //  baed taffictiha ll objet event image
-        if($request->hasFile('photo')) {
-            
+        if ($request->hasFile('photo')) {
             $event->photo = $request->photo->store('image');
-         }
-       
-        
+        }
+
         $event->save();
         session()->flash('alert_scc', 'creation done  successfully');
         return redirect('admin/events');
@@ -113,9 +122,19 @@ class EventController extends Controller
     public function edit($id)
     {
         try {
+            //kizedna l modal
+            // $eventOgrs = User::whereHas('roles', function ($q) {
+            //     $q->where('name', 'organisateur');
+            // })->get();
             
+            // $eventOgrs = DB::table('eventorgs')
+            // ->where('event_id', '=', $id)
+            // ->get();
+      
+            $eventOgrs = Organisateurevent::where('event_id',$id)->get();
+            $users = User::all();
             $event = Event::findOrFail($id);
-            return view('admin.events.edit', ['event' => $event]);
+            return view('admin.events.edit', ['event' => $event, 'eventOgrs' => $eventOgrs, 'users' => $users]);
         } catch (\Throwable $th) {
             return redirect('admin/events')->with('alert_err', 'Ops id not found');
         }
@@ -136,10 +155,9 @@ class EventController extends Controller
             $event->price = $request->input('price');
             $event->description = $request->input('description');
             $event->lieux = $request->input('lieux');
-            if($request->hasFile('photo')) {
-            
+            if ($request->hasFile('photo')) {
                 $event->photo = $request->photo->store('image');
-             }
+            }
             $event->save();
             return redirect('admin/events')->with('alert_scc', 'updated successfully');
         } catch (\Throwable $th) {
@@ -153,7 +171,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
         try {
             $event = Event::find($id);
