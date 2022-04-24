@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
 {{-- CDN MDB --}}
 <!-- Font Awesome -->
 <link
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href={{asset('../admin/plugins/ionicons/dist/css/ionicons.min.css')}}>
     <link rel="stylesheet" href={{asset('../admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}>
     <link rel="stylesheet" href={{asset('../admin/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}>
-    <link rel="stylesheet" href={{asset('../admin/plugins/jvectormap/jquery-jvectormap.css')}}>
+    
     <link rel="stylesheet" href={{asset('../admin/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css')}}>
     <link rel="stylesheet" href={{asset('../admin/plugins/weather-icons/css/weather-icons.min.css')}}>
     <link rel="stylesheet" href={{asset('../admin/plugins/c3/c3.min.css')}}>
@@ -89,6 +89,10 @@
                                 <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
                             </div>
 
+                            {{-- <div class="nav-item {{ \Request::is('*eventsajax') ? 'active' : '' }}">
+                                <a href="{{ asset('admin/eventsajax') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
+                            </div> --}}
+
                             <div class="nav-item {{ \Request::is('*subevents') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/subevents') }}"><i class="ik ik-more-horizontal"></i><span>Ajouter un Sous  Evénemment</span></a>
                             </div>
@@ -131,7 +135,7 @@
 ></script>
 
 {{--js END CDN MDB --}}
-    <script src="../admin/https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="admin/src/js/vendor/jquery-3.3.1.min.js"><\/script>')
     </script>
@@ -171,6 +175,12 @@
         ga('create', 'UA-XXXXX-X', 'auto');
         ga('send', 'pageview');
     </script>
+        {{---------------------------jquery and ajax cdn ----------------------}}
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        {{---------------------------jquery and ajax cdn ----------------------}}
+
+{{-- @stack('scripts') --}}
+@yield('scripts') 
 </body>
 
 </html>

@@ -81,13 +81,22 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 Route::get('/events','Admin\EventController@geteventind');
 Route::get('/subevents','Admin\SubeventController@getsubeventind');
 Route::get('getsubevents/{id}','Admin\EventController@getsubevent');
+/**
+ * Events with Ajax  routing
+ */
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
+    
+    Route::resource('eventsajax','EventAjaxController');
+   
+});
+
+
 
 /**
- * Events & Subevents  routing
+ * Events organisation  routing
  */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
     Route::resource('eventorgs','OrganisateureventController');
- 
 });
 
 
