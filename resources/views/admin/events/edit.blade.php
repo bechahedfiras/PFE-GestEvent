@@ -63,9 +63,10 @@
     </div>
     <div class="row clearfix ">
 
-      <div class="col-6 mb-50">
-        <img src="{{asset('../storage/'.$event->photo)}}"
-        class="img-fluid rounded-9  border border-danger">
+      <div class="col-6 mb-50 bg-image hover-zoom  rounded-9
+      hover-overlay hover-zoom hover-shadow ripple">
+        <img src="{{asset('../storage/'.$event->photo)}} "
+        class="img-fluid rounded-9  border border-danger cw-100" >
       </div>
 
 
@@ -428,4 +429,6 @@
       </div>
   </div>
 </div>
+
+
 @endsection
