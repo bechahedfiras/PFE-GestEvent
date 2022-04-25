@@ -93,7 +93,7 @@
                       {{ csrf_field() }} {{ method_field('DELETE') }}
 
                       <td>
-                          <button type="submit" class="btn btn-danger">
+                          <button type="submit" class="btn btn-danger rounded-pill">
                               Delete<span> <i class="ik ik-x-circle"></i></span>
                           </button>
                       </td>
@@ -141,7 +141,7 @@
                      
                         <form action="{{url('admin/subevents/'.$subevent->id)}}" method="post">
                           <a href="{{url('admin/subevents/'.$subevent->id.'/edit')}}">
-                              <button type="button" class="btn btn-primary">Modifier <span><i class="ik ik-edit-1"></i></span></button></a>
+                              <button type="button" class="btn btn-danger rounded-pill">Modifier <span><i class="ik ik-edit-1"></i></span></button></a>
 
 
                       
@@ -267,7 +267,7 @@
                                             {{ csrf_field() }} {{ method_field('DELETE') }}
 
                                             <td>
-                                                <button type="submit" class="btn btn-danger">
+                                                <button type="submit" class="btn btn-danger rounded-pill ">
                                                     Delete<span> <i class="ik ik-x-circle"></i></span>
                                                 </button>
                                             </td>
