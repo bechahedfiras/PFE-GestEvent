@@ -130,11 +130,18 @@ class EventController extends Controller
             // $eventOgrs = DB::table('eventorgs')
             // ->where('event_id', '=', $id)
             // ->get();
-      
+       
             $eventOgrs = Organisateurevent::where('event_id',$id)->get();
             $users = User::all();
+            $events = Event::all();
+            $subevents = Subevent::where('event_id',$id)->get();
             $event = Event::findOrFail($id);
-            return view('admin.events.edit', ['event' => $event, 'eventOgrs' => $eventOgrs, 'users' => $users]);
+            return view('admin.events.edit', ['event' => $event,
+             'eventOgrs' => $eventOgrs,
+             'users' => $users,
+             'subevents' => $subevents,
+             'events' => $events,
+            ]);
         } catch (\Throwable $th) {
             return redirect('admin/events')->with('alert_err', 'Ops id not found');
         }
