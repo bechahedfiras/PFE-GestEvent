@@ -13,14 +13,35 @@
 
 
 
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],function(){
+    Route::get('/','HomeController@welcome');
+    
+});
 
-route::get('/','HomeController@welcome');
+
 
 Auth::routes();
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],function(){
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm');
+    Route::get('login', 'Auth\LoginController@showLoginForm');
+    route::get('/contact','ContactController@index2');
+    Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+
+
+
+
+
+
+
+
 
 
 
@@ -73,10 +94,12 @@ Route::post('/verifyEmail', 'Admin\UsersController@validEmailCode');
 /**
  * Events & Subevents  routing
  */
+
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','auth')->group(function(){
-    Route::resource('events','EventController');
-    Route::resource('subevents','SubeventController');
-    Route::get('dashboard', 'UsersController@adminDashboard');
+
+        Route::resource('events','EventController');
+        Route::resource('subevents','SubeventController');
+        Route::get('dashboard', 'UsersController@adminDashboard');
 });
 Route::get('/events','Admin\EventController@geteventind');
 Route::get('/subevents','Admin\SubeventController@getsubeventind');
@@ -108,7 +131,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 Route::post('contact','ContactController@store');
 Route::get('contactus','ContactController@index')->middleware('admin','auth');
 Route::delete('contactus/{id}','ContactController@destroy')->middleware('admin','auth');
-route::get('/contact','ContactController@index2');
+
 
 /**
 

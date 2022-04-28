@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
 <header class="header top-spacer">
    
 </header>
@@ -56,7 +60,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-envelope text-muted"></i>
+                                <i class="fa fa-university text-muted"></i>
                             </span>
                         </div>
                          <select class="form-control" name="faculte" class="form-control @error('faculte') is-invalid @enderror" required>

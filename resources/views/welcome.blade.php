@@ -10,9 +10,9 @@
                         <div data-countdown="2022/10/01"></div>
 
                         <div class="header-content text-center">
-                            <h2 class="header-title">25 <sup>th</sup> Designers Meetup</h2>
-                            <h3 class="sub-title">25 September, 2022 in New York</h3>
-
+                            <h2 class="header-title">{{__('welcome.Designers Meetup')}}</h2>
+                            <h3 class="sub-title">{{__('welcome.25 September, 2022 in New York')}}</h3>
+                            
 
                         </div> <!-- header content -->
                     </div>
@@ -34,9 +34,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title text-center pb-50">
-                        <h2 class="title">Event Gallery</h2>
-                        <p class="text">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent
-                            mediocritatem reiciendis odit sed, vero amet blanditiis cule dicta iriure at phaedrum.</p>
+                        <h2 class="title">{{__('welcome.Event Gallery')}}</h2>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -96,7 +94,7 @@
 
     <!--====== PRICING PART START ======-->
 
-    <section id="pricing" class="pricing-area pt-115 pb-200">
+    {{-- <section id="pricing" class="pricing-area pt-115 pb-200">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -184,7 +182,7 @@
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
-    </section>
+    </section> --}}
 
     <!--====== PRICING PART ENDS ======-->
 
@@ -195,9 +193,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title text-center pb-50">
-                        <h2 class="title">Event Sponsors</h2>
-                        <p class="text">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent
-                            mediocritatem reiciendis odit sed, vero amet blanditiis cule dicta iriure at phaedrum.</p>
+                        <h2 class="title">{{__('welcome.Event Sponsors')}}</h2>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
