@@ -2,12 +2,12 @@
 <div class="container-fluid">
   @if (session('alert_scc'))
                 <br>
-                <div class="alert alert-success m-auto w-50 m-auto text-center">
+                <div class="alert alert-danger m-auto w-75 mb-50 text-center">
                     {{ session('alert_scc') }}
                 </div>
                 @endif @if (session('alert_err'))
                 <br>
-                    <div class="alert alert-danger m-auto w-50 m-auto text-center">
+                    <div class="alert alert-danger m-auto w-75 mb-50  text-center">
                         {{ session('alert_err') }}
                     </div>
                 @endif

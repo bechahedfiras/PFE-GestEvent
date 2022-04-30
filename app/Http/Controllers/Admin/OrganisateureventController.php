@@ -52,7 +52,7 @@ class OrganisateureventController extends Controller
 
         $eventorg->save();
         session()->flash('alert_scc', 'creation done  successfully');
-        return redirect('admin/eventorgs');
+        return redirect('admin/events/'.$request->input('event').'/edit');
     }
 
     /**
@@ -75,7 +75,7 @@ class OrganisateureventController extends Controller
     public function edit($id)
     {   try{
         $users = User::all();
-       
+     
         $eventorg = Organisateurevent::findOrFail($id);
         return view('admin.eventorgs.edit', ['eventorg' => $eventorg,'users' => $users]);
     }catch(\Throwable $th) {

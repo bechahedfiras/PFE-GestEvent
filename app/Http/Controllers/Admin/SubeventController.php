@@ -64,7 +64,7 @@ class SubeventController extends Controller
         
         $subevent->save();
         session()->flash('alert_scc', 'creation done  successfully');
-        return redirect('admin/subevents'); 
+        return redirect('admin/events/'.$request->input('event').'/edit'); 
     }
 
     /**
@@ -114,9 +114,9 @@ class SubeventController extends Controller
                 $subevent->photo = $request->photo->store('image');
              }
             $subevent->save();
-            return redirect('admin/subevents')->with('alert_scc', 'updated successfully');
+            return redirect('admin/events/'.$subevent->event->id.'/edit')->with('alert_scc', 'updated successfully');
         } catch (\Throwable $th) {
-            return redirect('admin/subevents')->with('alert_err', 'Ops something went wrong, try again.');
+            return redirect('admin/events/'.$subevent->event->id.'/edit')->with('alert_err', 'Ops something went wrong, try again.');
         }
     }
 
@@ -131,7 +131,7 @@ class SubeventController extends Controller
         try {
             $subevent = Subevent::findOrFail($id);
             $subevent->delete();
-            return redirect('admin/subevents')->with('alert_scc', 'Delete successfully');
+            return redirect('admin/events/'.$subevent->event->id.'/edit')->with('alert_scc', 'Delete successfully');
         } catch (\Throwable $th) {
             return redirect('admin/subevents')->with('alert_err', 'Ops something went wrong, try again.');
         }

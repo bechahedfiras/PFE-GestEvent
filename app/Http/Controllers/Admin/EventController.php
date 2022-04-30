@@ -130,7 +130,9 @@ class EventController extends Controller
             // $eventOgrs = DB::table('eventorgs')
             // ->where('event_id', '=', $id)
             // ->get();
-       
+
+            $numberOfOrgs = Organisateurevent::all();
+        
             $eventOgrs = Organisateurevent::where('event_id',$id)->get();
             $users = User::all();
             $events = Event::all();
@@ -141,8 +143,10 @@ class EventController extends Controller
              'users' => $users,
              'subevents' => $subevents,
              'events' => $events,
+             'numberOfOrgs',$numberOfOrgs,
             ]);
         } catch (\Throwable $th) {
+            
             return redirect('admin/events')->with('alert_err', 'Ops id not found');
         }
     }
@@ -166,9 +170,9 @@ class EventController extends Controller
                 $event->photo = $request->photo->store('image');
             }
             $event->save();
-            return redirect('admin/events')->with('alert_scc', 'updated successfully');
+            return redirect('admin/events/'.$event->id.'/edit')->with('alert_scc', 'updated successfully');
         } catch (\Throwable $th) {
-            return redirect('admin/events')->with('alert_err', 'Ops something went wrong, try again.');
+            return redirect('admin/events/'.$event->id.'/edit')->with('alert_err', 'Ops something went wrong, try again.');
         }
     }
 

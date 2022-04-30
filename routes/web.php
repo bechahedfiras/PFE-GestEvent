@@ -34,6 +34,12 @@ Auth::routes();
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     Route::get('/home', 'HomeController@index')->name('home');
+    /*
+    event routing
+    */
+    Route::get('/events','Admin\EventController@geteventind');
+    Route::get('/subevents','Admin\SubeventController@getsubeventind');
+    Route::get('getsubevents/{id}','Admin\EventController@getsubevent');
 });
 
 
@@ -103,9 +109,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
         Route::resource('subevents','SubeventController');
         Route::get('dashboard', 'UsersController@adminDashboard');
 });
-Route::get('/events','Admin\EventController@geteventind');
-Route::get('/subevents','Admin\SubeventController@getsubeventind');
-Route::get('getsubevents/{id}','Admin\EventController@getsubevent');
+
 
 
 
