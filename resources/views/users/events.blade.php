@@ -43,7 +43,7 @@
    
               <div class="card ">
                 <div class="card-body d-flex flex-row ">
-                    
+               
                         <img src="{{asset('../storage/'.$event->photo)}}" class="rounded-circle me-3" height="50px"
                         width="50px" alt="avatar" />
                       <div>
@@ -69,10 +69,17 @@
                         <a class="btn btn-link link-warning p-md-1 my-1" data-mdb-toggle="collapse" href="#collapseContent"
                           role="button" aria-expanded="false" aria-controls="collapseContent">Read more</a>
                         <div>
-                          <i class="fas fa-share-alt text-muted p-md-1 my-1 me-2" data-mdb-toggle="tooltip"
-                            data-mdb-placement="top" title="Share this post"></i>
-                          <i class="fas fa-heart  p-md-1 my-1 me-0" data-mdb-toggle="tooltip" data-mdb-placement="top"
-                            title="I like it"></i>
+                          <form action="{{url('/add-to-cart')}}" method="POST" 
+                                class="alert alert-warning text-danger">
+                             @csrf
+                             {{-- <input type="hidden" name="user_id" value="{{$event->id}}"> --}}
+                              <input type="hidden" name="event_id" value="{{$event->id}}">
+                              <button type="submit" class="btn btn-danger">ADD TO CART</button>
+                        <form>
+                   
+                            
+                            
+                          
                         </div>
                      
                       

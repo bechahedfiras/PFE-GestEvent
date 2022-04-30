@@ -10,9 +10,13 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "backpack/permissionmanager": "^6.0",
+        "darryldecode/cart": "^4.2",
         "fideloper/proxy": "^4.4",
+        "hwi/oauth-bundle": "^1.4",
         "laravel/framework": "^6.20.26",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-http/httplug-bundle": "^1.26"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",
