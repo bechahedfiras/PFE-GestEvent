@@ -51,7 +51,10 @@
                 @php $total = 0; @endphp
        
                     @foreach( $events as  $event)
-                   
+                               
+                            @php
+                                $total += $event->price;
+                            @endphp
                         <tr>
                             <td>
                                 <div class="col-6 mb-50  ">
@@ -72,7 +75,9 @@
                                 <a href="/remove/{{$event->cart_id}}"
                                  class="btn btn-danger rounded-pill btn-sm">X</a>
                             </td>
+
                         </tr>
+                        
                  @endforeach
                  
                         
@@ -99,6 +104,7 @@
                         </form>
 
                     </td>
+                   
                     <td colspan="2"></td>
                     <td><strong>Total {{$total}} DT</strong></td>
                 </tr>

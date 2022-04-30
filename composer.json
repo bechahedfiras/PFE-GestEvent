@@ -15,11 +15,9 @@
         "hwi/oauth-bundle": "^1.4",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
-
+        "mcamara/laravel-localization": "^1.7",
         "php-http/guzzle6-adapter": "^2.0",
-
-        "mcamara/laravel-localization": "^1.7"
-
+        "php-http/httplug-bundle": "^1.26"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",
