@@ -1,5 +1,6 @@
 <?php
 use App\Subevent;
+use App\Cart;
 use App\Organisateurevent;
 namespace App;
 
@@ -15,5 +16,9 @@ class Event extends Model
     public function organisateurevents()
     {
         return $this->hasMany(Organisateurevent::class);
+    }
+
+    public function carts(){
+        return $this->hasMany('App\Cart');
     }
 }

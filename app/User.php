@@ -1,5 +1,5 @@
 <?php
-
+use App\Cart;
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -59,6 +59,10 @@ class User extends Authenticatable
     public function organisateurevents()
     {
         return $this->hasMany(Organisateurevent::class);
+    }
+
+    public function carts(){
+        return $this->hasMany('App\Cart');
     }
 
 }

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,11 +48,15 @@
 
 <body>
     <div id="app">
-
+      
         <div class="navbar-area navbar-two" style="background: linear-gradient(to right, #102baf 0%, #1664ff 100%);">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                         <?php
+                        use App\Http\Controllers\CartController;
+                        $total=CartController::cartitem();
+                        ?> 
                         <nav class="navbar navbar-expand-lg ">
                             <a class="navbar-brand" href="{{ url('/') }}">
                                 <img src={{ asset('/template/images/logo.png') }} alt="Logo">
@@ -74,6 +78,9 @@
                                     
                                     <li class="nav-item">
                                         <a class="page-scroll" href="{{ url('/contact') }}">{{__('app.contact')}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{{ url('/cart-List') }}"><i class="fas fa-cart-plus">( {{$total}}) Panier</i></a>
                                     </li>
                                 </ul>
                                 
@@ -133,7 +140,7 @@
         </main>
         <!--====== FOOTER PART START ======-->
 
-        <section id="footer" class="footer-area bg_cover " style="background-image: url(assets/images/footer.jpg)">
+        <section id="footer" class="footer-area bg_cover mt-180" style="background-image: url(assets/images/footer.jpg)">
             <div class="footer-widget">
                 <div class="container">
                     <div class="widget  pt-80 pb-130">

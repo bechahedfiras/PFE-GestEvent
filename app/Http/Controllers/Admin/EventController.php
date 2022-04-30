@@ -38,7 +38,7 @@ class EventController extends Controller
     {
         //
         $events = Event::all();
-
+      
         return view('users.events')->with('events', $events);
     }
     /**
