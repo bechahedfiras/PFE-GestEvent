@@ -73,21 +73,20 @@
                                 <ul class="navbar-nav m-auto">
 
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="{{ url('/events')}}">Events</a>
+                                        <a class="page-scroll" href="{{ url('/events')}}">{{__('app.events')}}</a>
                                     </li>
+                                    
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#pricing">Pricing</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="{{ url('/contact') }}">Contact</a>
+                                        <a class="page-scroll" href="{{ url('/contact') }}">{{__('app.contact')}}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="page-scroll" href="{{ url('/cart-List') }}"><i class="fas fa-cart-plus">( {{$total}}) Panier</i></a>
                                     </li>
                                 </ul>
+                                
                                 @if (!Auth::user())
-                                    <a class="main-btn mr-3" href="{{ route('login') }}">Sign in</a>
-                                    <a class="main-btn" href="{{ route('register') }}">Sign up</a>
+                                    <a class="main-btn mr-3" href="{{ route('login') }}">{{__('app.Sign in')}}</a>
+                                    <a class="main-btn" href="{{ route('register') }}">{{__('app.Sign up')}}</a>
                                 @else
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
                                         style="color: aliceblue" role="button" data-toggle="dropdown"
@@ -97,12 +96,12 @@
                                     
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         @can('manage-users')
-                                            <a href="{{ route('admin.users.index') }}" class="dropdown-item">Dashboard</a>
+                                            <a href="{{ route('admin.users.index') }}" class="dropdown-item">{{__('app.dashboard')}}</a>
                                         @endcan
-                                        <a href="{{ route('users.edit-profile') }}" class="dropdown-item">My Profile</a>
+                                        <a href="{{ route('users.edit-profile') }}" class="dropdown-item">{{__('app.my profile')}}</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('app.Logout') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -112,10 +111,25 @@
                                     </div>
                                     </li>
                                 @endif
+
+                               
                             </div>
 
-
+                            <div class="btn-group ml-3">
+                                <button type="button" class="btn btn-primary mr-3 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    
+                                    {{ LaravelLocalization::getCurrentLocaleNative() }}
+                                    
+                                </button>
+                                <div class="dropdown-menu">
+                                  
+                                  @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
+                                  @endforeach
+                                </div>
+                              </div>
                         </nav> <!-- navbar -->
+                       
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->
@@ -133,17 +147,16 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="footer-address mt-40">
-                                    <h5 class="f-title">Venue Location</h5>
-                                    <p class="text">18 - 21 DECEMBER, 2022 <br> 51 Francis Street, Cesare
-                                        Rosaroll, 118 80139 Eventine</p>
-                                    <a class="contact-link" href="#">Contact Our Authority</a>
+                                    <h5 class="f-title"></h5>
+                                    <p class="text">{{__('app.emplacement')}}
+                                        </p>
+                                    <a class="contact-link" href="{{ url('/contact') }}">{{__('app.location')}}</a>
                                 </div> <!-- footer address -->
                             </div>
                             <div class="col-lg-6">
                                 <div class="footer-contact mt-40">
-                                    <h5 class="f-title">Social Connection</h5>
-                                    <p class="text">Don't miss a thing! Receive daily news You should connect
-                                        social area for Any Proper Updates Anytime</p>
+                                    <h5 class="f-title">{{__('app.Social Connection')}}</h5>
+                                    <p class="text">{{__('app.Dont miss')}}</p>
                                     <ul class="social">
                                         <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
                                         <li><a href="#"><i class="lni-twitter-original"></i></a></li>
@@ -195,7 +208,15 @@
 
     <!--====== Main js ======-->
     <script src={{ asset('/template/js/main.js') }}></script>
-
+    <script>
+        var days = '{{__('app.days')}}';
+        $('[data-countdown]').each(function() {
+                var $this = $(this), finalDate = $(this).data('countdown');
+                    $this.countdown(finalDate, function(event) {
+                    $this.html(event.strftime('<div class="header-countdown pt-70 d-flex justify-content-center"><div class="single-count-content count-color-1"><span class="count">%D</span><p class="text">{{__('app.days')}}</p></div><div class="single-count-content count-color-2"><span class="count">%H</span><p class="text">{{__('app.hours')}}</p></div><div class="single-count-content count-color-3"><span class="count">%M</span><p class="text">{{__('app.minutes')}}</p></div><div class="single-count-content count-color-4"><span class="count">%S</span><p class="text">{{__('app.seconds')}}</p></div></div>'));
+                });
+            });
+    </script>
 </body>
 
 </html>

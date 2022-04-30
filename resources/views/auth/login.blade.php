@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
 <header class="header top-spacer">
    
 </header>
@@ -11,7 +15,7 @@
         <!-- For Demo Purpose -->
         <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
             <img src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
-            <h1>Sign in</h1>
+            <h1>{{__('login.Sign in')}}</h1>
             
         
         </div>
@@ -29,7 +33,7 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input id="email" placeholder="E-mail" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" placeholder="{{__('login.Email')}}" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -45,7 +49,7 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" placeholder="{{__('login.Password')}}" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +58,7 @@
                                 @enderror
                     </div>
                      <!-- remember me -->
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <div class="col-md-6 offset-md-4">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -64,12 +68,12 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group row">
                         <div class="col-md-12 offset-md-4">
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                    {{ __('login.Forgot Your Password?') }}
                                 </a>
                             @endif
                         </div>
@@ -80,12 +84,12 @@
                     <div class="form-group col-lg-12 mx-auto mb-0">
                         
                         <button type="submit" class="btn btn-primary btn-block py-2">
-                            {{ __('Sign in') }}
+                            {{ __('login.Sign in') }}
                         </button>
                     </div>
                     <!-- Already Registered -->
                     <div class="text-center w-100">
-                        <p class="text-muted font-weight-bold">Don't have an account? <a href="{{ route('register') }}" class="text-primary ml-2">Sign up</a></p>
+                        <p class="text-muted font-weight-bold">{{__('login.Don t have an account?')}}<a href="{{ route('register') }}" class="text-primary ml-2">{{ __('login.Sign up') }}</a></p>
                     </div>
 
                 </div>
