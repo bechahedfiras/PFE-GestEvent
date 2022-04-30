@@ -12,11 +12,11 @@
   rel="stylesheet"
 />
 <!-- MDB -->
-{{-- 
+
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
   rel="stylesheet"
-/>--}}
+/>
 <style>
 
     .fas.fa-heart:hover {
@@ -49,7 +49,7 @@
                         width="50px" alt="avatar" />
                       <div>
                         <h5 class="card-title font-weight-bold mb-2">{{$event->label}}</h5>
-                        <p class="card-text"><i class="fa-thin fa-dollar-sign"></i> {{$event->price}} DT</p>
+                        <p class="card-text"> {{$event->price}} DT</p>
                       </div>
                     </div>
                     <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
@@ -125,9 +125,9 @@
 
 
 <!-- MDB -->
-{{-- 
+
 <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
-></script>--}}
+></script>
 @endsection
