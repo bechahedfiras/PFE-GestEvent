@@ -42,8 +42,8 @@
                 <tr>
                     <th width="50%">Event</th>
                     <th width="10%">Price</th>
-                    <th width="8%">Quantity</th>
-                    <th width="22%">Sub Total</th>
+                
+                    <th width="22%">Actions</th>
                     <th width="10%"></th>
                 </tr>
                 </thead>
@@ -69,7 +69,7 @@
                             </td>
                             <td>{{$event->price}} DT</td>
                        
-                            <td> DT</td>
+                            
                             <td>
                                  
                                 <a href="/remove/{{$event->cart_id}}"

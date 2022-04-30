@@ -16,8 +16,8 @@
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
   rel="stylesheet"
-/>
-<style>
+ />
+<style> 
 
     .fas.fa-heart:hover {
       color: #3672f4 !important;
