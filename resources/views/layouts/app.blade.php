@@ -43,7 +43,10 @@
 
     <!--====== Style css ======-->
     <link rel="stylesheet" href={{ asset('/template/css/style.css') }}>
-
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
@@ -80,7 +83,7 @@
                                         <a class="page-scroll" href="{{ url('/contact') }}">{{__('app.contact')}}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="{{ url('/cart-List') }}"><i class="fas fa-cart-plus">( {{$total}}) Panier</i></a>
+                                        <a class="page-scroll" href="{{ url('/cart-List') }}"><i class="fa-solid fa-cart-shopping"></i> {{$total}}</i></a>
                                     </li>
                                 </ul>
                                 
