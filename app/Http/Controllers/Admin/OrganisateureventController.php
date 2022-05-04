@@ -21,7 +21,7 @@ class OrganisateureventController extends Controller
      {           
         //   $eventorgs = DB::table('eventorgs')->distinct()->get();
         
-        $eventorgs = Organisateurevent::distinct('event_id')->orderBy('event_id')->get();;
+        $eventorgs = Organisateurevent::distinct('event_id')->orderBy('event_id')->get();
         return view('admin.eventorgs.index')->with('eventorgs', $eventorgs);
     }
 
