@@ -47,12 +47,7 @@ class EventController extends Controller
     public static function getsubevent($id)
     {
         
-        // $eventOgrs = User::whereHas(
-        //     'roles', function($q){
-        //         $q->where('name', 'organisateur');
-        //     }
-        // )->get();
-        // $eventOgrs = User::roles('organisateur')->get();
+        
         $eventOgrs = Organisateurevent::where('event_id',$id)->get();
      
 
