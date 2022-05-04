@@ -46,7 +46,16 @@ class EventController extends Controller
      */
     public function getsubevent($id)
     {
-        try {
+        
+        // $eventOgrs = User::whereHas(
+        //     'roles', function($q){
+        //         $q->where('name', 'organisateur');
+        //     }
+        // )->get();
+        $eventOgrs = User::roles('organisateur')->get();
+
+        dd($eventOgrs);
+
             $event = Event::findOrFail($id);
     
             $subevents = DB::table('subevents')
@@ -55,10 +64,9 @@ class EventController extends Controller
     
             return view('users.subevents')
                 ->with('subevents', $subevents)
-                ->with('event', $event);
-        } catch (\Throwable $th) {
-            return back()->with('error','something went wrong!');
-        }
+                ->with('event', $event)
+                ->with('eventOgrs', $eventOgrs);
+        
     }
     /**
      * Show the form for creating a new resource.
