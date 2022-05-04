@@ -44,7 +44,7 @@ class EventController extends Controller
     /**
      * getsubevent
      */
-    public function getsubevent($id)
+    public static function getsubevent($id)
     {
         
         // $eventOgrs = User::whereHas(
@@ -52,11 +52,11 @@ class EventController extends Controller
         //         $q->where('name', 'organisateur');
         //     }
         // )->get();
-        $eventOgrs = User::roles('organisateur')->get();
+        // $eventOgrs = User::roles('organisateur')->get();
+        $eventOgrs = Organisateurevent::where('event_id',$id)->get();
+     
 
-        dd($eventOgrs);
-
-            $event = Event::findOrFail($id);
+           $event = Event::findOrFail($id);
     
             $subevents = DB::table('subevents')
                 ->where('event_id', '=', $id)

@@ -15,7 +15,7 @@
 
              
 
-              <div>
+              {{-- <div>
                 <label for="">Organisateur</label>
                   <select class="form-control form-control-primary" name="event" class="form-control @error('event') is-invalid @enderror" required>
                     @foreach($eventOgrs as $eventOgr)
@@ -24,7 +24,7 @@
                  
                   @endforeach
                       </select>
-             </div>
+             </div> --}}
 <br>
 
 
