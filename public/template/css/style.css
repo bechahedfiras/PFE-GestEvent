@@ -2049,3 +2049,6 @@ p {
 .top-spacer{
   padding-top: 10% !important;
 }
+.b-spacer{
+  padding-bottom: 3%;
+}
