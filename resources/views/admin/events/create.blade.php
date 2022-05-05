@@ -41,6 +41,12 @@
               </div>
 
               <div class="form-group">
+                <label for="">Evenement date</label>
+                  <input type="date" class="form-control form-control-primary"  name="dateevent"  
+                  data-date-format=" YYYY MMMM DD  " >
+              </div>
+
+              <div class="form-group">
                 <label for="">Le lieux  </label>
                   <input type="texte" class="form-control form-control-primary"  name="lieux"  placeholder="lieux" >
               </div>

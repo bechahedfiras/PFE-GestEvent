@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <h2 class="card-title">{{ $event->label }}</h2>
                         <p class="card-text">{{ $event->description }}</p>
-                        <div data-countdown="2022/10/01" class="w-100"></div>
+                        <div data-countdown="{{trim($event->dateevent)}}" class="w-100"></div>
                         <form action="{{ url('/add-to-cart') }}" method="POST">
                             @csrf
                             {{-- <input type="hidden" name="user_id" value="{{$event->id}}"> --}}

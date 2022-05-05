@@ -89,9 +89,17 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+
+        // $request->validate([
+           
+        //     'dateevent' => 'date_format:Y/m/d'
+        // ]);
+
         $event = new Event();
         $event->label = $request->input('label');
         $event->price = $request->input('price');
+
+        $event->dateevent = $request->input('dateevent');
         $event->description = $request->input('description');
         $event->lieux = $request->input('lieux');
         //request image  mil front  baed tsobha f doussi image
