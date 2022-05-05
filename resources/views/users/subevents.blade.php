@@ -1,7 +1,9 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="top-spacer">
 
+</div>
 
     <!-- Page content-->
     <div class="container">
