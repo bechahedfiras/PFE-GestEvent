@@ -134,20 +134,22 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 /**
  * Add To Cart   routing
  */
+Route::group(['middleware' => ['auth', 'verifyemail']], function () {
 
     // Route::resource('cart','CartController');
     Route::get('/cart','CartController@index');
    
     // Route::get('/add/cart/{event}','CartController@addEventToCart')->name('add-cart');
     Route::post('/add-to-cart','CartController@addEventToCart')->name('add-cart');
-   
+    Route::post('/add-sub-event-to-cart','CartController@addSubEventToCart')->name('add-sub-event-cart');
+
     Route::get('/cart-List','CartController@ShowCartList')->name('allCart');
     // Route::delete('/remove/{id}','CartController@removeEventFromCart')->name('remove-cart');
     Route::get('/remove/{id}','CartController@removeEventFromCart')->name('remove-cart');
     Route::get('/change-qty/{event}', 'CartController@changeQty')->name('change_qty');
     // Route::put('/update/{event}/cart','CartController@updateEventOnCart');
 
-
+});
 /**
  * contact routing
  */

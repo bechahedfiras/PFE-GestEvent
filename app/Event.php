@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    protected $fillable = [
+        'label','price','dateevent','lieux','description','photo'
+    ];
+
     public function subevents()
     {
         return $this->hasMany(Subevent::class);

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 use Session;
 
-
 class CartController extends Controller
 {
     /**
@@ -21,109 +20,107 @@ class CartController extends Controller
      */
     public function index()
     {
-
-      
-        return view ('users.cart.index');
+        return view('users.cart.index');
     }
-/**
+    /**
      *   addEventToCart
      *
-     * 
+     *
      */
- // $cart = session()->get('cart');
-        
-        //     if (!$cart) {
-        //         $cart = [$event->id => $this->sessionData($event)];
-               
-       
-        //       session()->put('cart',$cart);
-             
-        //     }
-        //     if (isset($cart[$event->id])) {
-        //         $cart[$event->id]['quantity']++;
-        //         session()->put('cart',$cart);
-        //         return redirect()->view('users.cart.index')->with('alert_scc', 'Event Added to Cart');
-        //                                   }
-        //     $cart = [$event->id => $this->sessionData($event)];
+    // $cart = session()->get('cart');
 
-        //     session()->put('cart',$cart);
-        //     return redirect('/cart')->with('alert_scc', 'Event Added to Cart');
-        
+    //     if (!$cart) {
+    //         $cart = [$event->id => $this->sessionData($event)];
+
+    //       session()->put('cart',$cart);
+
+    //     }
+    //     if (isset($cart[$event->id])) {
+    //         $cart[$event->id]['quantity']++;
+    //         session()->put('cart',$cart);
+    //         return redirect()->view('users.cart.index')->with('alert_scc', 'Event Added to Cart');
+    //                                   }
+    //     $cart = [$event->id => $this->sessionData($event)];
+
+    //     session()->put('cart',$cart);
+    //     return redirect('/cart')->with('alert_scc', 'Event Added to Cart');
+
+    public function addSubEventToCart(Request $request)
+    {
+        $checkEvent = Cart::where([['type', "sub-event"], ['event_id', $request->event_id], ['user_id', Auth::user()->id]])->count();
+
+        if($checkEvent==0){
+            $cart = new Cart();
+            $cart->user_id = auth()->user()->id;
+            $cart->event_id = $request->event_id;
+            $cart->type = "sub-event";
+            $cart->save();
+            session()->flash('alert_scc', 'Sub Event Added To Your Cart');
+        }else{
+            session()->flash('alert_err', 'Already added');
+        }
+        return redirect('cart-List');
+    }
+
     public function addEventToCart(Request $request)
     {
-       
-        if (Auth::check()) {
+        $checkEvent = Cart::where([['type', "event"], ['event_id', $request->event_id], ['user_id', Auth::user()->id]])->count();
 
-            $cart = new Cart;
-            $cart->user_id  = auth()->user()->id;
-            $cart->event_id =  $request->event_id;
-            $cart->save(); 
+        if($checkEvent==0){
+            $cart = new Cart();
+            $cart->user_id = auth()->user()->id;
+            $cart->event_id = $request->event_id;
+            $cart->type = "event";
+            $cart->save();
             session()->flash('alert_scc', 'Event Added To Your Cart');
-            //selkect all event where id auth user = user id in the carts  
-
-       $user_id = Auth::id();
-      
-       $events =DB::table('carts')
-       ->join('events','carts.event_id',"=",'events.id')
-       ->where('carts.user_id',$user_id)
-       //hajti bil cart id bich nremovi bih mill cart
-       ->select('events.*','carts.id as cart_id')
-       ->get();
-     // dd($events);
-       return view ('users.cart.index')
-       ->with('events', $events);
-
-    }else
-    {
-
-       return view('auth.login');
+        }else{
+            session()->flash('alert_err', 'Already added');
+        }
+        return redirect('cart-List');
     }
-}
 
-    static function cartitem(){
+    static function cartitem()
+    {
         if (Auth::check()) {
-     $user_id=auth()->user()->id;
-     return Cart::WHERE('user_id',$user_id)->count();
+            $user_id = auth()->user()->id;
+            return Cart::WHERE('user_id', $user_id)->count();
         }
     }
 
-    public function ShowCartList(){
-       $user_id = Auth::id();
-       //selkect all event where id auth user = user id in the carts
-       $events =DB::table('carts')
-       ->join('events','carts.event_id',"=",'events.id')
-       ->where('carts.user_id',$user_id)
-       //hajti bil cart id bich nremovi bih mill cart
-       ->select('events.*','carts.id as cart_id')
-       ->get();
-     //dd($events);
-       return view ('users.cart.index')
-       ->with('events', $events);
+    public function ShowCartList()
+    {
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        //    //selkect all event where id auth user = user id in the carts
+        //    $events =DB::table('carts')
+        //    ->join('events','carts.event_id',"=",'events.id')
+        //    ->where('carts.user_id',$user_id)
+        //    //hajti bil cart id bich nremovi bih mill cart
+        //    ->select('events.*','carts.id as cart_id')
+        //    ->get();
+        //  //dd($events);
+        return view('users.cart.index', compact('carts'));
 
-    // $events = Cart::where('user_id',auth()->user()->id)->pluck('event_id');
-    // dd($events);
-    // return view ('users.cart.index',['events' => $events])
-  
+        // $events = Cart::where('user_id',auth()->user()->id)->pluck('event_id');
+        // dd($events);
+        // return view ('users.cart.index',['events' => $events])
     }
-
 
     /**
      *  removeEventFromCart
      *
-     * 
+     *
      */
 
     public function removeEventFromCart($id)
     {
-          Cart::destroy($id);
-          return redirect('/cart-List')->with('alert_err', 'Event Removed From Cart');
+        Cart::destroy($id);
+        return redirect('/cart-List')->with('alert_err', 'Event Removed From Cart');
     }
 
-
- /**
+    /**
      *  ChangeQTY   to edelete later
      *
-     * 
+     *
      */
 
     // public function changeQty(Request $request, Event $event)
@@ -152,8 +149,7 @@ class CartController extends Controller
     //     return back();
     // }
 
-
-            //    to delete later
+    //    to delete later
 
     // protected function sessionData(Event $event)
     // {
@@ -174,7 +170,7 @@ class CartController extends Controller
     // protected function setSessionAndReturnResponseFailed($cart)
     // {
     //     session()->put('cart', $cart);
-    
+
     //     return redirect()->back()->with('alert_err', "Removed from Cart");
     // }
 

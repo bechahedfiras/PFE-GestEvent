@@ -15,11 +15,11 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->bigInteger('event_id')->unsigned();
-            $table->Foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
-            $table->Foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('type');
+            // $table->Foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+//             $table->Foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

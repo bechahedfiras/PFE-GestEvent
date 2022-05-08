@@ -92,8 +92,12 @@ class EventController extends Controller
 
         // $request->validate([
            
-        //     'dateevent' => 'date_format:Y/m/d'
+        
+               
+        //        'dateevent' => 'date_format:m/d/Y|after:start_date',
         // ]);
+
+       
 
         $event = new Event();
         $event->label = $request->input('label');
