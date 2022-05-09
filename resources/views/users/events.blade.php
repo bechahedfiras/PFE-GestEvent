@@ -14,10 +14,10 @@
     
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         @foreach ($events as $event) 
-          <div class="col-4 mb-5">
+          <div class="col-4 mb-5   ">
               <div class="card h-100">
                   <!-- Product image-->
-                  <a href="{{url('getsubevents/'.$event->id)}}"><img class="card-img-top" src="{{asset('../storage/'.$event->photo)}}" alt="..." /></a>
+                  <a href="{{url('getsubevents/'.$event->id)}}"><img class="card-img-top rounded img-fluid"  src="{{asset('../storage/'.$event->photo)}}" style=" height: 15rem;" alt="..." /></a>
                   <!-- Product details-->
                   <div class="card-body p-4">
                       <div class="text-center">
