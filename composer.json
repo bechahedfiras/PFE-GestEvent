@@ -12,10 +12,12 @@
         "backpack/permissionmanager": "^6.0",
         "darryldecode/cart": "^4.2",
         "fideloper/proxy": "^4.4",
+        "huddledigital/zendesk-laravel": "^3.7",
         "hwi/oauth-bundle": "^1.4",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
         "mcamara/laravel-localization": "^1.7",
+        "paypal/rest-api-sdk-php": "^1.14",
         "php-http/guzzle6-adapter": "^2.0",
         "php-http/httplug-bundle": "^1.26"
     },

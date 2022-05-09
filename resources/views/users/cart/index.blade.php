@@ -79,7 +79,9 @@
                         <tr>
                             <td>
                                 <a href="{{ url('events') }}" class="btn btn-warning">Continue Shopping</a>
-                                {{-- <form action="{{route('pay')}}" method="post"> --}} @csrf
+                             
+                                 <form action="{{route('paypal_call')}}" method="post"> 
+                                    @csrf
                                 <input type="hidden" name="amount" value="{{ $total }}" />
                                 <button type="submit" class="btn btn-success">Proceed to Pay</button>
                                 <button type="submit" class="btn btn-warning" name="gateway" value="paypal">Proceed with

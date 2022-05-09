@@ -185,3 +185,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
 
     route::get('users/profile','User\UsersController@edit')->name('users.edit-profile')->middleware('auth');
     route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
+
+
+    /**
+    *PAYPAL ROUTE
+    **/
+    Route::post('/paypal','PaypalController@index')->name('paypal_call');
+    Route::get('/paypal/return','PaypalController@paypalReturn')->name('paypal_return');
+    Route::get('/paypal/cancel','PaypalController@paypalCancel')->name('paypal_cancel');
