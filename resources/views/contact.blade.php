@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="top-spacer"></div>
+@if (session('alert_scc'))
+                <br>
+                <div class="alert alert-success m-auto w-50 mb-50 text-center">
+                    {{ session('alert_scc') }}
+                </div>
+                @endif @if (session('alert_err'))
+                <br>50
+                    <div class="alert alert-danger m-auto w-50 mb-50  text-center">
+                        {{ session('alert_err') }}
+                    </div>
+                @endif
 <!--====== CONTACT PART START ======-->
 
 <section id="contact" class="contact-area pt-80 pb-130">
@@ -52,8 +63,8 @@
             </div>
             <div class="col-lg-8">
                 <div class="contact-form pt-20">
-                    <form id="contact-form" action="{{url('contact')}}" method="post">
-                        {{ csrf_field() }}
+                    <form  action="{{url('contact')}}" method="post">
+                     @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="single-form">
@@ -86,17 +97,7 @@
                                 </div> <!-- single form -->
                             </div>
                                {{-- flash message --}}
-                            @if (session('alert_scc'))
-                            <br>
-                            <div class="alert alert-success m-auto w-100 text-center">
-                                {{ session('alert_scc') }}
-                            </div>
-                            @endif @if (session('alert_err'))
-                            <br>
-                                <div class="alert alert-danger m-auto w-100 text-center">
-                                    {{ session('alert_err') }}
-                                </div>
-                            @endif
+                           
                             <p class="form-message"></p>
                           
                             <div class="col-md-12">

@@ -48,9 +48,9 @@ class ContactController extends Controller
             $contact->number = $request->input('number');
             $contact->message = $request->input('message');
             $contact->save();
-            session()->flash('alert_scc', 'reclamation send done  ');
-        }catch(\Throwable $th){
-            session()->flash('alert_err', 'contact send  failed');
+            return redirect('contact')->with('alert_scc', 'Reclamtion Send Successfully');
+        } catch (\Throwable $th) {
+            return redirect('contact')->with('alert_err', 'Ops something went wrong, try again.');
         }
        
 
