@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+  {{-- CDN MDB --}}
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet" />
+
+    {{-- END CDN MDB --}}
     <div class="top-spacer">
 
     </div>
@@ -75,15 +84,68 @@
                 <h5 class="section-title h1 text-center">TEAM</h5>
                 <div class="row">
                     <!-- Team member -->
+                   
+
+      
+      
+
+         
+            <section>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-10 col-xl-8 text-center">
+                    <h3 class="mb-4">TEAM</h3>
+                    <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+                      numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
+                      quisquam eum porro a pariatur veniam.
+                    </p>
+                  </div>
+                </div>
+              
+                <div class="row text-center">
                     @foreach ($eventOgrs as $eventOgr)
-                        <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="card testimonial-card">
+                      <div class="card-up" style="background-color: #9d789b;"></div>
+                      <div class="avatar mx-auto bg-white">
+                        <img src="{{ asset('../storage/' . $eventOgr->user->profile_pic) }}"
+                          class="rounded img-fluid" />
+                      </div>
+                      <div class="card-body">
+                        <h4 class="mb-4">{{ $eventOgr->user->name }}</h4>
+                        <hr />
+                        <p class="dark-grey-text mt-4">
+                          <i class="fas fa-quote-left pe-2"></i>{{ $eventOgr->user->email }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  @endforeach
+                </div>
+              </section>
+     
+       
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+    <!-- Inner -->
+</div>
+</div>
+  <!-- Carousel wrapper -->
+
+
+
+                        {{-- <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="image-flip">
                                 <div class="mainflip flip-0">
                                     <div class="frontside">
                                         <div class="card">
                                             <div class="card-body text-center">
                                                 <p><img class=" img-fluid"
-                                                        src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png"
+                                                  
+                                                        src="{{ asset('../storage/' . $eventOgr->user->profile_pic) }}"
                                                         alt="card image"></p>
                                                 <h4 class="card-title">{{ $eventOgr->user->name }}</h4>
                                                 <p class="card-text">{{ $eventOgr->id }}</p>
@@ -91,7 +153,17 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                    @endforeach
+                            </div> --}}
+                   
                 </div>
+              
+                  {{-- CDN MDB --}}
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet" />
+
+    {{-- END CDN MDB --}}
             @endsection

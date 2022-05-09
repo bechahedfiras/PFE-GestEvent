@@ -179,6 +179,7 @@ class EventController extends Controller
             $event = Event::findOrFail($id);
             $event->label = $request->input('label');
             $event->price = $request->input('price');
+            $event->dateevent = $request->input('dateevent');
             $event->description = $request->input('description');
             $event->lieux = $request->input('lieux');
             if ($request->hasFile('photo')) {

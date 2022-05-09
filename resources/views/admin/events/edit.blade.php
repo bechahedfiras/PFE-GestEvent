@@ -218,7 +218,11 @@
                                                 <label for="exampleFormControlTextarea1">Description</label>
                                                 <textarea class="form-control form-control-danger" rows="3" name="description">{{ $event->description }}</textarea>
                                             </div>
-
+                                            <div class="form-group">
+                                                <label for="">Evenement date</label>
+                                                  <input type="date" class="form-control form-control-danger" required  name="dateevent"  
+                                                  value="{{$event->dateevent}}" data-date-format=" YYYY MMMM DD  " >
+                                              </div>
                                             <div class="form-group">
                                                 <label for="">Le lieux </label>
                                                 <input type="texte" class="form-control form-control-danger" value="{{ $event->lieux }}" name="lieux" placeholder="lieux" />

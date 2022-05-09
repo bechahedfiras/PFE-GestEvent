@@ -37,23 +37,23 @@
                         @php $total=0; @endphp
                         @foreach ($carts as $cart)
                             @if ($cart->type == 'event')
-                                @php $total=$total+$cart->getEvent->price; @endphp
-                                <tr>
-                                    <td>
-                                        <div class="col-6 mb-50">
-                                            <img src="{{ asset('../storage/' . $cart->getEvent->photo) }}"
-                                                class="img-fluid border border-danger rounded-pill" />
-                                        </div>
+                            @php $total=$total+$cart->getEvent->price; @endphp
+                            <tr>
+                                <td>
+                                    <div class="col-6 mb-50">
+                                        <img src="{{ asset('../storage/'.$cart->getEvent->photo) }}"
+                                            class="img-fluid border border-danger rounded-pill" />
+                                    </div>
 
-                                        <span>{{ $cart->getEvent->label }}</span>
-                                    </td>
-                                    <td>{{ $cart->getEvent->price }} DT</td>
-                                    <td>{{ $cart->type }}</td>
-                                    <td>
-                                        <a href="/remove/{{ $cart->id }}"
-                                            class="btn btn-danger rounded-pill btn-sm">X</a>
-                                    </td>
-                                </tr>
+                                    <span>{{ $cart->getEvent->label }}</span>
+                                </td>
+                                <td>{{ $cart->getEvent->price }} DT</td>
+                                <td>{{ $cart->type }}</td>
+                                <td>
+                                    <a href="/remove/{{ $cart->id }}"
+                                        class="btn btn-danger rounded-pill btn-sm">X</a>
+                                </td>
+                            </tr>
                             @else
                                 @php $total=$total+$cart->getSubEvent->price; @endphp
                                 <tr>

@@ -64,7 +64,8 @@ class CartController extends Controller
 
     public function addEventToCart(Request $request)
     {
-        $checkEvent = Cart::where([['type', "event"], ['event_id', $request->event_id], ['user_id', Auth::user()->id]])->count();
+        $checkEvent = Cart::where([['type', "event"], ['event_id', $request->event_id], 
+        ['user_id', Auth::id()]])->count();
 
         if($checkEvent==0){
             $cart = new Cart();
@@ -82,14 +83,15 @@ class CartController extends Controller
     static function cartitem()
     {
         if (Auth::check()) {
-            $user_id = auth()->user()->id;
-            return Cart::WHERE('user_id', $user_id)->count();
+          
+            return Cart::WHERE('user_id', Auth::id())->count();
         }
     }
 
     public function ShowCartList()
-    {
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
+    {       
+         $carts = Cart::where('user_id','=',Auth::id())->get();
+        //  dd($carts);
         //    //selkect all event where id auth user = user id in the carts
         //    $events =DB::table('carts')
         //    ->join('events','carts.event_id',"=",'events.id')
@@ -98,7 +100,7 @@ class CartController extends Controller
         //    ->select('events.*','carts.id as cart_id')
         //    ->get();
         //  //dd($events);
-        return view('users.cart.index', compact('carts'));
+        return view('users.cart.index', )->with(compact('carts'));
 
         // $events = Cart::where('user_id',auth()->user()->id)->pluck('event_id');
         // dd($events);
