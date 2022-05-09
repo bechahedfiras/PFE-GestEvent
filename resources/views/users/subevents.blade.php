@@ -104,12 +104,12 @@
               
                 <div class="row text-center">
                     @foreach ($eventOgrs as $eventOgr)
-                  <div class="col-md-4 mb-5 mb-md-0">
-                    <div class="card testimonial-card">
-                      <div class="card-up" style="background-color: #9d789b;"></div>
-                      <div class="avatar mx-auto bg-white">
+                  <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
+                    <div class="card testimonial-card ">
+                      <div class="card-up" style="background-color: #9d789b;  "></div>
+                      <div class="avatar mx-auto bg-white ">
                         <img src="{{ asset('../storage/' . $eventOgr->user->profile_pic) }}"
-                          class="rounded img-fluid" />
+                          class="rounded img-fluid"  style="width:auto; height: 20rem;"/>
                       </div>
                       <div class="card-body">
                         <h4 class="mb-4">{{ $eventOgr->user->name }}</h4>
