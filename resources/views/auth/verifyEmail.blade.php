@@ -10,10 +10,10 @@
                 <div class="card-header">
                     <h1 class="text-center" style="background: -webkit-linear-gradient(#1664ff, #1664ff 100%);
                     -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;">Confirm your email</h1>
+                    -webkit-text-fill-color: transparent;">{{ __('verifyEmail.Confirm your email') }}</h1>
                     <p class="text-light text-center"  style="background: -webkit-linear-gradient(#444653, #444653 100%);
                     -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;">You will recive a confirmation code in your mailbox <b>{{auth::user()->email}} </b> please enter this code here to confirm your account</p>
+                    -webkit-text-fill-color: transparent;">{{ __('verifyEmail.You will recive a confirmation code in your mailbox') }} <b>{{auth::user()->email}} </b> {{ __('verifyEmail.please enter this code here to confirm your account') }}</p>
                 </div>
 
                 <div class="card-body">
@@ -26,7 +26,7 @@
                                     {{ session('error') }}
                                 </div>
                                 @endif
-                                <input type="text" class="form-control text-danger text-center" name="code" required autofocus placeholder="Confirmation code" />
+                                <input type="text" class="form-control text-danger text-center" name="code" required autofocus placeholder="{{ __('verifyEmail.Confirmation code') }}" />
                                 @error('code')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}
@@ -39,11 +39,11 @@
                         <div class="form-group text-center">
                             <br />
                             <button type="submit" class="btn btn-block btn btn-primary btn-block py-2">
-                                Verify
+                                {{ __('verifyEmail.Verify') }}
                             </button>
                             <br />
                             <br />
-                            <a href="{{asset('newCode')}}">Resend the code</a>
+                            <a href="{{asset('newCode')}}">{{ __('verifyEmail.Resend the code') }}</a>
                         </div>
                     </form>
                 </div>
