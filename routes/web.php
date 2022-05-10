@@ -40,6 +40,21 @@ Auth::routes();
     Route::get('/events','Admin\EventController@geteventind');
     Route::get('/subevents','Admin\SubeventController@getsubeventind');
     Route::get('getsubevents/{id}','Admin\EventController@getsubevent');
+
+    /**
+     * Email verification routing
+     */
+
+    Route::get('/verifyEmail', 'Admin\UsersController@showVerifyEmail');
+    Route::get('/newCode', 'Admin\UsersController@sendNewCode');
+    Route::post('/verifyEmail', 'Admin\UsersController@validEmailCode');
+
+    /**
+     * Profile
+     */
+    route::get('users/profile','User\UsersController@edit')->name('users.edit-profile')->middleware('auth');
+    route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
+
 });
 
 
@@ -92,12 +107,7 @@ Route::group(['middleware' => ['auth', 'verifyemail']], function () {
 });
 
 
-/**
- * Email verification routing
- */
-Route::get('/verifyEmail', 'Admin\UsersController@showVerifyEmail');
-Route::get('/newCode', 'Admin\UsersController@sendNewCode');
-Route::post('/verifyEmail', 'Admin\UsersController@validEmailCode');
+
 
 /**
  * Events & Subevents  routing
@@ -183,8 +193,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
  * });
  */
 
-    route::get('users/profile','User\UsersController@edit')->name('users.edit-profile')->middleware('auth');
-    route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
+   route::get('users/profile','User\UsersController@edit')->name('users.edit-profile')->middleware('auth');
+   route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
 
     /*
     *PAYPAL ROUTING*
