@@ -79,11 +79,14 @@
                         <tr>
                             <td>
                                 <a href="{{ url('events') }}" class="btn btn-warning">Continue Shopping</a>
-                                {{-- <form action="{{route('pay')}}" method="post"> --}} @csrf
+                                 <form action="{{ url('charge') }}" method="post">
+                                  @csrf
                                 <input type="hidden" name="amount" value="{{ $total }}" />
-                                <button type="submit" class="btn btn-success">Proceed to Pay</button>
-                                <button type="submit" class="btn btn-warning" name="gateway" value="paypal">Proceed with
-                                    Paypal</button>
+                                {{-- <input type="submit" class="btn btn-warning" name="submit" value="Proceed to Pay"/> --}}
+                                <input  type="submit" class="btn btn-success" name="submit"  value="Proceed with Paypal" />
+                                {{-- <button type="submit" class="btn btn-success" value="Pay Now">Proceed to Pay</button>
+                                <button type="submit" class="btn btn-warning" name="gateway" value="Pay Now">Proceed with
+                                    Paypal</button> --}}
                                 </form>
                             </td>
 
