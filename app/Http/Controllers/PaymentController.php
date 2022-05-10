@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
    
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
-use App\Models\Payment;
-
+use Illuminate\Support\Facades\Auth;
+use App\Payment;
+use App\User;
+use App\Cart;
    
 class PaymentController extends Controller
 {
@@ -87,8 +89,18 @@ class PaymentController extends Controller
                 $payment->currency = env('PAYPAL_CURRENCY');
                 $payment->payment_status = $arr_body['state'];
                 $payment->save();
-           
-                return "Payment is successful. Your transaction id is: ". $arr_body['id'];
+                session()->flash('alert_scc', "Payment is successful. Your transaction id is: ". $arr_body['id']);
+
+                //after payments is suces done we find cart id an delete it bech tfaragh l panier
+                $cart_ids = Cart::where('user_id','=',Auth::id())->get();
+                // dd($cart_ids);
+                //delete cart 
+                foreach($cart_ids as $cartid){
+                    $cart = Cart::find($cartid);
+                    $cart->each->delete();
+                               }
+               
+                return redirect('/cart-List');
             } else {
                 return $response->getMessage();
             }
@@ -102,6 +114,6 @@ class PaymentController extends Controller
      */
     public function error()
     {
-        return 'User cancelled the payment.';
+        return redirect('/cart-List')->with('alert_err', 'User cancelled the payment.'); 
     }
 }
