@@ -82,24 +82,24 @@
                             </div>
 
                             <div class="nav-item {{ \Request::is('*faculte*') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/faculte') }}"><i class="ik ik-edit"></i><span>Ajouter une faculté</span></a>
+                                <a href="{{ asset('admin/faculte') }}"><i class="ik ik-edit"></i><span> Gérer les facultés</span></a>
                             </div>
 
                             <div class="nav-item {{ \Request::is('*events') ? 'active' : '' }}">
-                                <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
+                                <a href="{{ asset('admin/events') }}"><i class="ik ik-bar-chart"></i><span>Gérer les Évènements</span></a>
                             </div>
 
                             {{-- <div class="nav-item {{ \Request::is('*eventsajax') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/eventsajax') }}"><i class="ik ik-bar-chart"></i><span>Ajouter un Evénemment</span></a>
                             </div> --}}
 
-                            <div class="nav-item {{ \Request::is('*subevents') ? 'active' : '' }}">
+                            {{-- <div class="nav-item {{ \Request::is('*subevents') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/subevents') }}"><i class="ik ik-more-horizontal"></i><span>Ajouter un Sous  Evénemment</span></a>
                             </div>
 
                             <div class="nav-item {{ \Request::is('*eventorgs') ? 'active' : '' }}">
                                 <a href="{{ asset('admin/eventorgs ') }}"><i class="ik ik-more-horizontal"></i><span> Ajouter un Organisateur  Evénemment</span></a>
-                            </div>
+                            </div> --}}
                             <div class="nav-item {{ \Request::is('*contact*') ? 'active' : '' }}">
                                 <a href="{{ asset('contactus') }}"><i class="ik ik-message-circle"></i><span>Les messages support</span></a>
                             </div>
