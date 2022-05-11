@@ -26,8 +26,8 @@
                     <div class="widget-body ">
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="state ">
-                                <h6>Participents</h6>
-                                <h2>15</h2>
+                                <h6>Les Sous Evénemment</h6>
+                                <h2>{{$numberOfSubevents}}</h2>
                             </div>
                             <div class="icon">
                                 <i class="ik ik-users"></i>
@@ -47,7 +47,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="state">
                                 <h6>Organisateurs</h6>
-                                <h2>10</h2>
+                                <h2>{{$numberOfOrgs}}</h2>
                             </div>
                             <div class="icon">
                                 <i class="ik ik-users"></i>

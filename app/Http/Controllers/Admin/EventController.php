@@ -146,19 +146,24 @@ class EventController extends Controller
             // ->where('event_id', '=', $id)
             // ->get();
 
-            $numberOfOrgs = Organisateurevent::all();
-        
+            $numberOfOrgs = Organisateurevent::all()->count();
+            // dd($numberOfOrgs);
             $eventOgrs = Organisateurevent::where('event_id',$id)->get();
             $users = User::all();
             $events = Event::all();
             $subevents = Subevent::where('event_id',$id)->get();
             $event = Event::findOrFail($id);
+            // dd($event);
+            $numberOfSubevents = Subevent::where('event_id','=',$id )->get()->count();
+        //  dd($numberOfSubevents);
+          
             return view('admin.events.edit', ['event' => $event,
              'eventOgrs' => $eventOgrs,
              'users' => $users,
              'subevents' => $subevents,
              'events' => $events,
-             'numberOfOrgs',$numberOfOrgs,
+             'numberOfOrgs' => $numberOfOrgs,
+             'numberOfSubevents' => $numberOfSubevents,
             ]);
         } catch (\Throwable $th) {
             

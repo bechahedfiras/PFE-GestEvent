@@ -197,8 +197,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('admin','
    route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
 
     /*
-    *PAYPAL ROUTING*
-    */
+     PAYPAL ROUTING 
+     */
+  
+   
 Route::get('payment', 'PaymentController@index');
 Route::post('charge', 'PaymentController@charge');
 Route::get('success', 'PaymentController@success');
