@@ -146,7 +146,7 @@ class EventController extends Controller
             // ->where('event_id', '=', $id)
             // ->get();
 
-            $numberOfOrgs = Organisateurevent::all()->count();
+            $numberOfOrgs = Organisateurevent::where('event_id',$id)->get()->count();
             // dd($numberOfOrgs);
             $eventOgrs = Organisateurevent::where('event_id',$id)->get();
             $users = User::all();
