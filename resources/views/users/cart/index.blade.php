@@ -273,7 +273,7 @@ select.form-control {
                     
                     <th class="text-center">Price</th>
                     <th class="text-center">Event Type</th>
-                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
