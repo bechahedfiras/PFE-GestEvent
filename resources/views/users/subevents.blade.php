@@ -85,36 +85,26 @@
                 <h5 class="section-title h1 text-center">TEAM</h5>
                 
                     <!-- Team member -->
-            
+                
                 <div class="row text-center">
-                  @foreach ($eventOgrs as $eventOgr)
+                    @foreach ($eventOgrs as $eventOgr)
                   <div class="col-xl-3 col-sm-6 mb-5">
                     <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{ asset('../storage/' . $eventOgr->user->profile_pic) }}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                       <h5 class="mb-0">{{ $eventOgr->user->name }}</h5>
-                      <ul class="social mb-0 list-inline mt-3">
-                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                      </ul>
                     </div>
-                    @endforeach
+                    
                   </div>
-              
-     
-       
+                  @endforeach
           </div>
         </div>
-      </div>
+        </div>
+      
  
     </div>
     <!-- Inner -->
 </div>
 </div>
   <!-- Carousel wrapper -->
-
-
-
                         {{-- <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="image-flip">
                                 <div class="mainflip flip-0">
