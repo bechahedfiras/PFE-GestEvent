@@ -9,15 +9,6 @@
     <div class="top-spacer"></div>
     
 
-
-    
-
-
-
-
-
-
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container padding-bottom-3x mb-1">
 <!-- Shopping Cart-->
@@ -84,8 +75,8 @@
 
                             
                               <tr>		
-                                <td>
-                                      <img src="{{ asset('../storage/'.$HistoOfUser->getEvent->photo) }}" alt="">
+                                <td class="p-2 text-center mt-10 ">
+                                      <img src="{{ asset('../storage/'.$HistoOfUser->getEvent->photo) }}"  alt="" class="rounded w-25 p-3" >
                                 </td>							
                                   <td>
                                       <div class="Trans-id">{{$HistoOfUser->getEvent->label}}</div>
@@ -114,7 +105,7 @@
                                       <div class="">
 
                                                     @if ($HistoOfUser->payment_status == 'approved') 
-                                                    <td class="status badge badge-success badge-pill badge-sm 
+                                                    <td class="status badge badge-success badge-pill badge-sm mt-5 p-3 
                                                     ">{{$HistoOfUser->payment_status}}</td>
                                                 @else
                                                     
