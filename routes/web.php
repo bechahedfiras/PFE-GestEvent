@@ -54,6 +54,10 @@ Auth::routes();
      */
     route::get('users/profile','User\UsersController@edit')->name('users.edit-profile')->middleware('auth');
     route::put('users/profile', 'User\UsersController@update')->name('users.update-profile')->middleware('auth');
+    /**
+     * History
+     */
+    route::get('users/history','PaymentController@historyEventUser')->name('users.history.events')->middleware('auth');
 
 });
 

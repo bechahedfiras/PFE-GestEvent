@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Payment;
 use App\User;
 use App\Cart;
+use App\Event;
    
 class PaymentController extends Controller
 {
@@ -79,7 +80,12 @@ class PaymentController extends Controller
             {
                 // The customer has successfully paid.
                 $arr_body = $response->getData();
-           
+           //take all info about cart to inser it in payement to retrieve alll history from it
+           $cart_ids = Cart::where('user_id','=',Auth::id())->get();
+           //loop for all items cart 
+           foreach($cart_ids as $cartid){
+            
+                      
                 // Insert transaction data into the database
                 $payment = new Payment;
                 $payment->payment_id = $arr_body['id'];
@@ -88,11 +94,18 @@ class PaymentController extends Controller
                 $payment->amount = $arr_body['transactions'][0]['amount']['total'];
                 $payment->currency = env('PAYPAL_CURRENCY');
                 $payment->payment_status = $arr_body['state'];
+                //shopping payment cart  store details need it for historique
+               
+                $payment ->event_id = $cartid->event_id;
+                $payment ->user_id = auth()->user()->id;
+                $payment ->type = $cartid->type;
+                
                 $payment->save();
+            }
                 session()->flash('alert_scc', "Payment is successful. Your transaction id is: ". $arr_body['id']);
-
-                //after payments is suces done we find cart id an delete it bech tfaragh l panier
-                $cart_ids = Cart::where('user_id','=',Auth::id())->get();
+             
+                //after payments is suces done we w aamalna move ll panier details fil table payments - 2 - find cart ids and delete it all bech tfaragh l panier
+                
                 // dd($cart_ids);
                 //delete cart 
                 foreach($cart_ids as $cartid){
@@ -116,4 +129,14 @@ class PaymentController extends Controller
     {
         return redirect('/cart-List')->with('alert_err', 'User cancelled the payment.'); 
     }
+
+
+    public function historyEventUser()
+    {   
+        // $HistoOfUser = Payment::where('user_id','=',Auth::id())->get();
+         $HistoOfUsers = Payment::where('user_id','=',Auth::id())->get()->sortByDesc('payment_id');
+        // dd($HistoOfUser);
+        return view('users.history')->with('HistoOfUsers', $HistoOfUsers); 
+    }
+
 }

@@ -102,6 +102,9 @@
                                             <a href="{{ route('admin.users.index') }}" class="dropdown-item">{{__('app.dashboard')}}</a>
                                         @endcan
                                         <a href="{{ route('users.edit-profile') }}" class="dropdown-item">{{__('app.my profile')}}</a>
+                                        
+                                        <a href="{{route('users.history.events')}}" class="dropdown-item">my history</a>
+
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('app.Logout') }}

@@ -91,7 +91,7 @@ class CartController extends Controller
     public function ShowCartList()
     {       
          $carts = Cart::where('user_id','=',Auth::id())->get();
-        //  dd($carts);
+        // dd($carts);
         //    //selkect all event where id auth user = user id in the carts
         //    $events =DB::table('carts')
         //    ->join('events','carts.event_id',"=",'events.id')

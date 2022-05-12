@@ -21,6 +21,12 @@ class CreatePaymentsTable extends Migration
             $table->float('amount', 10, 2);
             $table->string('currency');
             $table->string('payment_status');
+            //cart credentials
+  
+            $table->bigInteger('event_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('type');
+
             $table->timestamps();
         });
     }
