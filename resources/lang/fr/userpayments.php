@@ -10,4 +10,5 @@ return [
     'type' => 'Type',
     'date' => 'La date',
     'Status' => 'Status de paiment',
+    'NO HISTORY YET' => 'Pas de historique',
 ];

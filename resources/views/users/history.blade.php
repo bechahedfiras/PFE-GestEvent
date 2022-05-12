@@ -65,6 +65,7 @@
                       <table id="crypto-transaction" class="table table-hover table-xl trans-wrapper">
                             <thead>
                               <tr>
+                                  <th class="border-top-0">image</th>
                                   <th class="border-top-0">{{__('userpayments.Event')}}</th>
                                   <th class="border-top-0">{{__('userpayments.price')}}</th>
                                   <th class="border-top-0">{{__('userpayments.Email')}}</th>
@@ -74,16 +75,20 @@
                                   <th class="border-top-0">{{__('userpayments.date')}}</th>
                                   <th class="border-top-0">{{__('userpayments.Status')}}</th>
                               </tr>
+                              
                           </thead>
                           <tbody>
                               
                             @foreach ($HistoOfUsers as $HistoOfUser)
                             @if ($HistoOfUser->type == 'event')
 
-
-                              <tr>									
+                            
+                              <tr>		
+                                <td>
+                                      <img src="{{ asset('../storage/'.$HistoOfUser->getEvent->photo) }}" alt="">
+                                </td>							
                                   <td>
-                                      <div class="Trans-id">{{$HistoOfUser->getSubEvent->label}}</div>
+                                      <div class="Trans-id">{{$HistoOfUser->getEvent->label}}</div>
                                   </td>
                                   <td>
                                       <div class="trans-type success">{{$HistoOfUser->getEvent->price}} USD</div>
@@ -116,11 +121,56 @@
                                                         <td class="status badge badge-danger badge-pill badge-sm
                                                         ">{{$HistoOfUser->payment_status}}</td>
                                                                                             
+                                                       
+                                                 @endif
+                                                 
+                                                </div>
+                                                
+                              </tr>
+                              @else
+                              <tr>		
+                                <td>
+                                      <img src="{{ asset('../storage/'.$HistoOfUser->getSubEvent->photo) }}" alt="">
+                                </td>							
+                                  <td>
+                                      <div class="Trans-id">{{$HistoOfUser->getSubEvent->label}}</div>
+                                  </td>
+                                  <td>
+                                      <div class="trans-type success">{{$HistoOfUser->getSubEvent->price}} USD</div>
+                                  </td>
+                                  <td>
+                                      <div class="amount">
+                                          <i class="la la-bitcoin"></i>{{$HistoOfUser->payer_email}}
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="price">{{$HistoOfUser->payment_id}}</div>
+                                  </td>
+                                  <td>
+                                      <div class="usd"> {{$HistoOfUser->payer_id}}</div>
+                                  </td>
+                                  <td>
+                                      <div class="fee">{{$HistoOfUser->type}}</div>
+                                  </td>
+                                  <td>
+                                      <div class="time">{{$HistoOfUser->created_at->format('Y-m-d')}}</div>
+                                  </td>
+                                  
+                                      <div class="">
+
+                                                    @if ($HistoOfUser->payment_status == 'approved') 
+                                                    <td class="status badge badge-success badge-pill badge-sm 
+                                                    ">{{$HistoOfUser->payment_status}}</td>
+                                                @else
+                                                
+                                                        <td class="status badge badge-danger badge-pill badge-sm
+                                                        ">{{$HistoOfUser->payment_status}}</td>
+                                                        
                                 
                                                  @endif
                                                 </div>
                               </tr>
-                           			
+                              
                     @endif
                     @endforeach 				
 
@@ -131,7 +181,7 @@
                       @else
                     <div class="rounded   mb-100">
                     <div class="container ">
-                        <h1 class="display-7 text-center text-muted">NO HISTORY YET</h1>
+                        <h1 class="display-7 text-center text-muted">{{__('userpayments.NO HISTORY YET')}}</h1>
                         @endif
                   </div>
                  

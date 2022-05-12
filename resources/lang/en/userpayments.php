@@ -10,4 +10,5 @@ return [
     'type' => 'Type',
     'date' => 'Date',
     'Status' => 'Status',
+    'NO HISTORY YET' => 'NO HISTORY YET',
 ];
