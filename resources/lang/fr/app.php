@@ -2,6 +2,7 @@
 
 return [
     'events' => 'Les Évènements',
+    'my payments' => 'Mes paiements',
     'price' => 'Les prix',
     'contact' => 'Contactez nous',
     'Sign in' => 'Se connecter',

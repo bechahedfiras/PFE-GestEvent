@@ -103,7 +103,7 @@
                                         @endcan
                                         <a href="{{ route('users.edit-profile') }}" class="dropdown-item">{{__('app.my profile')}}</a>
                                         
-                                        <a href="{{route('users.history.events')}}" class="dropdown-item">my history</a>
+                                        <a href="{{route('users.history.events')}}" class="dropdown-item">{{__('app.my payments')}}</a>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

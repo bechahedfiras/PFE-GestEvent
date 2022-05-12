@@ -4,6 +4,7 @@ return [
 
 
     'events' => 'Events',
+    'my payments' => 'My payments',
     'price' => 'Pricing',
     'contact' => 'Contact',
     'Sign in' => 'Sign in',
