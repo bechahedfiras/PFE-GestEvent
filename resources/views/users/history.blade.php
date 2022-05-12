@@ -264,77 +264,89 @@ select.form-control {
         {{ session('alert_err') }}
     </div>
 @endif
+
+<div class="rounded   bg-primary mb-100">
+    <div class="container ">
+      <h1 class="display-4 text-center text-light">MY HISTORY</h1>
+    
+    </div>
+  </div>
+
 <br>
-    <div class="table-responsive shopping-cart">
+    <div class="table-responsive shopping-cart rounded">
         <table class="table">
-            <thead>
+            <thead class="bg-primary text-light table table-sm table-dark">
                 <tr>
-                    <th>Event Name</th>
                     
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Event Type</th>
-                    <th class="text-center">Action</th>
+                    <th class="text-center">Event_Details</th>
+                    <th class="text-center">PRIX PAYER</th>
+                    <th class="text-center">payer_email</th>
+                    <th class="text-center">payment_status</th>
+                    <th class="text-center">type</th>
+                    <th class="text-center">Date OF PAY</th>
+                    <th class="text-center">payment_id</th>
+                    <th class="text-center">payer_id</th>
                 </tr>
             </thead>
             <tbody>
-                @php $total=0; @endphp
-                        @foreach ($carts as $cart)
-                            @if ($cart->type == 'event')
-                            @php $total=$total+$cart->getEvent->price; @endphp
+                
+
+
+         @foreach ($HistoOfUsers as $HistoOfUser)
+   
+
+
                 <tr>
-                    <td>
-                        <div class="product-item">
-                            <a class="product-thumb" href="#"><img src="{{ asset('../storage/'.$cart->getEvent->photo) }}" alt="Product"></a>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="#">{{ $cart->getEvent->label }}</a></h4>
-                            </div>
+                    <td> <div class="d-inline-block   rounded
+                  ">
+                        <img src="{{asset('../storage/'.$HistoOfUser->getEvent->photo)}}"
+                         alt="" class=" border border-primary rounded  img-40 align-top mr-15">
+                        <div class="d-inline-block">
+                            <br>
+                            <h6 class=" border border-primary">{{$HistoOfUser->getEvent->price}} dt</h6>
+                            <p class="text-muted mb-0 border border-warning">{{$HistoOfUser->getEvent->label}}</p>
                         </div>
+                    </div>
+              
+    
                     </td>
-                    <td class="text-center text-lg text-medium">{{ $cart->getEvent->price }} DT</td>
-                    <td class="text-center text-lg text-medium">{{ $cart->type }}</td>
-                    <td class="text-center"><a class="remove-from-cart" href="/remove/{{ $cart->id }}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
-                </tr>
-                @else
-                @php $total=$total+$cart->getSubEvent->price; @endphp
-                <tr>
-                    <td>
-                        <div class="product-item">
-                            <a class="product-thumb" href="#"><img src="{{ asset('../storage/' . $cart->getSubEvent->photo) }}" alt="Product"></a>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="#">{{ $cart->getSubEvent->label }}</a></h4>
-                        </div>
-                    </td>
-                    <td class="text-center text-lg text-medium">{{ $cart->getSubEvent->price }} DT</td>
-                    <td class="text-center text-lg text-medium">{{ $cart->type }}</td>
-                    <td class="text-center"><a class="remove-from-cart" href="/remove/{{ $cart->id }}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
-                </tr>
-                @endif
-               @endforeach
+                    <td class="text-center text-lg text-medium">{{$HistoOfUser->getEvent->price}} DT</td>
+                    <td class="text-center text-lg text-medium">{{$HistoOfUser->payer_email}}</td>
+                            @if ($HistoOfUser->payment_status == 'approved') 
+                                        <td class="text-center text-lg text-medium text-success 
+                                        ">{{$HistoOfUser->payment_status}}</td>
+                                    @else
+                                        
+                                            <td class="text-center text-lg text-medium text-danger
+                                            ">{{$HistoOfUser->payment_status}}</td>
+                                                                                
+                   
+                             @endif
+                    <td class="text-center text-lg text-medium">
+                        {{$HistoOfUser->type}} </td>
+
+                    <td class="text-center text-lg text-medium 
+                    text-danger">
+                    {{$HistoOfUser->created_at->format('Y-m-d')}} </td>
+
+                
+                    <td class="text-center text-lg text-medium 
+                    text-danger">
+                    {{$HistoOfUser->payment_id}} </td>
+
+                    <td class="text-center text-lg text-medium 
+                    text-danger">
+                    {{$HistoOfUser->payer_id}} </td>
+
+              </tr>
+               
+               
+              @endforeach 
             </tbody>
         </table>
     </div>
-    <div class="shopping-cart-footer">
-        <div class="column text-lg">Subtotal: <span class="text-medium">{{ $total }} DT</span></div>
-    </div>
-    <div class="shopping-cart-footer">
-        <div class="column"><a class="btn btn-outline-secondary" href="{{ url('events') }}"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
-        <div class="column">
-            <form action="{{ url('charge') }}" method="post">
-                @csrf
-              
-              <input type="hidden" name="amount" value="{{ $total  }}" />
-              <input type="hidden" name="cart" value="{{  $carts }}" />
-             
-             
-
-              {{-- <input type="submit" class="btn btn-warning" name="submit" value="Proceed to Pay"/> --}}
-              <input  type="submit" class="btn btn-primary" name="submit"  value="Proceed with Paypal" />
-              {{-- <button type="submit" class="btn btn-success" value="Pay Now">Proceed to Pay</button>
-              <button type="submit" class="btn btn-warning" name="gateway" value="Pay Now">Proceed with
-                  Paypal</button> --}}
-              </form>
-        </div>
-    </div>
+    
+   
 </div>
     {{-- CDN MDB --}}
     <!-- Font Awesome -->
