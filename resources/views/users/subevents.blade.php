@@ -86,7 +86,7 @@
                 
                     <!-- Team member -->
                 
-                <div class="row text-center">
+                <div class="row text-center justify-content-center">
                     @foreach ($eventOgrs as $eventOgr)
                   <div class="col-xl-3 col-sm-6 mb-5">
                     <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{ asset('../storage/' . $eventOgr->user->profile_pic) }}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">

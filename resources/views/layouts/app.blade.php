@@ -53,7 +53,7 @@
     <div id="app">
       
         <div class="navbar-area navbar-two" style="background: linear-gradient(to right, #102baf 0%, #1664ff 100%);">
-            <div class="container">
+            <div class="">
                 <div class="row">
                     <div class="col-lg-12">
                          <?php
@@ -61,7 +61,7 @@
                         $total=CartController::cartitem();
                         ?> 
                         <nav class="navbar navbar-expand-lg ">
-                            <a class="navbar-brand" href="{{ url('/') }}">
+                            <a class="navbar-brand ml-5" href="{{ url('/') }}">
                                 <img src={{ asset('/template/images/logo.png') }} alt="Logo">
                             </a>
 

@@ -290,7 +290,7 @@ select.form-control {
                             </div>
                         </div>
                     </td>
-                    <td class="text-center text-lg text-medium">{{ $cart->getEvent->price }} DT</td>
+                    <td class="text-center text-lg text-medium">{{ $cart->getEvent->price }} $</td>
                     <td class="text-center text-lg text-medium">{{ $cart->type }}</td>
                     <td class="text-center"><a class="remove-from-cart" href="/remove/{{ $cart->id }}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
                 </tr>
@@ -304,7 +304,7 @@ select.form-control {
                                 <h4 class="product-title"><a href="#">{{ $cart->getSubEvent->label }}</a></h4>
                         </div>
                     </td>
-                    <td class="text-center text-lg text-medium">{{ $cart->getSubEvent->price }} DT</td>
+                    <td class="text-center text-lg text-medium">{{ $cart->getSubEvent->price }} $</td>
                     <td class="text-center text-lg text-medium">{{ $cart->type }}</td>
                     <td class="text-center"><a class="remove-from-cart" href="/remove/{{ $cart->id }}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
                 </tr>
@@ -314,7 +314,7 @@ select.form-control {
         </table>
     </div>
     <div class="shopping-cart-footer">
-        <div class="column text-lg">Subtotal: <span class="text-medium">{{ $total }} DT</span></div>
+        <div class="column text-lg">Subtotal: <span class="text-medium">{{ $total }} $</span></div>
     </div>
     <div class="shopping-cart-footer">
         <div class="column"><a class="btn btn-outline-secondary" href="{{ url('events') }}"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
