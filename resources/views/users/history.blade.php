@@ -273,86 +273,151 @@ select.form-control {
   </div>
 
 <br>
-    <div class="table-responsive shopping-cart rounded">
-        <table class="table">
-            <thead class="bg-primary text-light table table-sm table-dark">
-                <tr>
-                    
-                    <th class="text-center">Event_Details</th>
-                    <th class="text-center">PRIX PAYER</th>
-                    <th class="text-center">payer_email</th>
-                    <th class="text-center">payment_status</th>
-                    <th class="text-center">type</th>
-                    <th class="text-center">Date OF PAY</th>
-                    <th class="text-center">payment_id</th>
-                    <th class="text-center">payer_id</th>
-                </tr>
-            </thead>
-            <tbody>
+<div class="table-responsive shopping-cart">
+    @if ( count($HistoOfUsers) > 0 ) 
+    <table class="table">
+        <thead>
+            <tr>
                 
+                <th class="text-center">Event_Details</th>
+                <th class="text-center">PRIX PAYER</th>
+                <th class="text-center">payer_email</th>
+                <th class="text-center">payment_status</th>
+                <th class="text-center">type</th>
+                <th class="text-center">Date OF PAY</th>
+                <th class="text-center">payment_id</th>
+                <th class="text-center">payer_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            
 
 
-         @foreach ($HistoOfUsers as $HistoOfUser)
-   
+     @foreach ($HistoOfUsers as $HistoOfUser)
+                    @if ($HistoOfUser->type == 'event')
 
 
-                <tr>
-                    <td> <div class="d-inline-block   rounded
-                  ">
-                        <img src="{{asset('../storage/'.$HistoOfUser->getEvent->photo)}}"
-                         alt="" class=" border border-primary rounded  img-40 align-top mr-15">
-                        <div class="d-inline-block">
-                            <br>
-                            <h6 class=" border border-primary">{{$HistoOfUser->getEvent->price}} dt</h6>
-                            <p class="text-muted mb-0 border border-warning">{{$HistoOfUser->getEvent->label}}</p>
-                        </div>
+                          <tr>
+                <td> <div class="d-inline-block   rounded
+              ">
+                    <img src="{{asset('../storage/'.$HistoOfUser->getEvent->photo)}}"
+                     alt="" class=" border border-primary rounded  img-40 align-top mr-15">
+                    <div class="d-inline-block">
+                        <br>
+                        <h6 class=" border border-primary">{{$HistoOfUser->getEvent->price}} dt</h6>
+                        <p class="text-muted mb-0 border border-warning">{{$HistoOfUser->getEvent->label}}</p>
                     </div>
-              
-    
-                    </td>
-                    <td class="text-center text-lg text-medium">{{$HistoOfUser->getEvent->price}} DT</td>
-                    <td class="text-center text-lg text-medium">{{$HistoOfUser->payer_email}}</td>
-                            @if ($HistoOfUser->payment_status == 'approved') 
-                                        <td class="text-center text-lg text-medium text-success 
+                </div>
+          
+
+                </td>
+                <td class="text-center text-lg text-medium">{{$HistoOfUser->getEvent->price}} DT</td>
+                <td class="text-center text-lg text-medium">{{$HistoOfUser->payer_email}}</td>
+                        @if ($HistoOfUser->payment_status == 'approved') 
+                                    <td class="text-center text-lg text-medium text-success 
+                                    ">{{$HistoOfUser->payment_status}}</td>
+                                @else
+                                    
+                                        <td class="text-center text-lg text-medium text-danger
                                         ">{{$HistoOfUser->payment_status}}</td>
-                                    @else
-                                        
-                                            <td class="text-center text-lg text-medium text-danger
-                                            ">{{$HistoOfUser->payment_status}}</td>
-                                                                                
-                   
-                             @endif
-                    <td class="text-center text-lg text-medium">
-                        {{$HistoOfUser->type}} </td>
-
-                    <td class="text-center text-lg text-medium 
-                    text-danger">
-                    {{$HistoOfUser->created_at->format('Y-m-d')}} </td>
-
-                
-                    <td class="text-center text-lg text-medium 
-                    text-danger">
-                    {{$HistoOfUser->payment_id}} </td>
-
-                    <td class="text-center text-lg text-medium 
-                    text-danger">
-                    {{$HistoOfUser->payer_id}} </td>
-
-              </tr>
+                                                                            
                
-               
-              @endforeach 
-            </tbody>
-        </table>
-    </div>
-    
-   
+                         @endif
+                <td class="text-center text-lg text-medium">
+                    {{$HistoOfUser->type}} </td>
+
+                <td class="text-center text-lg text-medium 
+                text-danger">
+                {{$HistoOfUser->created_at->format('Y-m-d')}} </td>
+
+            
+                <td class="text-center text-lg text-medium 
+                text-danger">
+                {{$HistoOfUser->payment_id}} </td>
+
+                <td class="text-center text-lg text-medium 
+                text-danger">
+                {{$HistoOfUser->payer_id}} </td>
+
+          </tr>
+                        @else
+                        <tr>
+                            <td> <div class="d-inline-block   rounded
+                          ">
+                                <img src="{{asset('../storage/'.$HistoOfUser->getSubEvent->photo)}}"
+                                 alt="" class=" border border-primary rounded  img-40 align-top mr-15">
+                                <div class="d-inline-block">
+                                    <br>
+                                    <h6 class=" border border-primary">{{$HistoOfUser->getEvent->price}} dt</h6>
+                                    <p class="text-muted mb-0 border border-warning">{{$HistoOfUser->getSubEvent->label}}</p>
+                                </div>
+                            </div>
+                      
+            
+                            </td>
+                            <td class="text-center text-lg text-medium">{{$HistoOfUser->getSubEvent->price}} DT</td>
+                            <td class="text-center text-lg text-medium">{{$HistoOfUser->payer_email}}</td>
+                                    @if ($HistoOfUser->payment_status == 'approved') 
+                                                <td class="text-center text-lg text-medium text-success 
+                                                ">{{$HistoOfUser->payment_status}}</td>
+                                            @else
+                                                
+                                                    <td class="text-center text-lg text-medium text-danger
+                                                    ">{{$HistoOfUser->payment_status}}</td>
+                                                                                        
+                           
+                                     @endif
+                            <td class="text-center text-lg text-medium">
+                                {{$HistoOfUser->type}} </td>
+            
+                            <td class="text-center text-lg text-medium 
+                            text-danger">
+                            {{$HistoOfUser->created_at->format('Y-m-d')}} </td>
+            
+                        
+                            <td class="text-center text-lg text-medium 
+                            text-danger">
+                            {{$HistoOfUser->payment_id}} </td>
+            
+                            <td class="text-center text-lg text-medium 
+                            text-danger">
+                            {{$HistoOfUser->payer_id}} </td>
+            
+                      </tr>
+                    
+
+
+                    @endif
+          @endforeach 
+         
+            </div>
+          </div>
+         
+        </tbody>
+    </table>
+    @else
+    <div class="rounded   mb-100">
+      <div class="container ">
+        <h1 class="display-7 text-center text-muted">NO HISTORY YET</h1>
+        @endif
 </div>
-    {{-- CDN MDB --}}
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    
-    {{-- END CDN MDB --}}
+
+
+</div>
+{{-- @else
+<td class="text-center text-lg text-medium 
+text-danger">
+no history yet </td>
+@endif --}}
+{{-- CDN MDB --}}
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+{{-- END CDN MDB --}}
 @endsection
+
+
+
+
