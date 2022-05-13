@@ -20,12 +20,21 @@
                     </div>
                 @endif
                 
+                <div class="input-group input-group-lg mb-5  ">
+                    <div class="input-group mb-3">
+                   
+                    <input type="text"  class="form-control" placeholder=""
+                      name="Keyword" value="{{is_string ($v =request('keyword'))? $v:''}}"
+                    >
+                    <input type="submit" value="Search For Event"  class="btn btn-outline-secondary bg-primary text-light"
+                      id="button-addon1">
+                
                 <div class="text-right">
                         <a href="{{url('admin/events/create ')}}">
                          <button  type="submit" class="btn btn-success m-3">Ajouter</button>
                     </a>
                 </div>
-                    
+              
                 <div class="card-body">
                     {{-- <div class="row">
                         @foreach ($events as $event)

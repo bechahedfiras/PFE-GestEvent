@@ -34,10 +34,22 @@ class EventController extends Controller
     /**
      * eventsindex
      */
-    public function geteventind()
+    public function geteventind(Request $request)
     {
-        //
-        $events = Event::all();
+         $events = Event::filter($request->all())->get();
+        // $events = Event::all();
+      
+        return view('users.events')->with('events', $events);
+    }
+      /**
+     * eventsindexsearch
+     */
+    public function geteventinds(Request $request)
+    {  
+         $Keyword =   $request->get('Keyword');
+         
+         $events = Event::where('label','LIKE','%'.$Keyword.'%')->get();
+
       
         return view('users.events')->with('events', $events);
     }

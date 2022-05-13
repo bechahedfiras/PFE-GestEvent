@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "abdrzakoxa/laravel-eloquent-filter": "^1.1",
         "backpack/permissionmanager": "^6.0",
         "darryldecode/cart": "^4.2",
         "fideloper/proxy": "^4.4",
