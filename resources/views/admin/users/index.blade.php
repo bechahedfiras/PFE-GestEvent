@@ -19,6 +19,21 @@
                         {{ session('alert_err') }}
                     </div>
                 @endif
+                <form action="{{'users '}} " method="get">
+                    @csrf
+                   
+                    <div class="input-group py-5 px-5  ">
+                        <div class="form-outline">
+                            <input type="text" id="search-input"   class="form-control " type="search" id="form1"
+                             placeholder="search by name & email "
+                            name="Keyword" value="{{is_string ($value =request('keyword'))? $value:''}}"
+                          >
+                        </div>
+                        <button type="submit" id="search-button" type="button" class="btn btn-danger">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                <form>
                 <div class="card-body">
                     <table class="table">
                         <thead>

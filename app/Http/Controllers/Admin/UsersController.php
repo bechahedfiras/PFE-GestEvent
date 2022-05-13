@@ -29,10 +29,14 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {  
         // $organizaters = User::role('organisateur')->get();
-        $users = User::all();
+        $Keyword =   $request->get('Keyword');
+         
+        $users = User::where('name','LIKE','%'.$Keyword.'%')
+        ->orwhere('email','LIKE','%'.$Keyword.'%')->get();
+        // $users = User::all();
         return view('admin.users.index')->with('users', $users);
     }
 

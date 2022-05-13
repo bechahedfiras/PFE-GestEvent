@@ -35,7 +35,7 @@
                           <i class="fas fa-search"></i>
                         </button>
                       </div>
-                
+                <form>
                 <div class="text-right">
                         <a href="{{url('admin/faculte/create')}}">
                          <button  type="submit" class="btn btn-success m-3">Ajouter</button>
