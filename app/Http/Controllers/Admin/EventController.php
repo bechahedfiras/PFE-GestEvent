@@ -49,7 +49,7 @@ class EventController extends Controller
          $Keyword =   $request->get('Keyword');
          
          $events = Event::where('label','LIKE','%'.$Keyword.'%')->get();
-
+        
       
         return view('users.events')->with('events', $events);
     }
