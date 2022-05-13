@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -19,6 +20,21 @@
                         {{ session('alert_err') }}
                     </div>
                 @endif
+
+                <form action="{{'faculte'}} " method="get">
+                    @csrf
+                   
+                    <div class="input-group py-5 px-5  ">
+                        <div class="form-outline">
+                            <input type="text" id="search-input"   class="form-control " type="search" id="form1"
+                             placeholder="search by  label "
+                            name="Keyword" value="{{is_string ($value =request('keyword'))? $value:''}}"
+                          >
+                        </div>
+                        <button type="submit" id="search-button" type="button" class="btn btn-danger">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
                 
                 <div class="text-right">
                         <a href="{{url('admin/faculte/create')}}">

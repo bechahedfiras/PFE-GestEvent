@@ -9,9 +9,13 @@ class FaculteController extends Controller
 {
     //
 
-    public function index()
+    public function index(Request $request)
     {
-        $facs = Faculte::all();
+
+        $Keyword =   $request->get('Keyword');
+         
+        $facs = Faculte::where('label','LIKE','%'.$Keyword.'%')->get();
+        // $facs = Faculte::all();
         return view('admin.faculte.index')->with('facs', $facs);
     }
 
