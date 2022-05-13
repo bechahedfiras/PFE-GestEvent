@@ -19,14 +19,19 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //kizedna l modal
         $eventOgrs = User::whereHas('roles', function ($q) {
             $q->where('name', 'organisateur');
         })->get();
 
-        $events = Event::all();
+        // $events = Event::all();
+        $Keyword =   $request->get('Keyword');
+         
+        $events = Event::where('label','LIKE','%'.$Keyword.'%')->get();
+
+        // dd(  $events);
         return view('admin.events.index')
             ->with('events', $events)
             ->with('eventOgrs', $eventOgrs);

@@ -14,7 +14,7 @@ class KeywordFilter
      */
     public function handle(string $value, Builder $builder): void
     {
-        $builder->where('label', $value);
+        $builder->where('label','like', $value);
         
     }
 

@@ -17,20 +17,20 @@
        
        
           
-        <form action="{{'eventss'}} " method="get">
-            @csrf
+        <form >
+           
             <div class="input-group input-group-lg mb-5  ">
             <div class="input-group mb-3">
            
-            <input type="text"  class="form-control" placeholder="search BY event label"
-              name="Keyword" 
+            <input type="text"  class="form-control" placeholder="put an event label"
+              name="Keyword" value="{{is_string ($v =request('keyword'))? $v:''}}"
             >
             <input type="submit" value="Search For Event"  class="btn btn-outline-secondary bg-primary text-light"
               id="button-addon1">
              
             </div>
           </div>
-        <form>
+        </form>
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         @foreach ($events as $event) 
           <div class="col-4 mb-5   ">
