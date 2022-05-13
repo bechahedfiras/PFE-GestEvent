@@ -14,7 +14,8 @@ class KeywordFilter
      */
     public function handle(string $value, Builder $builder): void
     {
-        $builder->where('label','like', $value);
+        $builder->where('label','LIKE','%'.$value.'%' )
+        ->orwhere('lieux','LIKE','%'.$Keyword.'%');
         
     }
 

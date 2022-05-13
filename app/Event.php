@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\EloquentFilters\KeywordFilter;
 
 
+
 use Abdrzakoxa\EloquentFilter\Traits\Filterable;
 class Event extends Model
 {

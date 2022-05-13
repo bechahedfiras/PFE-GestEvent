@@ -19,19 +19,22 @@
                         {{ session('alert_err') }}
                     </div>
                 @endif
+             
                 <form action="{{'events'}} " method="get">
                     @csrf
-                    <div class="input-group input-group-lg mb-5  ">
-                    <div class="input-group mb-3">
                    
-                    <input type="text"  class="form-control" placeholder="put an event label"
-                      name="Keyword" value="{{is_string ($v =request('keyword'))? $v:''}}"
-                    >
-                    <input type="submit" value="Search For Event"  class="btn btn-outline-secondary bg-primary text-light"
-                      id="button-addon1">
-                     
-                    </div>
-                  </div>
+                    <div class="input-group py-5 px-5  ">
+                        <div class="form-outline">
+                            <input type="text" id="search-input"   class="form-control " type="search" id="form1"
+                             placeholder="search by  label or place"
+                            name="Keyword" value="{{is_string ($value =request('keyword'))? $value:''}}"
+                          >
+                        </div>
+                        <button type="submit" id="search-button" type="button" class="btn btn-danger">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                 
                 <form>
                 
                 <div class="text-right">

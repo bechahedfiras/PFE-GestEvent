@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-
+use App\EloquentFilters\KeywordFilter;
 class EventController extends Controller
 {
     /**
@@ -29,8 +29,9 @@ class EventController extends Controller
         // $events = Event::all();
         $Keyword =   $request->get('Keyword');
          
-        $events = Event::where('label','LIKE','%'.$Keyword.'%')->get();
-
+        $events = Event::where('label','LIKE','%'.$Keyword.'%')
+        ->orwhere('lieux','LIKE','%'.$Keyword.'%')->get();
+        // $events = Event::all();
         // dd(  $events);
         return view('admin.events.index')
             ->with('events', $events)
