@@ -1,13 +1,28 @@
 <?php
+
+namespace App;
 use App\Subevent;
 use App\Cart;
 use App\Organisateurevent;
-namespace App;
-
+use App\Event;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use App\EloquentFilters\KeywordFilter;
 
+
+
+use Abdrzakoxa\EloquentFilter\Traits\Filterable;
 class Event extends Model
 {
+    use Filterable;
+
+    protected $filters = [
+        KeywordFilter::class,
+    ];
+
+ 
+
+
     protected $fillable = [
         'label','price','dateevent','lieux','description','photo'
     ];

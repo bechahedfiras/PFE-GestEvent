@@ -5,13 +5,15 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use App\Faculte;
 use App\Organisateurevent;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use CrudTrait;
+   
     /**
      * The attributes that are mass assignable.
      *

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-
+use App\EloquentFilters\KeywordFilter;
 class EventController extends Controller
 {
     /**
@@ -19,14 +19,20 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //kizedna l modal
         $eventOgrs = User::whereHas('roles', function ($q) {
             $q->where('name', 'organisateur');
         })->get();
 
-        $events = Event::all();
+        // $events = Event::all();
+        $Keyword =   $request->get('Keyword');
+         
+        $events = Event::where('label','LIKE','%'.$Keyword.'%')
+        ->orwhere('lieux','LIKE','%'.$Keyword.'%')->get();
+        // $events = Event::all();
+        // dd(  $events);
         return view('admin.events.index')
             ->with('events', $events)
             ->with('eventOgrs', $eventOgrs);
@@ -34,10 +40,22 @@ class EventController extends Controller
     /**
      * eventsindex
      */
-    public function geteventind()
+    public function geteventind(Request $request)
     {
-        //
-        $events = Event::all();
+         $events = Event::filter($request->all())->get();
+        // $events = Event::all();
+      
+        return view('users.events')->with('events', $events);
+    }
+      /**
+     * eventsindexsearch
+     */
+    public function geteventinds(Request $request)
+    {  
+         $Keyword =   $request->get('Keyword');
+         
+         $events = Event::where('label','LIKE','%'.$Keyword.'%')->get();
+        
       
         return view('users.events')->with('events', $events);
     }
