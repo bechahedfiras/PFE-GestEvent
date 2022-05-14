@@ -27,7 +27,7 @@
                     <div class="input-group py-5 px-5  ">
                         <div class="form-outline">
                             <input type="text" id="search-input"   class="form-control " type="search" id="form1"
-                             placeholder="search by  label "
+                             placeholder="Recherche par nom"
                             name="Keyword" value="{{is_string ($value =request('keyword'))? $value:''}}"
                           >
                         </div>

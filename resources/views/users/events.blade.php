@@ -22,11 +22,12 @@
             <div class="input-group input-group-lg mb-5  ">
             <div class="input-group mb-3">
            
-            <input type="text"  class="form-control" placeholder="put an event label"
-              name="Keyword" value="{{is_string ($v =request('keyword'))? $v:''}}"
-            >
-            <input type="submit" value="Search For Event"  class="btn btn-outline-secondary bg-primary text-light"
+            <input type="text"  class="form-control" placeholder="Recherche par nom"
+              name="Keyword" value="{{is_string ($v =request('keyword'))? $v:''}}">
+              <button type="submit" value=""  class="btn btn-outline-secondary bg-primary text-light"
               id="button-addon1">
+              <i class="fas fa-search"></i>
+              </button>
              
             </div>
           </div>
