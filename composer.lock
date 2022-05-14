@@ -4,7 +4,10 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39b4c06706497e65373e338131793466",
+
+
+    "content-hash": "cdb9f3b7eb2e644a4363017d333937cc",
+>>>>>>> 85afc63f11630cdb81afe5c40c4ccdca72deab7f
     "packages": [
         {
             "name": "abdrzakoxa/laravel-eloquent-filter",
