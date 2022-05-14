@@ -52,7 +52,18 @@ class PaymentController extends Controller
                     $response->redirect(); // this will automatically forward the customer
                 } else {
                     // not successful
-                    return $response->getMessage();
+               
+                     //basic message from api
+
+                    //  return $response->getMessage();
+
+                     //custom message error credantials
+                
+                   return  back()->with('alert_err', "Server not Availble try again later please check your credantials key ");
+                  
+                
+                  
+
                 }
             } catch(Exception $e) {
                 return $e->getMessage();
