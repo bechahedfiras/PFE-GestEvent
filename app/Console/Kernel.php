@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         //  ->everyMinute();
         //  $schedule->call(function () {
         //    DB::table('carts')->delete();
-        // })->everyMinute();
+        // })->weekly();
         $schedule->job(new CartEmpty)->everyMinute();
         
     }
