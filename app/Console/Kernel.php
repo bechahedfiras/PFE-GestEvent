@@ -5,9 +5,6 @@ use App\Console\Commands\CartEmpty;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\DB;
-use Cart;
-
-use User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 class Kernel extends ConsoleKernel
@@ -19,7 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //  
-        \App\Console\Commands\CartEmpty::class,
+       Commands\CartEmpty::class,
      
     ];
 
@@ -35,9 +32,10 @@ class Kernel extends ConsoleKernel
         //  ->everyMinute();
         //  $schedule->call(function () {
         //    DB::table('carts')->delete();
-        // })->weekly();
-        $schedule->job(new CartEmpty)->everyMinute();
-        
+        // })->everyMinute();
+       
+    //    $schedule->job(new CartEmpty)->daily();
+    $schedule->exec('php artisan cart:empty ')->everyMinute();
     }
 
     /**

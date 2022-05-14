@@ -48,6 +48,6 @@ class CartEmpty extends Command
         //                }
        
         DB::table('carts')->delete();
-    
+        echo "operation done";
     }
 }
