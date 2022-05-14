@@ -47,7 +47,7 @@ class CartEmpty extends Command
         //     $cart->each->delete();
         //                }
        
-        DB::table('carts')->delete();
+       DB::table('carts')->delete();
         echo "operation done";
     }
 }

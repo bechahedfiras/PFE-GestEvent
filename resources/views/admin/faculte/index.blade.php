@@ -21,7 +21,7 @@
                     </div>
                 @endif
 
-                <form action="{{'faculte'}} " method="get">
+                <form action="{{url('admin/faculte/')}}  " method="get">
                     @csrf
                    
                     <div class="input-group py-5 px-5  ">
@@ -35,7 +35,8 @@
                           <i class="fas fa-search"></i>
                         </button>
                       </div>
-                <form>
+                    </form>
+
                 <div class="text-right">
                         <a href="{{url('admin/faculte/create')}}">
                          <button  type="submit" class="btn btn-success m-3">Ajouter</button>

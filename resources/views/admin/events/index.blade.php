@@ -20,7 +20,7 @@
                     </div>
                 @endif
              
-                <form action="{{'events'}} " method="get">
+                <form action="{{url('admin/events')}}"  method="get">
                     @csrf
                    
                     <div class="input-group py-5 px-5  ">
@@ -35,7 +35,7 @@
                         </button>
                       </div>
                  
-                <form>
+                    </form>
                 
                 <div class="text-right">
                         <a href="{{url('admin/events/create ')}}">
