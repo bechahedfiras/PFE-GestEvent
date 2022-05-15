@@ -48,7 +48,9 @@ class EventController extends Controller
          ->orwhere('lieux','LIKE','%'.$Keyword.'%')->get();
         // $events = Event::all();
       
-        return view('users.events')->with('events', $events);
+        return view('users.events')
+        ->with('events',$events)
+        ->with('Keyword',$Keyword);
     }
       /**
      * eventsindexsearch

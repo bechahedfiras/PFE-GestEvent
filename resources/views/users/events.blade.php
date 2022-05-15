@@ -32,6 +32,7 @@
             </div>
           </div>
         </form>
+        @if ( count($events) > 0 ) 
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         @foreach ($events as $event) 
           <div class="col-4 mb-5   ">
@@ -61,7 +62,12 @@
           </div>
           @endforeach 
       </div>
-      
+      @else
+      <div class="rounded   mb-100">
+      <div class="container ">
+          <h1 class="display-7 text-center text-muted">there is no event with label <span class="bg-danger text-light">{{$Keyword}}</span> </h1>
+          @endif
+    </div>
   </div>
   
 </section>
