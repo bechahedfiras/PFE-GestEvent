@@ -8,11 +8,14 @@ use Illuminate\Notifications\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use App\Faculte;
 use App\Organisateurevent;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use CrudTrait;
+    use HasApiTokens;
+
    
     /**
      * The attributes that are mass assignable.
@@ -22,6 +25,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name','phone_number','address','postcode','state','profile_pic','email', 'password','faculte_id',
     ];
+    protected $appends = ['avatar'];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -67,4 +72,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Cart');
     }
 
+
+
+    public function getAvatarAttribute(){
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim($this->email ) ) ) ;
+    }
 }
