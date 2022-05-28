@@ -15,7 +15,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -45,10 +45,23 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    
+
+    public function create(User $user)
     {
         
+        $facs = Faculte::all();
+        $roles = role::all();
+        return view('admin.users.create', [
+            'facs' => $facs,
+            'roles' => $roles,
+            'users' => $user,
+        ]);
     }
+
+
+  
 
     /**
      * Store a newly created resource in storage.
@@ -56,9 +69,26 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+   
+
+    public function store(Request $request, User $user)
     {
-        //
+        
+      
+          
+        //    $role = Role::select('id')->where('name','user')->first();
+        //    $user->roles()->attach($role);
+        //    $user->roles()->attach($userId);
+            
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->faculte_id = $request->faculte_id;
+            $user->password =Hash::make($request->password);
+            
+            $user->save();
+            return redirect()->route('admin.users.index')->with('alert_scc', 'user added successfully');
+        
     }
 
     /**

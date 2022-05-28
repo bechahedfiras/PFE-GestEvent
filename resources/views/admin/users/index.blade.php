@@ -35,7 +35,7 @@
                         </form>
 
                         <div class="text-right">
-                            <a href="{{ url('') }}">
+                            <a href="{{ url('admin/users/create') }}">
                                 <button type="submit" class="btn btn-success m-3">Ajouter</button>
                             </a>
                         </div>
@@ -70,8 +70,8 @@
                                             <td>
                                                 <a href="{{ route('admin.users.edit', $user->id) }}"><button
                                                         class="btn btn-primary">Modifier</button></a>
-                                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
-                                                    class="d-inline">
+                                                <form action="{{ route('admin.users.destroy', $user->id) }}"
+                                                    method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Supprimer</button>
