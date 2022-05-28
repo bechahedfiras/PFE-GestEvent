@@ -38,7 +38,19 @@
                             <a href="{{ url('admin/users/create') }}">
                                 <button type="submit" class="btn btn-success m-3">Ajouter</button>
                             </a>
+                            <a href="{{ url('/import-users') }}">
+                                <button type="submit" class="btn btn-primary m-3">Ajouter avec Excel</button>
+                            </a>
+                           
                         </div>
+                        <div class="text-right">
+                         
+                           
+                            <a href="{{ url('export/') }}">
+                                <button type="submit" class="btn btn-warning m-3">Exporter avec Excel</button>
+                            </a>
+                        </div>
+                        
                         <div class="card-body">
                             <table class="table">
                                 <thead>

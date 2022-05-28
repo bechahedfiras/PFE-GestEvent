@@ -210,3 +210,13 @@ Route::get('payment', 'PaymentController@index');
 Route::post('charge', 'PaymentController@charge');
 Route::get('success', 'PaymentController@success');
 Route::get('error', 'PaymentController@error');
+
+
+/*
+ import User ROUTING 
+*/
+
+Route::get('/import-users', 'Admin\UsersController@importUsers')->name('import');
+Route::post('/upload-users', 'Admin\UsersController@uploadUsers')->name('upload');
+Route::get('export/','Admin\UsersController@export')->name('export');
+

@@ -13,9 +13,12 @@ use Carbon\Carbon;
 use App\Mail\MailBox;
 use Exception;
 use Illuminate\Http\Request;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
@@ -60,7 +63,43 @@ class UsersController extends Controller
         ]);
     }
 
+   /**
+     * Import Users 
+     * 
+     */
+    public function importUsers()
+    {
+        return view('admin.users.import');
+    }
 
+    public function uploadUsers(Request $request)
+    {
+
+try {
+    Excel::import(new UsersImport, $request->file);
+        
+    return redirect()->route('import')->with('alert_scc', 'User Imported Successfully');
+} catch (\Throwable $th) {
+    return redirect()->route('import')->with('alert_err', 'User not Imported try not to duplicate your email or upload a new list check there is an duplicated email');
+    
+}
+
+        
+    }
+
+    public function export() 
+    {
+        try {
+   
+           
+            return  Excel::download(new UsersExport, 'users.xlsx');
+            
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->route('export')->with('alert_err', 'try again later or format of users not same');
+        }
+       
+    }
   
 
     /**
@@ -84,7 +123,7 @@ class UsersController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->faculte_id = $request->faculte_id;
-            $user->password =Hash::make($request->password);
+            $user->password = Hash::make($request->password);
             
             $user->save();
             return redirect()->route('admin.users.index')->with('alert_scc', 'user added successfully');
