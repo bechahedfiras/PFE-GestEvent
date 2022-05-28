@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Laravel\Sanctum\HasApiTokens;
 use App\Event;
 use App\Subevent;
 use App\User;
@@ -47,11 +47,23 @@ class EventController extends Controller
          $events = Event::where('label','LIKE','%'.$Keyword.'%')
          ->orwhere('lieux','LIKE','%'.$Keyword.'%')->get();
         // $events = Event::all();
-      
+       
         return view('users.events')
         ->with('events',$events)
         ->with('Keyword',$Keyword);
     }
+   /**
+     * eventsindexapi
+     */
+  
+       
+        public function geteventindapi()
+        {
+       
+            return response()->json(Event::all());
+        }
+    
+
       /**
      * eventsindexsearch
      */

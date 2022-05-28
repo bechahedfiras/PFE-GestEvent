@@ -8,14 +8,15 @@ use App\Event;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\EloquentFilters\KeywordFilter;
-
+use Laravel\Sanctum\HasApiTokens;
 
 
 use Abdrzakoxa\EloquentFilter\Traits\Filterable;
 class Event extends Model
 {
     use Filterable;
-
+    use HasApiTokens;
+    
     protected $filters = [
         KeywordFilter::class,
     ];
