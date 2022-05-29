@@ -37,8 +37,8 @@ Auth::routes();
     /*
     event routing
     */
-    Route::get('/events','Admin\EventController@geteventind');
-    Route::get('/eventss','Admin\EventController@geteventinds')->name('events-search');
+    Route::get('/events','Admin\EventController@geteventind')->middleware('auth');
+    Route::get('/eventss','Admin\EventController@geteventinds')->name('events-search')->middleware('auth');
     Route::get('/subevents','Admin\SubeventController@getsubeventind');
     Route::get('getsubevents/{id}','Admin\EventController@getsubevent');
 
