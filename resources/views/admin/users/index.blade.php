@@ -19,10 +19,10 @@
                                 {{ session('alert_err') }}
                             </div>
                         @endif
-                        <form action="{{ url('users') }} " method="get">
+                        <form action="{{ url('admin/users') }} " method="get">
                             @csrf
 
-                            <div class="input-group py-5 px-5  ">
+                            <div class="input-group py-5 px-5   ">
                                 <div class="form-outline">
                                     <input type="text" id="search-input" class="form-control " type="search" id="form1"
                                         placeholder="search by name & email " name="Keyword"

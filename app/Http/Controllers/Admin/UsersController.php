@@ -36,9 +36,14 @@ class UsersController extends Controller
     {  
         // $organizaters = User::role('organisateur')->get();
         $Keyword =   $request->get('Keyword');
-         
+        
+
+
         $users = User::where('name','LIKE','%'.$Keyword.'%')
-        ->orwhere('email','LIKE','%'.$Keyword.'%')->get();
+        ->orwhere('email','LIKE','%'.$Keyword.'%')
+   
+  
+        ->get();
         // $users = User::all();
         return view('admin.users.index')->with('users', $users);
     }
