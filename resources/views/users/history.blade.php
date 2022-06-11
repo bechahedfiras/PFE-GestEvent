@@ -24,16 +24,14 @@
     </div>
 @endif
 
-<div class="rounded   bg-primary mb-100">
+<div class="rounded  mb-100">
     <div class="container ">
-      <h1 class="display-4 text-center text-light">{{__('app.my payments')}}</h1>
+      <h1 class="display-4 text-center text-dark">{{__('app.my payments')}}</h1>
     
     </div>
   </div>
 
 <br>
-
-
 
 </div>
 
@@ -56,7 +54,7 @@
                       <table id="crypto-transaction" class="table table-hover table-xl trans-wrapper">
                             <thead>
                               <tr>
-                                  <th class="border-top-0">image</th>
+                                  
                                   <th class="border-top-0">{{__('userpayments.Event')}}</th>
                                   <th class="border-top-0">{{__('userpayments.price')}}</th>
                                   <th class="border-top-0">{{__('userpayments.Email')}}</th>
@@ -75,9 +73,9 @@
 
                             
                               <tr>		
-                                <td class="p-2 text-center mt-10 ">
+                                {{-- <td class="p-2 text-center mt-10 ">
                                       <img src="{{ asset('../storage/'.$HistoOfUser->getEvent->photo) }}"  alt="" class="rounded w-25 p-3" >
-                                </td>							
+                                </td>							 --}}
                                   <td>
                                       <div class="Trans-id">{{$HistoOfUser->getEvent->label}}</div>
                                   </td>
@@ -120,9 +118,9 @@
                               </tr>
                               @else
                               <tr>		
-                                <td>
+                                {{-- <td>
                                       <img src="{{ asset('../storage/'.$HistoOfUser->getSubEvent->photo) }}" alt="">
-                                </td>							
+                                </td>							 --}}
                                   <td>
                                       <div class="Trans-id">{{$HistoOfUser->getSubEvent->label}}</div>
                                   </td>

@@ -178,13 +178,13 @@
                 <!-- Tabs navs -->
                 <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
                     <li class="nav-item success" role="presentation">
-                        <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Update event</a>
+                        <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Modifier un évènement</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Organisateurs</a>
+                        <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Les organisateurs</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Sous Evénement</a>
+                        <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Les sous Evénement</a>
                     </li>
                 </ul>
                 <!-- Tabs navs -->
@@ -195,9 +195,7 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h3>Modifier l'événement</h3>
-                                    </div>
+                                    
                                     <div class="card-body">
                                         <form action=" {{ url('admin/events/' . $event->id) }}" method="post" enctype="multipart/form-data">
                                             @csrf
@@ -249,7 +247,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                        <h4 class="text-muted text-center">Manage Organisateurs</h4>
+                        <h4 class="text-muted text-center">Les organisateurs</h4>
                         <div class="text-right mt-3 mb-5">
                             <button type="button" class="btn btn-danger" data-mdb-dismiss="modal" data-mdb-toggle="modal" data-mdb-target="#addOrg"><i class="fa fa-add"></i> Ajouter</button>
                             <br />
@@ -285,7 +283,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-                      <h4 class="text-muted text-center">Manage Sous Evénements</h4>
+                      <h4 class="text-muted text-center">Les sous évènements</h4>
                       <div class="text-right mt-3 mb-5">
                           <button type="button" class="btn btn-danger" data-mdb-dismiss="modal" data-mdb-toggle="modal" data-mdb-target="#addSubEvent"><i class="fa fa-add"></i> Ajouter</button>
                           <br />
