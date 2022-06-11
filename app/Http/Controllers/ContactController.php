@@ -59,6 +59,15 @@ class ContactController extends Controller
     
     }
 
+    public function indexreply(Request $request, $id){
+        $theSender = Contact::findOrFail($id);
+        $theSenderemail= $theSender->email;
+        // dd($theSenderemail);
+        $allmess=Contact::all();
+        return view('admin.contacts.replyform')
+        ->with('allmess',$allmess)
+        ->with('theSenderemail',$theSenderemail);
+    }
     /**
      * Display the specified resource.
      *

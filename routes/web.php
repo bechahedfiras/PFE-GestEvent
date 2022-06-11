@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,7 @@ Auth::routes();
     // Registration Routes...
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Auth\RegisterController@register');
-    route::get('/contact','ContactController@index2')->middleware('auth');;
+    route::get('/contact','ContactController@index2')->middleware('auth');
     Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
@@ -220,3 +221,8 @@ Route::get('/import-users', 'Admin\UsersController@importUsers')->name('import')
 Route::post('/upload-users', 'Admin\UsersController@uploadUsers')->name('upload');
 Route::get('export/','Admin\UsersController@export')->name('export');
 
+/*
+Reply Contact
+*/
+Route::post('/sendmail','MailController@ReplyAdmin')->middleware('auth','admin');
+route::get('/contact/{id}','ContactController@indexreply')->middleware('auth','admin');
