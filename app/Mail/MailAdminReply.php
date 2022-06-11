@@ -28,6 +28,6 @@ class MailAdminReply extends Mailable
      */
     public function build()
     {
-        return $this->subject('SLAMA BEST CHOICE "SBC" REPLY ... ')->view('admin.contacts.replyadmin');
+        return $this->subject('Eventify REPLY ... ')->view('admin.contacts.replyadmin');
     }
 }
