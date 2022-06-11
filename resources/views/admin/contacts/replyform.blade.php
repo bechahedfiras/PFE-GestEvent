@@ -46,15 +46,11 @@
                                                     target="_blank"></a></p>
                                         </div>
                                         <form>
-
-
+                                             {{-- dont delete this a hiden email from the specific user --}}
                                             <div class="col-md-12">
                                                 <input id="email" type="hidden" name="sender" value="{{ $theSenderemail }}"
                                                     required autocomplete="email" autofocus>
                                             </div>
-
-
-                                            
 
                                             <!-- Message input -->
                                             <div class="form-outline mb-4">
@@ -62,9 +58,6 @@
                                                 <label class="form-label" for="form6Example7"
                                                     aria-required="true">Additional information Message</label>
                                             </div>
-
-
-
 
                                             <!-- Submit button -->
                                             <button type="submit" class="btn btn-primary btn-block">SEND</button>
