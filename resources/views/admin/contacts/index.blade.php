@@ -51,11 +51,10 @@
                                        
                                     <form action="{{url('contactus/'.$contact->id.'')}}" method="post">
                                         <a href="{{url('contact/'.$contact->id.'')}}">
-                                            <button  class="btn btn-sucess ">répondre <span></span></a>
-
+                                            <button  class="btn btn-sucess "> répondre <span></span></a>
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-<br>
+                                        <br>
                                     
                                    <button type="submit" class="btn btn-danger">Supprimer <span><i class="ik ik-x-circle"></i></span></button></a>
                                 </td>
