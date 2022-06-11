@@ -45,7 +45,7 @@ class EventController extends Controller
         //  $events = Event::filter($request->all())->get();
         $Keyword =   $request->get('Keyword');
          $events = Event::where('label','LIKE','%'.$Keyword.'%')
-         ->orwhere('lieux','LIKE','%'.$Keyword.'%')->get();
+         ->orwhere('lieux','LIKE','%'.$Keyword.'%')->paginate(9);
         // $events = Event::all();
        
         return view('users.events')

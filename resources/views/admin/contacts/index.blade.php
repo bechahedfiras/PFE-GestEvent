@@ -55,7 +55,7 @@
 
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-<br>
+                                                                        <br> <br> <br>
                                     
                                    <button type="submit" class="btn btn-danger">Supprimer <span><i class="ik ik-x-circle"></i></span></button></a>
                                 </td>

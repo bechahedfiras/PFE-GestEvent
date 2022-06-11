@@ -61,7 +61,8 @@
               
           </div>
           @endforeach 
-      </div>
+        </div>
+        {{$events->links()}}
       @else
       <div class="rounded   mb-100">
       <div class="container ">
