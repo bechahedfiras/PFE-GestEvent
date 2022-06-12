@@ -45,7 +45,7 @@
                   <input type="texte" class="form-control form-control-primary"  name="lieux"  placeholder="lieux" >
               </div>
               <div class="form-group">
-                <label>Image de l'evenement</label>
+                <label>Affiche</label>
                  <input type="file" name="photo" class="form-control form-control-primary" >
               </div>
              <input type="submit" class="form-control form-control-primary" value="Ajouter" >

@@ -208,7 +208,7 @@
 
                                             <div class="form-group">
                                                 <label for="">
-                                                    Prix <span><i class="ik ik-dollar-sign"></i></span>
+                                                    Prix 
                                                 </label>
                                                 <input type="number" class="form-control form-control-danger" value="{{ $event->price }}" name="price" placeholder="price here" min="0" max="100" />
                                             </div>
@@ -217,7 +217,7 @@
                                                 <textarea class="form-control form-control-danger" rows="3" name="description">{{ $event->description }}</textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="">Evenement date</label>
+                                                <label for="">La date de l'événement</label>
                                                   <input type="date" class="form-control form-control-danger" required  name="dateevent"  
                                                   value="{{$event->dateevent}}" data-date-format=" YYYY MMMM DD  " >
                                               </div>
@@ -233,7 +233,7 @@
                                                 <br />
 
                                                 <div class="form-group">
-                                                    <label>Image de l'evenement</label>
+                                                    <label>Affiche</label>
                                                     <input type="file" name="photo" class="form-control form-control-danger" />
                                                 </div>
                                             </div>
@@ -422,7 +422,7 @@
   
                 
                 <div class="form-group">
-                  <label>Image de l'evenement</label>
+                  <label>Affiche</label>
                    <input type="file" name="photo" class="form-control form-control-danger" >
                 </div>
                <input type="submit" class="form-control form-control-danger" value="Ajouter" >

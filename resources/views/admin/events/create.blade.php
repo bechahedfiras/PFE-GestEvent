@@ -41,7 +41,7 @@
               </div>
 
               <div class="form-group">
-                <label for="">Evenement date</label>
+                <label for="">La date de l'événement</label>
                   <input type="date" class="form-control form-control-primary" required  name="dateevent"  
                   data-date-format=" YYYY MMMM DD  " >
               </div>
@@ -51,7 +51,7 @@
                   <input type="texte" class="form-control form-control-primary"  name="lieux" required  placeholder="lieux" >
               </div>
               <div class="form-group">
-                <label>Image de l'evenement</label>
+                <label>Affiche</label>
                  <input type="file" name="photo" class="form-control form-control-primary" required >
               </div>
              <input type="submit" class="form-control form-control-primary" value="Ajouter" required >

@@ -113,7 +113,7 @@ class ContactController extends Controller
         try {
             $contact = Contact::find($id);
             $contact->delete();
-            return redirect('contactus')->with('alert_scc', 'Delete successfully');
+            return redirect('contactus')->with('alert_scc', 'Suprimer avec succès');
         } catch (\Throwable $th) {
             return redirect('contactus')->with('alert_err', 'Ops something went wrong, try again.');
         }

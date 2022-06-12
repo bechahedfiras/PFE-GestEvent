@@ -22,7 +22,7 @@
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-3">
-                            <h1 class="h3 text-muted mx-2 my-3 ">Repondre Au Utilisateurs</h1>
+                            <h1 class="h3 text-muted mx-2 my-3 "> </h1>
                             <a href="{{ url('/contactus') }}"
                                 class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                     class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
@@ -42,7 +42,7 @@
                                     <div class="form-group row">
 
                                         <div class="col-md-12 mb-3 mt-3">
-                                            <p><span class="text-primary">*</span> repondre au utilisateur <a href=""
+                                            <p> <a href=""
                                                     target="_blank"></a></p>
                                         </div>
                                         <form>
@@ -56,7 +56,7 @@
                                             <div class="form-outline mb-4">
                                                 <textarea class="form-control" name="mess" id="form6Example7" rows="4"></textarea>
                                                 <label class="form-label" for="form6Example7"
-                                                    aria-required="true">Additional information Message</label>
+                                                    aria-required="true">Taper vortre message</label>
                                             </div>
 
                                             <!-- Submit button -->

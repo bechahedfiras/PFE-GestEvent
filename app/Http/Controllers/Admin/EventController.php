@@ -243,7 +243,7 @@ class EventController extends Controller
         try {
             $event = Event::find($id);
             $event->delete();
-            return redirect('admin/events')->with('alert_scc', 'Delete successfully');
+            return redirect('admin/events')->with('alert_scc', 'Suprimer avec succès');
         } catch (\Throwable $th) {
             return redirect('admin/events')->with('alert_err', 'Ops something went wrong, try again.');
         }

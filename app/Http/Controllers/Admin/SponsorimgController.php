@@ -124,7 +124,7 @@ class SponsorimgController extends Controller
             try {
                 $sponsorimg = Sponsorimg::find($id);
                 $sponsorimg->delete();
-                return redirect('admin/sponsorsimg')->with('alert_scc', 'Delete successfully');
+                return redirect('admin/sponsorsimg')->with('alert_scc', 'Suprimer avec succès');
             } catch (\Throwable $th) {
                 return redirect('admin/sponsorsimg')->with('alert_err', 'Ops something went wrong, try again.');
             }

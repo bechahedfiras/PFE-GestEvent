@@ -48,10 +48,10 @@
                                 <td>{{$contact->number}}</td>
                                 <td>{{$contact->message}}</td>
                                 <td>
-                                       
+                                    <a href="{{url('contact/'.$contact->id.'')}}">
+                                        <button  class="btn btn-sucess ">répondre <span></span></a>
                                     <form action="{{url('contactus/'.$contact->id.'')}}" method="post">
-                                        <a href="{{url('contact/'.$contact->id.'')}}">
-                                            <button  class="btn btn-sucess ">répondre <span></span></a>
+                                       
 
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}

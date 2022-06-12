@@ -16,7 +16,7 @@
               </div>
            
               <div class="form-group">
-                <label for="">Prix <span><i class="ik ik-dollar-sign"></i></span> </label>
+                <label for="">Prix  </label>
                   <input type="number" class="form-control form-control-primary" value="{{$event->price}}"  name="price"  placeholder="price here" min="0" max="100">
               </div>
               <div class="form-group">
@@ -35,7 +35,7 @@
                 <br> <br>
               
                   <div class="form-group">
-                <label>Image de l'evenement</label>
+                <label>Affiche</label>
                  <input type="file" name="photo" class="form-control form-control-primary" >
               </div>
                 

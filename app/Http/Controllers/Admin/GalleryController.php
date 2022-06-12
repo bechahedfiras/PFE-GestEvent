@@ -120,7 +120,7 @@ class GalleryController extends Controller
         try {
             $gallery = Gallery::find($id);
             $gallery->delete();
-            return redirect('admin/gallery')->with('alert_scc', 'Delete successfully');
+            return redirect('admin/gallery')->with('alert_scc', 'Suprimer avec succès');
         } catch (\Throwable $th) {
             return redirect('admin/gallery')->with('alert_err', 'Ops something went wrong, try again.');
         }

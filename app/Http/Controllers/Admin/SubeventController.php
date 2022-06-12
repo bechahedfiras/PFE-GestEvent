@@ -131,7 +131,7 @@ class SubeventController extends Controller
         try {
             $subevent = Subevent::findOrFail($id);
             $subevent->delete();
-            return redirect('admin/events/'.$subevent->event->id.'/edit')->with('alert_scc', 'Delete successfully');
+            return redirect('admin/events/'.$subevent->event->id.'/edit')->with('alert_scc', 'Suprimer avec succès');
         } catch (\Throwable $th) {
             return redirect('admin/subevents')->with('alert_err', 'Ops something went wrong, try again.');
         }

@@ -117,7 +117,7 @@ class OrganisateureventController extends Controller
         try {
             $eventorg = Organisateurevent::findOrFail($id);
             $eventorg->delete();
-            return back()->with('alert_scc', 'Delete successfully');
+            return back()->with('alert_scc', 'Suprimer avec succès');
         } catch (\Throwable $th) {
             return back()->with('alert_err', 'Ops something went wrong, try again.');
         }
