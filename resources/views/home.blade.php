@@ -7,14 +7,13 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
-                        {{ dd(trim($event->dateevent) )}}
                         <div data-countdown="{{ trim($event->dateevent) }}"></div>
                         
                         <div class="header-content text-center">
-                            <h2 class="header-title">{{__('welcome.Designers Meetup')}}</h2>
-                            <h3 class="sub-title">{{__('welcome.25 September, 2022 in New York')}}</h3>
-                        
-
+                            <h2 class="header-title">{{ trim($event->label) }}</h2>
+                            <h3 class="sub-title "><span class="text-danger"><a href="http://127.0.0.1:8000/fr/getsubevents/1" style="text-decoration:none;">{{ trim($event->label) }}</a></span> a partir de <span class="text-danger">{{ trim($event->price) }} </span> DT</h3>
+                            
+                            
                         </div> <!-- header content -->
                     </div>
                 </div> <!-- row -->

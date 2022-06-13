@@ -35,7 +35,10 @@ class OrganisateureventController extends Controller
         $users = User::all();
         $events = Event::all();
         $eventorgs = Organisateurevent::all();
-        return view('admin.eventorgs.create')->with('eventorgs', $eventorgs)->with('events', $events)->with('users', $users);
+        return view('admin.eventorgs.create')
+        ->with('eventorgs', $eventorgs)
+        ->with('events', $events)
+        ->with('users', $users);
     }
 
     /**
