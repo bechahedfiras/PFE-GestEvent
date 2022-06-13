@@ -24,12 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $event = Event::all()->take(1);
+        $eventss = Event::all()->take(1);
         $sponsorimgs = Sponsorimg::all();
         $galleries = Gallery::all();
         return view('home')->with('galleries',$galleries)
         ->with('sponsorimgs',$sponsorimgs)
-        ->with('event',$event);
+        ->with('eventss',$eventss);
 
     }
     public function welcome()
