@@ -3,16 +3,17 @@
 @section('content')
     <header class="header-area">
         <div id="home" class="header-content-area bg_cover d-flex align-items-center"
-            style="background-image: url({{ asset('/template/images/header-bg.jpg') }})">
+            style="background-image: url({{ asset('/template/images/header-bg.jpg') }})"> 
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
-                        <div data-countdown="2022/10/01"></div>
-
+                        {{ dd(trim($event->dateevent) )}}
+                        <div data-countdown="{{ trim($event->dateevent) }}"></div>
+                        
                         <div class="header-content text-center">
                             <h2 class="header-title">{{__('welcome.Designers Meetup')}}</h2>
                             <h3 class="sub-title">{{__('welcome.25 September, 2022 in New York')}}</h3>
-                            
+                        
 
                         </div> <!-- header content -->
                     </div>
