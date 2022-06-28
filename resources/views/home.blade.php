@@ -6,7 +6,11 @@
             style="background-image: url({{ asset('/template/images/header-bg.jpg') }})"> 
             <div class="container">
                 <div class="row justify-content-center">
+                    @foreach ($eventss as $event)
                     <div class="col-lg-10">
+                        
+                        
+                        
                         <div data-countdown="{{ trim($event->dateevent) }}"></div>
                         
                         <div class="header-content text-center">
@@ -15,6 +19,8 @@
                             
                             
                         </div> <!-- header content -->
+                    </div>
+                    @endforeach
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->

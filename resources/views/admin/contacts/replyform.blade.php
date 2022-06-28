@@ -46,6 +46,12 @@
                                                     target="_blank"></a></p>
                                         </div>
                                         <form>
+                                            {{--tittle --}}
+                                            <div class="form-outline">
+                                                <input type="text" id="form12" name="title"  class="form-control" />
+                                                <label class="form-label" for="form12">title</label>
+                                              </div>
+                                           <br>
                                              {{-- dont delete this a hiden email from the specific user --}}
                                             <div class="col-md-12">
                                                 <input id="email" type="hidden" name="sender" value="{{ $theSenderemail }}"
